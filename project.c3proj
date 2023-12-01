@@ -40,15 +40,19 @@
 			"name": "Solid",
 			"author": "Scirra",
 			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "wrap",
+			"name": "Wrap",
+			"author": "Scirra",
+			"bundled": false
 		}
 	],
 	"uniqueId": "6ul2gvuiem0",
 	"objectTypes": {
 		"items": [
-			"Knight",
-			"VillageGround",
-			"Lvl1Guide",
-			"VillageProps"
+			"Lvl1Guide"
 		],
 		"subfolders": [
 			{
@@ -59,9 +63,27 @@
 				"name": "Background"
 			},
 			{
-				"items": [],
-				"subfolders": [],
+				"items": [
+					"VillageProps"
+				],
+				"subfolders": [
+					{
+						"items": [
+							"VillageGround",
+							"Bridge"
+						],
+						"subfolders": [],
+						"name": "Ground"
+					}
+				],
 				"name": "Village"
+			},
+			{
+				"items": [
+					"Knight"
+				],
+				"subfolders": [],
+				"name": "Characters"
 			}
 		]
 	},

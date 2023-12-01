@@ -304,6 +304,36 @@
 			},
 			"useCollisionPoly": true
 		},
+		"264": {
+			"collisionPoly": {
+				"points": [
+					0.875,
+					0,
+					1,
+					0,
+					1,
+					1,
+					0.875,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"266": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					0.15625,
+					0,
+					0.15625,
+					1,
+					0,
+					1
+				]
+			},
+			"useCollisionPoly": true
+		},
 		"471": {
 			"collisionPoly": {
 				"points": [

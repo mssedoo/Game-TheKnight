@@ -14,6 +14,11 @@
 			"behaviorId": "scrollto",
 			"name": "ScrollTo",
 			"sid": 576874505960583
+		},
+		{
+			"behaviorId": "wrap",
+			"name": "Wrap",
+			"sid": 567977181318798
 		}
 	],
 	"effectTypes": [],
