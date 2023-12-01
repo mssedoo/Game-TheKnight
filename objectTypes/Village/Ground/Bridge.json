@@ -8,7 +8,7 @@
 		{
 			"behaviorId": "solid",
 			"name": "Solid",
-			"sid": 447395341610208
+			"sid": 709440016523025
 		}
 	],
 	"effectTypes": [],
@@ -20,7 +20,7 @@
 		"originalSource": "",
 		"exportFormat": "lossless",
 		"exportQuality": 0.8,
-		"imageSpriteId": 264761,
+		"imageSpriteId": 5736415,
 		"useCollisionPoly": true,
 		"tag": ""
 	},
