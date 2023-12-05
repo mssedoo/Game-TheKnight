@@ -110,12 +110,7 @@
 		"items": [
 			"Lvl1Guide",
 			"Keyboard",
-			"Sprite2",
-			"Sprite",
-			"spiderDrones",
-			"wolf",
 			"flamesBullet",
-			"slidingGround",
 			"arrow",
 			"Mouse",
 			"Spine",
@@ -139,20 +134,43 @@
 						"items": [
 							"VillageGround",
 							"Bridge",
-							"Box"
+							"Box",
+							"slidingGround",
+							"Sprite",
+							"Sprite2"
 						],
 						"subfolders": [],
-						"name": "Ground"
+						"name": "Ground-solid"
 					}
 				],
 				"name": "Village"
 			},
 			{
-				"items": [
-					"Knight",
-					"HeroShadow"
+				"items": [],
+				"subfolders": [
+					{
+						"items": [
+							"HeroShadow",
+							"Knight"
+						],
+						"subfolders": [],
+						"name": "Hero"
+					},
+					{
+						"items": [
+							"spiderDrones"
+						],
+						"subfolders": [],
+						"name": "Enemy"
+					},
+					{
+						"items": [
+							"wolf"
+						],
+						"subfolders": [],
+						"name": "Animal"
+					}
 				],
-				"subfolders": [],
 				"name": "Sprite"
 			}
 		]
