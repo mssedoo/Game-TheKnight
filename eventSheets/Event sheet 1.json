@@ -273,11 +273,11 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Knight",
-									"sid": 122859437224186,
+									"sid": 699732135846381,
 									"parameters": {
 										"object": "arrow",
 										"layer": "4",
-										"image-point": "0",
+										"image-point": "2",
 										"create-hierarchy": false
 									}
 								},
@@ -330,6 +330,27 @@
 					],
 					"sid": 982335524272639,
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spiderDrones",
+							"sid": 526807297975944,
+							"parameters": {
+								"object": "arrow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "spiderDrones",
+							"sid": 816683314450433
+						}
+					],
+					"sid": 324211784275726
 				}
 			],
 			"sid": 347782337239063

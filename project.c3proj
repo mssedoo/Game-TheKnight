@@ -158,7 +158,9 @@
 	"layouts": {
 		"items": [
 			"LVL1",
-			"LVL3"
+			"LVL2",
+			"LVL3",
+			"LVL4"
 		],
 		"subfolders": []
 	},
