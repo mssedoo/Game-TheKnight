@@ -1,0 +1,58 @@
+{
+	"name": "Spine",
+	"plugin-id": "Sprite",
+	"sid": 696526399325073,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 35,
+						"height": 13,
+						"originX": 0,
+						"originY": 1,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 9889788,
+						"collisionPoly": {
+							"points": [
+								0.14285714285714285,
+								0.07692307692307693,
+								0.8571428571428571,
+								0.07692307692307693,
+								0.8857142857142857,
+								0.15384615384615385,
+								0.9714285714285714,
+								0.6153846153846154,
+								0.9714285714285714,
+								0.9230769230769231,
+								0.02857142857142857,
+								0.9230769230769231,
+								0.02857142857142857,
+								0.6153846153846154,
+								0.11428571428571431,
+								0.15384615384615385
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 588179326083240,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

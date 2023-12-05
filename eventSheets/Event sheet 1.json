@@ -77,28 +77,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "every-tick",
-							"objectClass": "System",
-							"sid": 913566701843787
-						}
-					],
-					"actions": [
-						{
-							"id": "set-angle-toward-position",
-							"objectClass": "Knight",
-							"sid": 819499142742615,
-							"parameters": {
-								"x": "Knight.X",
-								"y": "Knight.Y"
-							}
-						}
-					],
-					"sid": 229571452197147
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
 							"sid": 726548332840637,
@@ -213,25 +191,15 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "on-key-released",
+							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
-							"sid": 505424646269958,
+							"sid": 590150072747455,
 							"parameters": {
 								"key": 32
 							}
 						}
 					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Knight",
-							"sid": 923159781832642,
-							"parameters": {
-								"animation": "\"Shot\"",
-								"from": "beginning"
-							}
-						}
-					],
+					"actions": [],
 					"sid": 524240326372511,
 					"children": [
 						{
@@ -248,13 +216,22 @@
 							],
 							"actions": [
 								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 627983890623616,
+									"parameters": {
+										"animation": "\"Shot\"",
+										"from": "beginning"
+									}
+								},
+								{
 									"id": "spawn-another-object",
 									"objectClass": "Knight",
-									"sid": 910414358017603,
+									"sid": 771869303241186,
 									"parameters": {
 										"object": "arrow",
 										"layer": "4",
-										"image-point": "0",
+										"image-point": "1",
 										"create-hierarchy": false
 									}
 								},
@@ -285,6 +262,15 @@
 							],
 							"actions": [
 								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 360681901435734,
+									"parameters": {
+										"animation": "\"Shot\"",
+										"from": "beginning"
+									}
+								},
+								{
 									"id": "spawn-another-object",
 									"objectClass": "Knight",
 									"sid": 122859437224186,
@@ -308,6 +294,42 @@
 							"sid": 975596958061414
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 764516952465082,
+							"parameters": {
+								"object": "spiderDrones"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 649529518563847,
+							"parameters": {
+								"object": "Spine"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Knight",
+							"sid": 220144568682710,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "3.0"
+							}
+						}
+					],
+					"sid": 982335524272639,
+					"isOrBlock": true
 				}
 			],
 			"sid": 347782337239063
