@@ -231,7 +231,7 @@
 				0.3686274509803922,
 				1
 			],
-			"isTransparent": true,
+			"isTransparent": false,
 			"parallaxX": 1,
 			"parallaxY": 1,
 			"scaleRate": 1,
@@ -516,9 +516,9 @@
 						"tilemapData": {
 							"width": 125,
 							"height": 15,
-							"max-width": 125,
-							"max-height": 37,
-							"data": "1634x0,105h,36x0,702v,36x0,702v,36x0,702hv,36x0,702v,36x0,702v,36x0,702v,36x0,702v,36x0,702v,36x0,702v,36x0,702v,36x0,105,1298x0,563h,1284x0"
+							"max-width": 139,
+							"max-height": 47,
+							"data": "2074x0,105h,46x0,702v,46x0,702v,46x0,702hv,46x0,702v,46x0,702v,46x0,702v,46x0,702v,46x0,702v,46x0,702v,46x0,702v,46x0,105,1648x0,563h,2292x0"
 						},
 						"tile-width": 32,
 						"tile-height": 32,
@@ -599,6 +599,16 @@
 					"uid": 7,
 					"instanceVariables": {},
 					"behaviors": {
+						"ScrollTo": {
+							"properties": {
+								"enabled": true
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
 						"Platform": {
 							"properties": {
 								"max-speed": 330,
@@ -613,19 +623,16 @@
 								"enabled": true
 							}
 						},
-						"ScrollTo": {
+						"8Direction": {
 							"properties": {
+								"max-speed": 200,
+								"acceleration": 600,
+								"deceleration": 500,
+								"directions": "dir-8",
+								"set-angle": "smooth",
+								"allow-sliding": false,
+								"default-controls": true,
 								"enabled": true
-							}
-						},
-						"Wrap": {
-							"properties": {
-								"wrap-to": "layout"
-							}
-						},
-						"Pin": {
-							"properties": {
-								"destroy": false
 							}
 						}
 					},

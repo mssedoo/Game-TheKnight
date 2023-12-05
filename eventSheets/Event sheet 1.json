@@ -2,6 +2,16 @@
 	"name": "Event sheet 1",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "RightDirection",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 933932872261297
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Hero",
@@ -32,9 +42,58 @@
 								"height-type": "no",
 								"z": false
 							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "HeroShadow",
+							"sid": 812101281957632,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-speed": "200"
+							}
+						},
+						{
+							"id": "set-jump-strength",
+							"objectClass": "HeroShadow",
+							"sid": 853757060021708,
+							"behaviorType": "Platform",
+							"parameters": {
+								"jump-strength": "500"
+							}
+						},
+						{
+							"id": "set-double-jump",
+							"objectClass": "HeroShadow",
+							"sid": 257653496705653,
+							"behaviorType": "Platform",
+							"parameters": {
+								"state": "enabled"
+							}
 						}
 					],
 					"sid": 667486168720149
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-tick",
+							"objectClass": "System",
+							"sid": 913566701843787
+						}
+					],
+					"actions": [
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "Knight",
+							"sid": 819499142742615,
+							"parameters": {
+								"x": "Knight.X",
+								"y": "Knight.Y"
+							}
+						}
+					],
+					"sid": 229571452197147
 				},
 				{
 					"eventType": "block",
@@ -64,6 +123,15 @@
 							"parameters": {
 								"animation": "\"Walk\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 579037632186497,
+							"parameters": {
+								"variable": "RightDirection",
+								"value": "true"
 							}
 						}
 					],
@@ -98,6 +166,15 @@
 								"animation": "\"Walk\"",
 								"from": "beginning"
 							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 694672978036715,
+							"parameters": {
+								"variable": "RightDirection",
+								"value": "false"
+							}
 						}
 					],
 					"sid": 929319710588183
@@ -123,7 +200,7 @@
 						{
 							"id": "set-animation",
 							"objectClass": "Knight",
-							"sid": 198013527952832,
+							"sid": 309241822921687,
 							"parameters": {
 								"animation": "\"Idle\"",
 								"from": "beginning"
@@ -131,6 +208,106 @@
 						}
 					],
 					"sid": 479133237174154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-released",
+							"objectClass": "Keyboard",
+							"sid": 505424646269958,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Knight",
+							"sid": 923159781832642,
+							"parameters": {
+								"animation": "\"Shot\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 524240326372511,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 192563341227192,
+									"parameters": {
+										"variable": "RightDirection"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Knight",
+									"sid": 910414358017603,
+									"parameters": {
+										"object": "arrow",
+										"layer": "4",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "arrow",
+									"sid": 191065159434613,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "0"
+									}
+								}
+							],
+							"sid": 786257915949561
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 122209294731565,
+									"parameters": {
+										"variable": "RightDirection"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Knight",
+									"sid": 122859437224186,
+									"parameters": {
+										"object": "arrow",
+										"layer": "4",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "arrow",
+									"sid": 483231557932434,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "180"
+									}
+								}
+							],
+							"sid": 975596958061414
+						}
+					]
 				}
 			],
 			"sid": 347782337239063

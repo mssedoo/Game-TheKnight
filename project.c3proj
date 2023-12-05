@@ -29,6 +29,20 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Bullet",
+			"name": "Bullet",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "EightDir",
+			"name": "8 Direction",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Pin",
 			"name": "Pin",
 			"author": "Scirra",
@@ -38,6 +52,20 @@
 			"type": "behavior",
 			"id": "Platform",
 			"name": "Platform",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "Sin",
+			"name": "Sine",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "destroy",
+			"name": "Destroy outside layout",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -54,20 +82,20 @@
 			"name": "Solid",
 			"author": "Scirra",
 			"bundled": false
-		},
-		{
-			"type": "behavior",
-			"id": "wrap",
-			"name": "Wrap",
-			"author": "Scirra",
-			"bundled": false
 		}
 	],
 	"uniqueId": "6ul2gvuiem0",
 	"objectTypes": {
 		"items": [
 			"Lvl1Guide",
-			"Keyboard"
+			"Keyboard",
+			"Sprite2",
+			"Sprite",
+			"spiderDrones",
+			"wolf",
+			"flamesBullet",
+			"slidingGround",
+			"arrow"
 		],
 		"subfolders": [
 			{
@@ -112,7 +140,8 @@
 	},
 	"layouts": {
 		"items": [
-			"LVL1"
+			"LVL1",
+			"LVL3"
 		],
 		"subfolders": []
 	},
@@ -221,10 +250,10 @@
 		]
 	},
 	"properties": {
-		"description": "",
+		"description": "2D Game Platformer",
 		"version": "1.0.0.0",
-		"author": "",
-		"authorEmail": "",
+		"author": "Anais Edmond",
+		"authorEmail": "alexaguero997@gmail.com",
 		"authorWebsite": "",
 		"appId": "",
 		"pixelRounding": false,

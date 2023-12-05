@@ -1,0 +1,79 @@
+{
+	"name": "slidingGround",
+	"plugin-id": "Sprite",
+	"sid": 997223229428377,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 206863846979683
+		},
+		{
+			"behaviorId": "Sin",
+			"name": "Sine",
+			"sid": 645716846317021
+		}
+	],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 64,
+						"height": 34,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 6097890,
+						"collisionPoly": {
+							"points": [
+								0.078125,
+								0.029411764705882353,
+								0.921875,
+								0.029411764705882353,
+								0.9531249999999999,
+								0.058823529411764705,
+								0.984375,
+								0.11764705882352941,
+								0.96875,
+								0.7941176470588235,
+								0.890625,
+								0.9411764705882353,
+								0.859375,
+								0.9705882352941176,
+								0.14062499999999997,
+								0.9705882352941176,
+								0.109375,
+								0.9411764705882353,
+								0.078125,
+								0.8823529411764706,
+								0.015625,
+								0.5,
+								0.015625,
+								0.11764705882352941,
+								0.046875,
+								0.058823529411764705
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 194017866977091,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}
