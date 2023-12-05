@@ -77,6 +77,28 @@
 					"eventType": "block",
 					"conditions": [
 						{
+							"id": "is-outside-layout",
+							"objectClass": "Knight",
+							"sid": 139150999499124
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "HeroShadow",
+							"sid": 942315883977114,
+							"parameters": {
+								"x": "96",
+								"y": "192"
+							}
+						}
+					],
+					"sid": 682467399755685
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
 							"sid": 726548332840637,
@@ -309,7 +331,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Knight",
-							"sid": 649529518563847,
+							"sid": 317071837562707,
 							"parameters": {
 								"object": "Spine"
 							}
@@ -326,10 +348,35 @@
 								"off-time": "0.1",
 								"duration": "3.0"
 							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "Knight",
+							"sid": 887540793212443,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "20",
+								"duration": "0.4",
+								"mode": "reducing-magnitude"
+							}
 						}
 					],
 					"sid": 982335524272639,
 					"isOrBlock": true
+				}
+			],
+			"sid": 347782337239063
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Spider Drone",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Destroying spider drones when hit by mutliple arrows"
 				},
 				{
 					"eventType": "block",
@@ -337,7 +384,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "spiderDrones",
-							"sid": 526807297975944,
+							"sid": 701232696804930,
 							"parameters": {
 								"object": "arrow"
 							}
@@ -345,15 +392,122 @@
 					],
 					"actions": [
 						{
-							"id": "destroy",
+							"id": "subtract-from-instvar",
 							"objectClass": "spiderDrones",
-							"sid": 816683314450433
+							"sid": 364510596659404,
+							"parameters": {
+								"instance-variable": "spiderHP",
+								"value": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "arrow",
+							"sid": 126124846415598
 						}
 					],
-					"sid": 324211784275726
+					"sid": 425719936172409,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spiderDrones",
+									"sid": 433348825498121,
+									"parameters": {
+										"instance-variable": "spiderHP",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spiderDrones",
+									"sid": 618027544026186,
+									"parameters": {
+										"animation": "\"HURT\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "flash",
+									"objectClass": "spiderDrones",
+									"sid": 467605238391906,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "0.5"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 694025133939952,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spiderDrones",
+									"sid": 651597625422345,
+									"parameters": {
+										"animation": "\"WALK\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 240360429300937
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spiderDrones",
+									"sid": 804006720923509,
+									"parameters": {
+										"instance-variable": "spiderHP",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spiderDrones",
+									"sid": 808816718228228,
+									"parameters": {
+										"animation": "\"DEATH\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 583270686913256,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "spiderDrones",
+									"sid": 808250402920930,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 711568299199584
+						}
+					]
 				}
 			],
-			"sid": 347782337239063
+			"sid": 239642361405465
 		}
 	],
 	"sid": 104816411421624

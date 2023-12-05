@@ -50,6 +50,13 @@
 		},
 		{
 			"type": "behavior",
+			"id": "Fade",
+			"name": "Fade",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
 			"id": "Flash",
 			"name": "Flash",
 			"author": "Scirra",
@@ -112,7 +119,8 @@
 			"arrow",
 			"Mouse",
 			"Spine",
-			"Score"
+			"Score",
+			"barrier"
 		],
 		"subfolders": [
 			{
