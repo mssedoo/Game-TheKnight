@@ -615,7 +615,7 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 82,
+					"uid": 60,
 					"instanceVariables": {},
 					"behaviors": {
 						"Solid": {
@@ -628,7 +628,7 @@
 					"world": {
 						"x": 2005.5,
 						"y": -1,
-						"width": 4041,
+						"width": 4041.0000000000005,
 						"height": 7,
 						"originX": 0.5,
 						"originY": 0,
