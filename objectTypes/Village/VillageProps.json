@@ -4,7 +4,13 @@
 	"sid": 145591094596433,
 	"isGlobal": false,
 	"instanceVariables": [],
-	"behaviorTypes": [],
+	"behaviorTypes": [
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 654513422793709
+		}
+	],
 	"effectTypes": [],
 	"image": {
 		"width": 1024,
@@ -360,6 +366,21 @@
 					1,
 					0,
 					1
+				]
+			},
+			"useCollisionPoly": true
+		},
+		"566": {
+			"collisionPoly": {
+				"points": [
+					0,
+					0,
+					1,
+					0,
+					0.9878472752041286,
+					0.7204861376020644,
+					0.4843750264909537,
+					0.548611177338494
 				]
 			},
 			"useCollisionPoly": true
