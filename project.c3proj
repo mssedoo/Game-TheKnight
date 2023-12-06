@@ -115,7 +115,8 @@
 			"Mouse",
 			"Spine",
 			"Score",
-			"barrier"
+			"barrier",
+			"LevelBorder"
 		],
 		"subfolders": [
 			{
@@ -151,27 +152,34 @@
 					{
 						"items": [
 							"HeroShadow",
-							"Knight"
+							"Knight",
+							"HeroFinishpoint"
 						],
 						"subfolders": [],
 						"name": "Hero"
 					},
 					{
 						"items": [
-							"spiderDrones"
+							"spiderDrones",
+							"wolf"
 						],
 						"subfolders": [],
 						"name": "Enemy"
 					},
 					{
-						"items": [
-							"wolf"
-						],
+						"items": [],
 						"subfolders": [],
 						"name": "Animal"
 					}
 				],
 				"name": "Sprite"
+			},
+			{
+				"items": [
+					"Gold"
+				],
+				"subfolders": [],
+				"name": "Collectibles"
 			}
 		]
 	},
