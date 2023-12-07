@@ -69,9 +69,78 @@
 							"parameters": {
 								"state": "enabled"
 							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 552637654389006,
+							"parameters": {
+								"tag": "\"menuSound\""
+							}
 						}
 					],
-					"sid": 667486168720149
+					"sid": 667486168720149,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 498534818699209,
+									"parameters": {
+										"variable": "playBackgroundMusic",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 533175000108295,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 317685738026140,
+									"parameters": {
+										"audio-file": "L05 - Level 5 Chase",
+										"loop": "looping",
+										"volume": "-10",
+										"stereo-pan": "0",
+										"tag-optional": "\"levelMusic\""
+									}
+								}
+							],
+							"sid": 639550543935148
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 963674321778572
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 924127291549946,
+									"parameters": {
+										"tag": "\"levelMusic\""
+									}
+								}
+							],
+							"sid": 966084634663080
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -488,11 +557,23 @@
 									}
 								},
 								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 322885283075817,
+									"parameters": {
+										"audio-file": "mixkit-robot-malfunction-1400",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"\""
+									}
+								},
+								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 583270686913256,
+									"sid": 649690853220293,
 									"parameters": {
-										"seconds": "2"
+										"seconds": "1.5"
 									}
 								},
 								{

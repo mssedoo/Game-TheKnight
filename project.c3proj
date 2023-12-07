@@ -8,6 +8,13 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "Audio",
+			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
@@ -118,7 +125,9 @@
 			"barrier",
 			"menuBackground",
 			"playButton",
-			"backgroundMusicButton"
+			"backgroundMusicButton",
+			"Text",
+			"Audio"
 		],
 		"subfolders": [
 			{
@@ -208,11 +217,93 @@
 			"subfolders": []
 		},
 		"sound": {
-			"items": [],
+			"items": [
+				{
+					"name": "mixkit-metal-robot-transformation-1428.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 426714632571708,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "mixkit-robot-malfunction-1400.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 914057129566491,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"music": {
-			"items": [],
+			"items": [
+				{
+					"name": "B01 - Boss 1-2-3 (intro).webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 619496150199191,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "B02 - Boss 1 (main).webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 619157346233218,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "C01 - Title.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 534966657798318,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "L01 - Level 1 Canyon.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 283561487171529,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "L02 - Level 2 Fly.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 205310409562558,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "L03 - Level 3 Clouds.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 814751075730091,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "L04-2 - Level 4 Race (intro).webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 114428102872477,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "L05 - Level 5 Chase.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 908244680678044,
+					"file-info": {
+						"purpose": "none"
+					}
+				}
+			],
 			"subfolders": []
 		},
 		"video": {

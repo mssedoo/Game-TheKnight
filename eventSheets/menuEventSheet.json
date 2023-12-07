@@ -2,132 +2,375 @@
 	"name": "menuEventSheet",
 	"events": [
 		{
+			"eventType": "variable",
+			"name": "playBackgroundMusic",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 664391941142408
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 729704875395892,
-					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "playButton"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "go-to-layout",
+					"id": "on-start-of-layout",
 					"objectClass": "System",
-					"sid": 576468469532005,
-					"parameters": {
-						"layout": "LVL1"
-					}
-				}
-			],
-			"sid": 265463512753591
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 136266570067339,
-					"parameters": {
-						"object": "playButton"
-					}
+					"sid": 356842547841560
 				}
 			],
 			"actions": [
 				{
-					"id": "set-animation",
-					"objectClass": "playButton",
-					"sid": 737379646134568,
+					"id": "play",
+					"objectClass": "Audio",
+					"sid": 597035000329513,
 					"parameters": {
-						"animation": "\"clickedButton\"",
-						"from": "beginning"
+						"audio-file": "C01 - Title",
+						"loop": "looping",
+						"volume": "-10",
+						"stereo-pan": "0",
+						"tag-optional": "\"menuSound\""
 					}
 				}
 			],
-			"sid": 425139803606931
+			"sid": 404520897841686
 		},
 		{
-			"eventType": "block",
-			"conditions": [
+			"eventType": "group",
+			"disabled": false,
+			"title": "Mouse Controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 398327940645859,
-					"parameters": {
-						"object": "playButton"
-					},
-					"isInverted": true
+					"eventType": "group",
+					"disabled": false,
+					"title": "Background Music button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 988502439569483,
+									"parameters": {
+										"object": "backgroundMusicButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "backgroundMusicButton",
+									"sid": 875479655220518,
+									"parameters": {
+										"animation": "\"clickedBackgroundMusicButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 309622495306608
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 898897712161234,
+									"parameters": {
+										"object": "backgroundMusicButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 915088186123004,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "backgroundMusicButton",
+											"sid": 319373140621530,
+											"parameters": {
+												"instance-variable": "bgMusicMuted",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 244323591771214,
+											"parameters": {
+												"animation": "\"disabledBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 973860797380022
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 834937429675390
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 384956411944242,
+											"parameters": {
+												"animation": "\"normalBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 357026472492208
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 198064005633702,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "backgroundMusicButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 967133638342551,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "backgroundMusicButton",
+											"sid": 938821285622948,
+											"parameters": {
+												"instance-variable": "bgMusicMuted",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 217492289213157,
+											"parameters": {
+												"animation": "\"disabledBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 779678717039472,
+											"parameters": {
+												"text": "backgroundMusicButton.bgMusicMuted"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "backgroundMusicButton",
+											"sid": 177829892021596,
+											"parameters": {
+												"instance-variable": "bgMusicMuted",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 627576478827355,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"value": "0"
+											}
+										},
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 819394566697053
+										}
+									],
+									"sid": 297722153496953
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 818264557547311
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 449773105912420,
+											"parameters": {
+												"animation": "\"clickedBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 576273601636984,
+											"parameters": {
+												"text": "backgroundMusicButton.bgMusicMuted"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "backgroundMusicButton",
+											"sid": 187194228229743,
+											"parameters": {
+												"instance-variable": "bgMusicMuted",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 723448338852121,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"value": "1"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 550410425843896,
+											"parameters": {
+												"audio-file": "C01 - Title",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"menuSound\""
+											}
+										}
+									],
+									"sid": 602793893147795
+								}
+							]
+						}
+					],
+					"sid": 714907024052049
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Play button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 582311875594252,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "playButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 554799061863429,
+									"parameters": {
+										"layout": "LVL1"
+									}
+								}
+							],
+							"sid": 748572108613245
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 705967799530870,
+									"parameters": {
+										"object": "playButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "playButton",
+									"sid": 598253026707826,
+									"parameters": {
+										"animation": "\"clickedButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 938636508403381
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 157588028644464,
+									"parameters": {
+										"object": "playButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "playButton",
+									"sid": 438692387550645,
+									"parameters": {
+										"animation": "\"normalButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 113272000530773
+						}
+					],
+					"sid": 208815237642926
 				}
 			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "playButton",
-					"sid": 757935446324209,
-					"parameters": {
-						"animation": "\"normalButton\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 654101300786801
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 675803220326812,
-					"parameters": {
-						"object": "backgroundMusicButton"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "backgroundMusicButton",
-					"sid": 838566650412644,
-					"parameters": {
-						"animation": "\"clickedBackgroundMusicButton\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 591433929084840
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
-					"id": "cursor-is-over-object",
-					"objectClass": "Mouse",
-					"sid": 561430058801683,
-					"parameters": {
-						"object": "backgroundMusicButton"
-					},
-					"isInverted": true
-				}
-			],
-			"actions": [
-				{
-					"id": "set-animation",
-					"objectClass": "backgroundMusicButton",
-					"sid": 145364459704366,
-					"parameters": {
-						"animation": "\"normalBackgroundMusicButton\"",
-						"from": "beginning"
-					}
-				}
-			],
-			"sid": 956450057372020
+			"sid": 630865615954976
 		}
 	],
 	"sid": 631071634118024
