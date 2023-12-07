@@ -1,0 +1,514 @@
+{
+	"name": "Event sheet 1",
+	"events": [
+		{
+			"eventType": "variable",
+			"name": "RightDirection",
+			"type": "boolean",
+			"initialValue": "true",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 933932872261297
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Hero",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-start-of-layout",
+							"objectClass": "System",
+							"sid": 858982378773876
+						}
+					],
+					"actions": [
+						{
+							"id": "pin-to-object-properties",
+							"objectClass": "Knight",
+							"sid": 511405208175596,
+							"behaviorType": "Pin",
+							"parameters": {
+								"pin-to": "HeroShadow",
+								"x": true,
+								"y": true,
+								"angle": true,
+								"width-type": "no",
+								"height-type": "no",
+								"z": false
+							}
+						},
+						{
+							"id": "set-max-speed",
+							"objectClass": "HeroShadow",
+							"sid": 812101281957632,
+							"behaviorType": "Platform",
+							"parameters": {
+								"max-speed": "200"
+							}
+						},
+						{
+							"id": "set-jump-strength",
+							"objectClass": "HeroShadow",
+							"sid": 853757060021708,
+							"behaviorType": "Platform",
+							"parameters": {
+								"jump-strength": "500"
+							}
+						},
+						{
+							"id": "set-double-jump",
+							"objectClass": "HeroShadow",
+							"sid": 257653496705653,
+							"behaviorType": "Platform",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 667486168720149
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-outside-layout",
+							"objectClass": "Knight",
+							"sid": 139150999499124
+						}
+					],
+					"actions": [
+						{
+							"id": "set-position",
+							"objectClass": "HeroShadow",
+							"sid": 942315883977114,
+							"parameters": {
+								"x": "96",
+								"y": "192"
+							}
+						}
+					],
+					"sid": 682467399755685
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 726548332840637,
+							"parameters": {
+								"key": 39
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Knight",
+							"sid": 912992965672287,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Knight",
+							"sid": 288385001268944,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 579037632186497,
+							"parameters": {
+								"variable": "RightDirection",
+								"value": "true"
+							}
+						}
+					],
+					"sid": 598842054090551
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 530174935376393,
+							"parameters": {
+								"key": 37
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Knight",
+							"sid": 595830161524482,
+							"parameters": {
+								"state": "mirrored"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Knight",
+							"sid": 228215930656875,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 694672978036715,
+							"parameters": {
+								"variable": "RightDirection",
+								"value": "false"
+							}
+						}
+					],
+					"sid": 929319710588183
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-floor",
+							"objectClass": "HeroShadow",
+							"sid": 787021661138713,
+							"behaviorType": "Platform"
+						},
+						{
+							"id": "is-moving",
+							"objectClass": "HeroShadow",
+							"sid": 424550750511656,
+							"behaviorType": "Platform",
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "Knight",
+							"sid": 309241822921687,
+							"parameters": {
+								"animation": "\"Idle\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 479133237174154
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 590150072747455,
+							"parameters": {
+								"key": 32
+							}
+						}
+					],
+					"actions": [],
+					"sid": 524240326372511,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 192563341227192,
+									"parameters": {
+										"variable": "RightDirection"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 627983890623616,
+									"parameters": {
+										"animation": "\"Shot\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Knight",
+									"sid": 771869303241186,
+									"parameters": {
+										"object": "arrow",
+										"layer": "4",
+										"image-point": "1",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "arrow",
+									"sid": 191065159434613,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "0"
+									}
+								}
+							],
+							"sid": 786257915949561
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 122209294731565,
+									"parameters": {
+										"variable": "RightDirection"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 360681901435734,
+									"parameters": {
+										"animation": "\"Shot\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Knight",
+									"sid": 699732135846381,
+									"parameters": {
+										"object": "arrow",
+										"layer": "4",
+										"image-point": "2",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "arrow",
+									"sid": 483231557932434,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "180"
+									}
+								}
+							],
+							"sid": 975596958061414
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 764516952465082,
+							"parameters": {
+								"object": "spiderDrones"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 317071837562707,
+							"parameters": {
+								"object": "Spine"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Knight",
+							"sid": 220144568682710,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "3.0"
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "Knight",
+							"sid": 887540793212443,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "20",
+								"duration": "0.4",
+								"mode": "reducing-magnitude"
+							}
+						}
+					],
+					"sid": 982335524272639,
+					"isOrBlock": true
+				}
+			],
+			"sid": 347782337239063
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Spider Drone",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "comment",
+					"text": "Destroying spider drones when hit by mutliple arrows"
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "spiderDrones",
+							"sid": 701232696804930,
+							"parameters": {
+								"object": "arrow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "spiderDrones",
+							"sid": 364510596659404,
+							"parameters": {
+								"instance-variable": "spiderHP",
+								"value": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "arrow",
+							"sid": 126124846415598
+						}
+					],
+					"sid": 425719936172409,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spiderDrones",
+									"sid": 433348825498121,
+									"parameters": {
+										"instance-variable": "spiderHP",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spiderDrones",
+									"sid": 618027544026186,
+									"parameters": {
+										"animation": "\"HURT\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "flash",
+									"objectClass": "spiderDrones",
+									"sid": 467605238391906,
+									"behaviorType": "Flash",
+									"parameters": {
+										"on-time": "0.1",
+										"off-time": "0.1",
+										"duration": "0.5"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 694025133939952,
+									"parameters": {
+										"seconds": "0.1"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "spiderDrones",
+									"sid": 651597625422345,
+									"parameters": {
+										"animation": "\"WALK\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 240360429300937
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "spiderDrones",
+									"sid": 804006720923509,
+									"parameters": {
+										"instance-variable": "spiderHP",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "spiderDrones",
+									"sid": 808816718228228,
+									"parameters": {
+										"animation": "\"DEATH\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 583270686913256,
+									"parameters": {
+										"seconds": "2"
+									}
+								},
+								{
+									"id": "start-fade",
+									"objectClass": "spiderDrones",
+									"sid": 808250402920930,
+									"behaviorType": "Fade"
+								}
+							],
+							"sid": 711568299199584
+						}
+					]
+				}
+			],
+			"sid": 239642361405465
+		}
+	],
+	"sid": 104816411421624
+}
