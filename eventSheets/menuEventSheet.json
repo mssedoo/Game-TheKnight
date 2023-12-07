@@ -1,5 +1,134 @@
 {
 	"name": "menuEventSheet",
-	"events": [],
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 729704875395892,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "playButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 576468469532005,
+					"parameters": {
+						"layout": "LVL1"
+					}
+				}
+			],
+			"sid": 265463512753591
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 136266570067339,
+					"parameters": {
+						"object": "playButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "playButton",
+					"sid": 737379646134568,
+					"parameters": {
+						"animation": "\"clickedButton\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 425139803606931
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 398327940645859,
+					"parameters": {
+						"object": "playButton"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "playButton",
+					"sid": 757935446324209,
+					"parameters": {
+						"animation": "\"normalButton\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 654101300786801
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 675803220326812,
+					"parameters": {
+						"object": "backgroundMusicButton"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "backgroundMusicButton",
+					"sid": 838566650412644,
+					"parameters": {
+						"animation": "\"clickedBackgroundMusicButton\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 591433929084840
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 561430058801683,
+					"parameters": {
+						"object": "backgroundMusicButton"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "backgroundMusicButton",
+					"sid": 145364459704366,
+					"parameters": {
+						"animation": "\"normalBackgroundMusicButton\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 956450057372020
+		}
+	],
 	"sid": 631071634118024
 }

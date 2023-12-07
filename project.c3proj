@@ -115,7 +115,10 @@
 			"Mouse",
 			"Spine",
 			"Score",
-			"barrier"
+			"barrier",
+			"menuBackground",
+			"playButton",
+			"backgroundMusicButton"
 		],
 		"subfolders": [
 			{
@@ -183,18 +186,18 @@
 	},
 	"layouts": {
 		"items": [
+			"MenuLayout",
 			"LVL1",
 			"LVL2",
 			"LVL3",
 			"LVL4",
-			"LVL5",
-			"MenuLayout"
+			"LVL5"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"1to5EventSheet",
+			"EventSheet",
 			"menuEventSheet"
 		],
 		"subfolders": []
