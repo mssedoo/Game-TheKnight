@@ -202,6 +202,18 @@
 								"variable": "RightDirection",
 								"value": "true"
 							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 766500594181578,
+							"parameters": {
+								"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"walkSound\""
+							}
 						}
 					],
 					"sid": 598842054090551
@@ -244,6 +256,18 @@
 								"variable": "RightDirection",
 								"value": "false"
 							}
+						},
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 943962662129353,
+							"parameters": {
+								"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
+								"loop": "not-looping",
+								"volume": "0",
+								"stereo-pan": "0",
+								"tag-optional": "\"walkSound\""
+							}
 						}
 					],
 					"sid": 929319710588183
@@ -273,6 +297,14 @@
 							"parameters": {
 								"animation": "\"Idle\"",
 								"from": "beginning"
+							}
+						},
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 694822471103501,
+							"parameters": {
+								"tag": "\"walkSound\""
 							}
 						}
 					],
@@ -546,44 +578,108 @@
 									}
 								}
 							],
-							"actions": [
+							"actions": [],
+							"sid": 711568299199584,
+							"children": [
 								{
-									"id": "set-animation",
-									"objectClass": "spiderDrones",
-									"sid": 808816718228228,
-									"parameters": {
-										"animation": "\"DEATH\"",
-										"from": "beginning"
-									}
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 856243308827039,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "spiderDrones",
+											"sid": 614888359804441,
+											"parameters": {
+												"animation": "\"DEATH\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 670744609804927,
+											"parameters": {
+												"audio-file": "mixkit-robot-malfunction-1400",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"spiderDeathSound\""
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 921183218035055,
+											"parameters": {
+												"seconds": "1.5"
+											}
+										},
+										{
+											"id": "start-fade",
+											"objectClass": "spiderDrones",
+											"sid": 432556443222355,
+											"behaviorType": "Fade"
+										}
+									],
+									"sid": 823977989620139
 								},
 								{
-									"id": "play",
-									"objectClass": "Audio",
-									"sid": 322885283075817,
-									"parameters": {
-										"audio-file": "mixkit-robot-malfunction-1400",
-										"loop": "not-looping",
-										"volume": "0",
-										"stereo-pan": "0",
-										"tag-optional": "\"\""
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 649690853220293,
-									"parameters": {
-										"seconds": "1.5"
-									}
-								},
-								{
-									"id": "start-fade",
-									"objectClass": "spiderDrones",
-									"sid": 808250402920930,
-									"behaviorType": "Fade"
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 428250435020887
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "spiderDrones",
+											"sid": 773390033595754,
+											"parameters": {
+												"animation": "\"DEATH\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-muted",
+											"objectClass": "Audio",
+											"sid": 926624996062911,
+											"parameters": {
+												"tag": "\"spiderDeathSound\"",
+												"state": "muted"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 562784856667410,
+											"parameters": {
+												"seconds": "1.5"
+											}
+										},
+										{
+											"id": "start-fade",
+											"objectClass": "spiderDrones",
+											"sid": 355725461971509,
+											"behaviorType": "Fade"
+										}
+									],
+									"sid": 160417307810308
 								}
-							],
-							"sid": 711568299199584
+							]
 						}
 					]
 				}

@@ -128,7 +128,11 @@
 			"backgroundMusicButton",
 			"Text",
 			"Audio",
-			"homeButtons"
+			"homeButtons",
+			"facebookButtons",
+			"muteButton",
+			"gameTitle",
+			"transparentMenuLayer"
 		],
 		"subfolders": [
 			{
@@ -231,6 +235,22 @@
 					"name": "mixkit-robot-malfunction-1400.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 914057129566491,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 900999728596287,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "fast-simple-chop-5-6270.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 868030749936725,
 					"file-info": {
 						"purpose": "none"
 					}

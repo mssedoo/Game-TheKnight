@@ -12,6 +12,16 @@
 			"sid": 664391941142408
 		},
 		{
+			"eventType": "variable",
+			"name": "playSoundEffects",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 280684262697753
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -20,7 +30,16 @@
 					"sid": 356842547841560
 				}
 			],
-			"actions": [],
+			"actions": [
+				{
+					"id": "set-text",
+					"objectClass": "Text",
+					"sid": 986080517525408,
+					"parameters": {
+						"text": "playSoundEffects"
+					}
+				}
+			],
 			"sid": 404520897841686,
 			"children": [
 				{
@@ -111,6 +130,306 @@
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Sound Effects Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 708929309049641,
+									"parameters": {
+										"object": "muteButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "muteButton",
+									"sid": 339848353868297,
+									"parameters": {
+										"animation": "\"clickedMuteButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 842702695595462
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 975965576172363,
+									"parameters": {
+										"object": "muteButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 732479456039758,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "muteButton",
+											"sid": 598729380249910,
+											"parameters": {
+												"instance-variable": "soundEffectMuted",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 549739390353696,
+											"parameters": {
+												"animation": "\"disabledMuteButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 375573214364334
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 820757875592020
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 614983743570401,
+											"parameters": {
+												"animation": "\"normalMuteButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 666896577887504
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 766312432198347,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "muteButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 740321210873417,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "muteButton",
+											"sid": 752774022115905,
+											"parameters": {
+												"instance-variable": "soundEffectMuted",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 678665136478080,
+											"parameters": {
+												"animation": "\"disabledMuteButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "muteButton",
+											"sid": 146158776562669,
+											"parameters": {
+												"instance-variable": "soundEffectMuted",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 520918294305772,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 510302229858865,
+											"parameters": {
+												"text": "playSoundEffects"
+											}
+										}
+									],
+									"sid": 682883393228912
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 561285529841355
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 298327516892983,
+											"parameters": {
+												"animation": "\"clickedMuteButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "muteButton",
+											"sid": 138687729957538,
+											"parameters": {
+												"instance-variable": "soundEffectMuted",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 676695477129947,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 227929841912868,
+											"parameters": {
+												"text": "playSoundEffects"
+											}
+										}
+									],
+									"sid": 228817735028396
+								}
+							]
+						}
+					],
+					"sid": 178260032767788
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Facebook Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 945687323691285,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "facebookButtons"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 918710811457659
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 440513390203505,
+									"parameters": {
+										"object": "facebookButtons"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "facebookButtons",
+									"sid": 222902686616845,
+									"parameters": {
+										"animation": "\"clickedFacebookButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 595814350976243
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 367749334805097,
+									"parameters": {
+										"object": "facebookButtons"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "facebookButtons",
+									"sid": 263398827060114,
+									"parameters": {
+										"animation": "\"normalFacebookButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 488258415032437
+						}
+					],
+					"sid": 152183412764738
+				},
 				{
 					"eventType": "group",
 					"disabled": false,
