@@ -187,13 +187,15 @@
 			"LVL2",
 			"LVL3",
 			"LVL4",
-			"LVL5"
+			"LVL5",
+			"MenuLayout"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
-			"Event sheet 1"
+			"1to5EventSheet",
+			"menuEventSheet"
 		],
 		"subfolders": []
 	},
@@ -351,5 +353,5 @@
 	},
 	"viewportWidth": 854,
 	"viewportHeight": 480,
-	"firstLayout": null
+	"firstLayout": "MenuLayout"
 }
