@@ -129,14 +129,7 @@
 					},
 					"uid": 105,
 					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"tags": ""
-							}
-						}
-					},
+					"behaviors": {},
 					"ownData": {
 						"tilemapData": {
 							"width": 138,

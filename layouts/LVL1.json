@@ -264,14 +264,7 @@
 					},
 					"uid": 9,
 					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"tags": ""
-							}
-						}
-					},
+					"behaviors": {},
 					"ownData": {
 						"tilemapData": {
 							"width": 125,
@@ -319,14 +312,7 @@
 					},
 					"uid": 8,
 					"instanceVariables": {},
-					"behaviors": {
-						"Solid": {
-							"properties": {
-								"enabled": true,
-								"tags": ""
-							}
-						}
-					},
+					"behaviors": {},
 					"ownData": {
 						"tilemapData": {
 							"width": 125,
