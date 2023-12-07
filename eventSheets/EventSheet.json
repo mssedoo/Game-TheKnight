@@ -589,6 +589,101 @@
 				}
 			],
 			"sid": 239642361405465
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Home Button",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 788473192266142,
+							"parameters": {
+								"object": "homeButtons"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "homeButtons",
+							"sid": 466428053910409,
+							"parameters": {
+								"animation": "\"clickedHomeButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 672900795850490
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 492781077208458,
+							"parameters": {
+								"object": "homeButtons"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "homeButtons",
+							"sid": 288294018903078,
+							"parameters": {
+								"animation": "\"normalHomeButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 182103428142871
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 734652004349906,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "homeButtons"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 648322700311259,
+							"parameters": {
+								"tag": "\"levelMusic\""
+							}
+						},
+						{
+							"id": "go-to-layout",
+							"objectClass": "System",
+							"sid": 915758717422092,
+							"parameters": {
+								"layout": "MenuLayout"
+							}
+						}
+					],
+					"sid": 526817524991275
+				}
+			],
+			"sid": 810698650550341
 		}
 	],
 	"sid": 104816411421624

@@ -20,21 +20,89 @@
 					"sid": 356842547841560
 				}
 			],
-			"actions": [
+			"actions": [],
+			"sid": 404520897841686,
+			"children": [
 				{
-					"id": "play",
-					"objectClass": "Audio",
-					"sid": 597035000329513,
-					"parameters": {
-						"audio-file": "C01 - Title",
-						"loop": "looping",
-						"volume": "-10",
-						"stereo-pan": "0",
-						"tag-optional": "\"menuSound\""
-					}
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-eventvar",
+							"objectClass": "System",
+							"sid": 610946559789824,
+							"parameters": {
+								"variable": "playBackgroundMusic",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "play",
+							"objectClass": "Audio",
+							"sid": 830028633670165,
+							"parameters": {
+								"audio-file": "C01 - Title",
+								"loop": "looping",
+								"volume": "-10",
+								"stereo-pan": "0",
+								"tag-optional": "\"menuSound\""
+							}
+						}
+					],
+					"sid": 486600336783780
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "backgroundMusicButton",
+							"sid": 889914258825323,
+							"parameters": {
+								"instance-variable": "bgMusicMuted",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "backgroundMusicButton",
+							"sid": 697144237681958,
+							"parameters": {
+								"animation": "\"disabledBackgroundMusicButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 766940607951871
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 733341155790867
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "backgroundMusicButton",
+							"sid": 690497192251501,
+							"parameters": {
+								"animation": "\"normalBackgroundMusicButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 478243289316777
 				}
-			],
-			"sid": 404520897841686
+			]
 		},
 		{
 			"eventType": "group",
@@ -184,14 +252,6 @@
 											}
 										},
 										{
-											"id": "set-text",
-											"objectClass": "Text",
-											"sid": 779678717039472,
-											"parameters": {
-												"text": "backgroundMusicButton.bgMusicMuted"
-											}
-										},
-										{
 											"id": "set-instvar-value",
 											"objectClass": "backgroundMusicButton",
 											"sid": 177829892021596,
@@ -234,14 +294,6 @@
 											"parameters": {
 												"animation": "\"clickedBackgroundMusicButton\"",
 												"from": "beginning"
-											}
-										},
-										{
-											"id": "set-text",
-											"objectClass": "Text",
-											"sid": 576273601636984,
-											"parameters": {
-												"text": "backgroundMusicButton.bgMusicMuted"
 											}
 										},
 										{

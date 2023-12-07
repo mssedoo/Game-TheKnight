@@ -127,7 +127,8 @@
 			"playButton",
 			"backgroundMusicButton",
 			"Text",
-			"Audio"
+			"Audio",
+			"homeButtons"
 		],
 		"subfolders": [
 			{
