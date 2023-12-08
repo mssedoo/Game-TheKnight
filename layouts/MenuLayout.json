@@ -220,8 +220,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 352,
-						"y": -160,
+						"x": 269,
+						"y": -91,
 						"width": 200,
 						"height": 30,
 						"originX": 0,
@@ -330,6 +330,65 @@
 						"height": 128,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "Knight",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Idle",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 61,
+					"instanceVariables": {
+						"localHP": 5
+					},
+					"behaviors": {
+						"ScrollTo": {
+							"properties": {
+								"enabled": false
+							}
+						},
+						"Pin": {
+							"properties": {
+								"destroy": false
+							}
+						},
+						"Platform": {
+							"properties": {
+								"max-speed": 330,
+								"acceleration": 1500,
+								"deceleration": 1500,
+								"jump-strength": 550,
+								"gravity": 1500,
+								"max-fall-speed": 1000,
+								"double-jump": false,
+								"jump-sustain": 0,
+								"default-controls": false,
+								"enabled": false
+							}
+						},
+						"Flash": {
+							"properties": {}
+						}
+					},
+					"world": {
+						"x": 432,
+						"y": 282,
+						"width": 143.66666666666669,
+						"height": 148.36,
+						"originX": 0.6212121212121212,
+						"originY": 1,
 						"color": [
 							1,
 							1,

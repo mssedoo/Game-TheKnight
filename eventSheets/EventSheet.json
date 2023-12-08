@@ -12,12 +12,681 @@
 			"sid": 933932872261297
 		},
 		{
+			"eventType": "variable",
+			"name": "heroHP",
+			"type": "number",
+			"initialValue": "5",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 724699912990496
+		},
+		{
+			"eventType": "variable",
+			"name": "score",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 871751957087252
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 258387452302649
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 969917823764360,
+					"parameters": {
+						"group-name": "\"Hero\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 153070422589218,
+					"parameters": {
+						"layer": "\"pauseLayer\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 913633221242665,
+					"parameters": {
+						"variable": "score",
+						"value": "0"
+					}
+				}
+			],
+			"sid": 898699495393979,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 411457612778863,
+							"parameters": {
+								"object": "backgroundMusicButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "backgroundMusicButton",
+							"sid": 979242398331297,
+							"parameters": {
+								"animation": "\"clickedBackgroundMusicButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 953716712794039
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 640905192012756,
+							"parameters": {
+								"object": "backgroundMusicButton"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 949011714225645,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 820338322256009,
+									"parameters": {
+										"variable": "playBackgroundMusic",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "backgroundMusicButton",
+									"sid": 448382164194754,
+									"parameters": {
+										"animation": "\"disabledBackgroundMusicButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 727384062380514
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 598264809888059
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "backgroundMusicButton",
+									"sid": 105279466707986,
+									"parameters": {
+										"animation": "\"normalBackgroundMusicButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 667241113190586
+						}
+					]
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "every-tick",
+					"objectClass": "System",
+					"sid": 633118926101700
+				}
+			],
+			"actions": [
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 202196838739441,
+					"parameters": {
+						"group-name": "\"Hero\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Score",
+					"sid": 657797908552236,
+					"parameters": {
+						"text": "\"Score = \" & score"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "menuScore",
+					"sid": 223745406450317,
+					"parameters": {
+						"text": "\"Your score: \"&score"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "pauseScore",
+					"sid": 799075062705092,
+					"parameters": {
+						"text": "\"Your score: \"&score"
+					}
+				}
+			],
+			"sid": 970383471750064,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 524762878910402,
+							"parameters": {
+								"object": "backgroundMusicButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "backgroundMusicButton",
+							"sid": 643089512544022,
+							"parameters": {
+								"animation": "\"clickedBackgroundMusicButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 586483799334441
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 812793998215615,
+							"parameters": {
+								"object": "backgroundMusicButton"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 283911022701664,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 331726467994908,
+									"parameters": {
+										"variable": "playBackgroundMusic",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "backgroundMusicButton",
+									"sid": 199793262702218,
+									"parameters": {
+										"animation": "\"disabledBackgroundMusicButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 293915460058068
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 614833274260524
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "backgroundMusicButton",
+									"sid": 323344183996533,
+									"parameters": {
+										"animation": "\"normalBackgroundMusicButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 496435523218317
+						}
+					]
+				}
+			]
+		},
+		{
 			"eventType": "group",
 			"disabled": false,
 			"title": "Hero",
 			"description": "",
 			"isActiveOnStart": true,
 			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Jump by Wall",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-by-wall",
+									"objectClass": "Knight",
+									"sid": 170830431231162,
+									"behaviorType": "Platform",
+									"parameters": {
+										"side": "left"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-fall-speed",
+									"objectClass": "HeroShadow",
+									"sid": 138164277309443,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-fall-speed": "200"
+									}
+								}
+							],
+							"sid": 115026018605235,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 495774561699504,
+											"parameters": {
+												"key": 39
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-vector-y",
+											"objectClass": "HeroShadow",
+											"sid": 651039496961754,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-y": "Self.Platform.VectorY - Self.Platform.JumpStrength"
+											}
+										},
+										{
+											"id": "set-vector-x",
+											"objectClass": "HeroShadow",
+											"sid": 310250362040406,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-x": "Self.Platform.VectorX + Self.Platform.JumpStrength"
+											}
+										}
+									],
+									"sid": 745408017190966
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 399405845093895
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-fall-speed",
+									"objectClass": "HeroShadow",
+									"sid": 169308782963908,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-fall-speed": "1000"
+									}
+								}
+							],
+							"sid": 414351818043463
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-by-wall",
+									"objectClass": "Knight",
+									"sid": 585440101522860,
+									"behaviorType": "Platform",
+									"parameters": {
+										"side": "right"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-fall-speed",
+									"objectClass": "HeroShadow",
+									"sid": 168926285597258,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-fall-speed": "200"
+									}
+								}
+							],
+							"sid": 832117915502670,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-key-pressed",
+											"objectClass": "Keyboard",
+											"sid": 546258825401922,
+											"parameters": {
+												"key": 37
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-vector-y",
+											"objectClass": "HeroShadow",
+											"sid": 330231378563824,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-y": "Self.Platform.VectorY - Self.Platform.JumpStrength"
+											}
+										},
+										{
+											"id": "set-vector-x",
+											"objectClass": "HeroShadow",
+											"sid": 128175886738934,
+											"behaviorType": "Platform",
+											"parameters": {
+												"vector-x": "Self.Platform.VectorX - Self.Platform.JumpStrength"
+											}
+										}
+									],
+									"sid": 883568556831655
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 368810563696310
+								}
+							],
+							"actions": [
+								{
+									"id": "set-max-fall-speed",
+									"objectClass": "HeroShadow",
+									"sid": 613486800448737,
+									"behaviorType": "Platform",
+									"parameters": {
+										"max-fall-speed": "1000"
+									}
+								}
+							],
+							"sid": 462849070427671
+						}
+					],
+					"sid": 258424967842681
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Hero HP",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Knight",
+									"sid": 801686647233725,
+									"parameters": {
+										"instance-variable": "localHP",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 735838165483804,
+									"parameters": {
+										"animation": "\"5HP\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 753135633692438
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Knight",
+									"sid": 317626910205847,
+									"parameters": {
+										"instance-variable": "localHP",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 399226329248776,
+									"parameters": {
+										"animation": "\"4HP\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 644863835345020
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Knight",
+									"sid": 322966887725727,
+									"parameters": {
+										"instance-variable": "localHP",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 695354091990525,
+									"parameters": {
+										"animation": "\"3HP\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 623456841256592
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Knight",
+									"sid": 846396424269215,
+									"parameters": {
+										"instance-variable": "localHP",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 711645490005492,
+									"parameters": {
+										"animation": "\"2HP\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 661206881104361
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Knight",
+									"sid": 218070404910510,
+									"parameters": {
+										"instance-variable": "localHP",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 222857291655769,
+									"parameters": {
+										"animation": "\"1HP\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 186321408157987
+						}
+					],
+					"sid": 910214424458445
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Seed Tree Growing",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-key-pressed",
+									"objectClass": "Keyboard",
+									"sid": 424199368238717,
+									"parameters": {
+										"key": 80
+									}
+								},
+								{
+									"id": "is-on-floor",
+									"objectClass": "HeroShadow",
+									"sid": 459390024765725,
+									"behaviorType": "Platform"
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Knight",
+									"sid": 409646352959193,
+									"parameters": {
+										"object": "seedTree",
+										"layer": "\"growingTreeLayers\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 124692990144115,
+									"parameters": {
+										"variable": "score",
+										"value": "200"
+									}
+								}
+							],
+							"sid": 458765160255000
+						}
+					],
+					"sid": 932690350500913
+				},
 				{
 					"eventType": "block",
 					"conditions": [
@@ -76,6 +745,24 @@
 							"sid": 552637654389006,
 							"parameters": {
 								"tag": "\"menuSound\""
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 650446323899387,
+							"parameters": {
+								"layer": "\"OpacityLayer\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 745470025859992,
+							"parameters": {
+								"layer": "\"winLayer\"",
+								"visibility": "invisible"
 							}
 						}
 					],
@@ -146,28 +833,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-outside-layout",
-							"objectClass": "Knight",
-							"sid": 139150999499124
-						}
-					],
-					"actions": [
-						{
-							"id": "set-position",
-							"objectClass": "HeroShadow",
-							"sid": 942315883977114,
-							"parameters": {
-								"x": "96",
-								"y": "192"
-							}
-						}
-					],
-					"sid": 682467399755685
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
 							"id": "on-key-pressed",
 							"objectClass": "Keyboard",
 							"sid": 726548332840637,
@@ -201,18 +866,6 @@
 							"parameters": {
 								"variable": "RightDirection",
 								"value": "true"
-							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 766500594181578,
-							"parameters": {
-								"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"walkSound\""
 							}
 						}
 					],
@@ -256,21 +909,133 @@
 								"variable": "RightDirection",
 								"value": "false"
 							}
-						},
-						{
-							"id": "play",
-							"objectClass": "Audio",
-							"sid": 943962662129353,
-							"parameters": {
-								"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
-								"loop": "not-looping",
-								"volume": "0",
-								"stereo-pan": "0",
-								"tag-optional": "\"walkSound\""
-							}
 						}
 					],
 					"sid": 929319710588183
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 635000865819576,
+							"parameters": {
+								"key": 39
+							}
+						},
+						{
+							"id": "is-on-floor",
+							"objectClass": "HeroShadow",
+							"sid": 221269352563199,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 224287326941634,
+							"parameters": {
+								"tag": "\"walkSound\""
+							}
+						}
+					],
+					"sid": 714738634176103,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 358876381288201,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 552009013945689,
+									"parameters": {
+										"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"walkSound\""
+									}
+								}
+							],
+							"sid": 756742850411173
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 258745763373294,
+							"parameters": {
+								"key": 37
+							}
+						},
+						{
+							"id": "is-on-floor",
+							"objectClass": "HeroShadow",
+							"sid": 996274908004749,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 603001848248156,
+							"parameters": {
+								"tag": "\"walkSound\""
+							}
+						}
+					],
+					"sid": 246827421818297,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 678321671515919,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 606014869784245,
+									"parameters": {
+										"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"walkSound\""
+									}
+								}
+							],
+							"sid": 946104037006426
+						}
+					]
 				},
 				{
 					"eventType": "block",
@@ -325,6 +1090,36 @@
 					"actions": [],
 					"sid": 524240326372511,
 					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 653040414730512,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 497868863985647,
+									"parameters": {
+										"audio-file": "whoosh-transitions-sfx-01-118227",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"arrowShotSound\""
+									}
+								}
+							],
+							"sid": 812108596545584
+						},
 						{
 							"eventType": "block",
 							"conditions": [
@@ -463,7 +1258,227 @@
 						}
 					],
 					"sid": 982335524272639,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Knight",
+									"sid": 538242874031747,
+									"parameters": {
+										"instance-variable": "localHP",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 374633107842998,
+									"parameters": {
+										"layout": "MenuLayout"
+									}
+								}
+							],
+							"sid": 937193752109912
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 820734716010920
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Knight",
+									"sid": 849248175688572,
+									"parameters": {
+										"x": "HeroShadow.X - 500",
+										"y": "HeroShadow.Y"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Knight",
+									"sid": 532234017209961,
+									"parameters": {
+										"instance-variable": "localHP",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 385044211292082
+						}
+					],
 					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "arrow",
+							"sid": 357294954346629,
+							"parameters": {
+								"object": "spiderDrones"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 777440168144930,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 611385632120732,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 910270151586197,
+									"parameters": {
+										"audio-file": "mixkit-impact-of-a-blow-2150",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"arrowImpactSound\""
+									}
+								}
+							],
+							"sid": 660802243615255
+						}
+					],
+					"isOrBlock": true
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 496587681696976,
+							"parameters": {
+								"key": 38
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 444650348084696,
+							"parameters": {
+								"tag": "\"walkSound\""
+							}
+						}
+					],
+					"sid": 878212354590294,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 832257552210649,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 114104144084829,
+									"parameters": {
+										"audio-file": "fast-simple-chop-5-6270",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"jumpSound\""
+									}
+								}
+							],
+							"sid": 408329554225133
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "HeroShadow",
+							"sid": 819836050809433,
+							"parameters": {
+								"object": "barrier2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 781335177161628,
+							"parameters": {
+								"layer": "\"opacityLayer\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 399730930895733,
+							"parameters": {
+								"layer": "\"winLayer\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 946724268319015,
+							"parameters": {
+								"group-name": "\"Hero\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "HeroShadow",
+							"sid": 457177368256833,
+							"behaviorType": "Platform",
+							"parameters": {
+								"state": "disabled"
+							}
+						},
+						{
+							"id": "stop-all",
+							"objectClass": "Audio",
+							"sid": 931427735708055
+						}
+					],
+					"sid": 507551102282968
 				}
 			],
 			"sid": 347782337239063
@@ -578,7 +1593,17 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 641054886086593,
+									"parameters": {
+										"variable": "score",
+										"value": "100"
+									}
+								}
+							],
 							"sid": 711568299199584,
 							"children": [
 								{
@@ -780,6 +1805,949 @@
 				}
 			],
 			"sid": 810698650550341
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Music Buttons",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Level Sound Effects Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 121732428105113,
+									"parameters": {
+										"object": "muteButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "muteButton",
+									"sid": 991024702870896,
+									"parameters": {
+										"animation": "\"clickedMuteButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 711418409975823
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 287430070873650,
+									"parameters": {
+										"object": "muteButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 671627506133632,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 295438362125583,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 435372443631083,
+											"parameters": {
+												"animation": "\"disabledMuteButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 356112334791188
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 657464071246182
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 429411653925507,
+											"parameters": {
+												"animation": "\"normalMuteButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 297012144463095
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 951214945392475,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "muteButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 319769777257336,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 200007818223300,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 636400566834766,
+											"parameters": {
+												"animation": "\"disabledMuteButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "muteButton",
+											"sid": 541664728425959,
+											"parameters": {
+												"instance-variable": "soundEffectMuted",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 407017491742951,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 635937394455785,
+											"parameters": {
+												"text": "playSoundEffects"
+											}
+										}
+									],
+									"sid": 432447473576478
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 626688137575154
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 146561450835218,
+											"parameters": {
+												"animation": "\"normalMuteButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "muteButton",
+											"sid": 131929942910165,
+											"parameters": {
+												"instance-variable": "soundEffectMuted",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 385487705246827,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 688286058359254,
+											"parameters": {
+												"text": "playSoundEffects"
+											}
+										}
+									],
+									"sid": 883037017703261
+								}
+							]
+						}
+					],
+					"sid": 523543443524957
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Level Background Music button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 353979587426490,
+									"parameters": {
+										"object": "backgroundMusicButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "backgroundMusicButton",
+									"sid": 573851474630425,
+									"parameters": {
+										"animation": "\"clickedBackgroundMusicButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 374137502566947
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 398060624770745,
+									"parameters": {
+										"object": "backgroundMusicButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 855457121148351,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 331631801924543,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 124631773791111,
+											"parameters": {
+												"animation": "\"disabledBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 118723535858782
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 860008008197329
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 787091586492804,
+											"parameters": {
+												"animation": "\"normalBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 340889317458092
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-object-clicked",
+									"objectClass": "Mouse",
+									"sid": 725001579565933,
+									"parameters": {
+										"mouse-button": "left",
+										"click-type": "clicked",
+										"object-clicked": "backgroundMusicButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 216791175908698,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 406258177710248,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 145556681059664,
+											"parameters": {
+												"animation": "\"disabledBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "backgroundMusicButton",
+											"sid": 390496531497999,
+											"parameters": {
+												"instance-variable": "bgMusicMuted",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 556259055751873,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"value": "0"
+											}
+										},
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 955416292755126
+										}
+									],
+									"sid": 259923951587597
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 570181282829598
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 981541577573232,
+											"parameters": {
+												"animation": "\"clickedBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "backgroundMusicButton",
+											"sid": 576866828647515,
+											"parameters": {
+												"instance-variable": "bgMusicMuted",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 951010924506568,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"value": "1"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 531305589836818,
+											"parameters": {
+												"audio-file": "C01 - Title",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"menuSound\""
+											}
+										}
+									],
+									"sid": 482601659677514
+								}
+							]
+						}
+					],
+					"sid": 447127163486682
+				}
+			],
+			"sid": 907295253818656
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Restart Button",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 737044050613681,
+							"parameters": {
+								"object": "restartButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "restartButton",
+							"sid": 383576156248948,
+							"parameters": {
+								"animation": "\"clickedRestartButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 767338679166081
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 916049656010420,
+							"parameters": {
+								"object": "restartButton"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "restartButton",
+							"sid": 457047926092110,
+							"parameters": {
+								"animation": "\"normalRestartButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 217587851150032
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 832816920531675,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "restartButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "restart-layout",
+							"objectClass": "System",
+							"sid": 634832032852750
+						}
+					],
+					"sid": 832683897603056
+				}
+			],
+			"sid": 185160454404983
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Next Level Button",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 216049467432829,
+							"parameters": {
+								"object": "nextLevelButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "nextLevelButton",
+							"sid": 229876127970729,
+							"parameters": {
+								"animation": "\"clickedNextLevel\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 456605355312621
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 831246794727307,
+							"parameters": {
+								"object": "nextLevelButton"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "nextLevelButton",
+							"sid": 991552519827803,
+							"parameters": {
+								"animation": "\"normalNextLevel\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 628122232453759
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 477862595894660,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "nextLevelButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-nextprevious-layout",
+							"objectClass": "System",
+							"sid": 267915668673073,
+							"parameters": {
+								"which": "next"
+							}
+						}
+					],
+					"sid": 640861775540779
+				}
+			],
+			"sid": 371208242984039
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Back Level Button",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 587900967054438,
+							"parameters": {
+								"object": "backLevel"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "backLevel",
+							"sid": 633135203346980,
+							"parameters": {
+								"animation": "\"clickedBackLevel\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 692253326671810
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 765204134265895,
+							"parameters": {
+								"object": "backLevel"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "backLevel",
+							"sid": 568588914506503,
+							"parameters": {
+								"animation": "\"normalBackLevel\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 613088790117278
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 104385903172431,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "backLevel"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "go-to-nextprevious-layout",
+							"objectClass": "System",
+							"sid": 203014354338921,
+							"parameters": {
+								"which": "previous"
+							}
+						}
+					],
+					"sid": 571722857656450
+				}
+			],
+			"sid": 322237441048043
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Pause Play button",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 511858567079440,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "playButtonForPause"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 808464576473401,
+							"parameters": {
+								"layer": "\"pauseLayer\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 513703082314228,
+							"parameters": {
+								"layer": "\"opacityLayer\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 955345131363917,
+							"parameters": {
+								"group-name": "\"Hero\"",
+								"state": "activated"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "HeroShadow",
+							"sid": 985090431832651,
+							"behaviorType": "Platform",
+							"parameters": {
+								"state": "enabled"
+							}
+						}
+					],
+					"sid": 827013562560056
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 983758536883854,
+							"parameters": {
+								"object": "playButtonForPause"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "playButtonForPause",
+							"sid": 536790603852765,
+							"parameters": {
+								"animation": "\"clickedPfpButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 541557682102657
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 917813105946543,
+							"parameters": {
+								"object": "playButtonForPause"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "playButtonForPause",
+							"sid": 569871953699338,
+							"parameters": {
+								"animation": "\"normalPfpButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 650717513048362
+				}
+			],
+			"sid": 463392182614202
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Pause Button",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 892166547581557,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "pauseButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 591678809326113,
+							"parameters": {
+								"layer": "\"pauseLayer\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 965004437533279,
+							"parameters": {
+								"layer": "\"opacityLayer\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 770028468226923,
+							"parameters": {
+								"group-name": "\"Hero\"",
+								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-enabled",
+							"objectClass": "HeroShadow",
+							"sid": 847193102058973,
+							"behaviorType": "Platform",
+							"parameters": {
+								"state": "disabled"
+							}
+						}
+					],
+					"sid": 860729525546700
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 374583264281804,
+							"parameters": {
+								"object": "pauseButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "pauseButton",
+							"sid": 871978427080647,
+							"parameters": {
+								"animation": "\"clickedPauseButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 585910234936484
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 964114638325324,
+							"parameters": {
+								"object": "pauseButton"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "pauseButton",
+							"sid": 842397518182493,
+							"parameters": {
+								"animation": "\"normalPausedButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 932498166936240
+				}
+			],
+			"sid": 395613137850093
 		}
 	],
 	"sid": 104816411421624

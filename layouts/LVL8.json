@@ -1,0 +1,167 @@
+{
+	"name": "LVL8",
+	"layers": [
+		{
+			"name": "BG",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "Background_2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 186,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 3008,
+						"height": 1088,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 558402201583116,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.5019607843137255,
+				0.5019607843137255,
+				0.5019607843137255,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "tiles",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "VillageGround",
+					"properties": {
+						"initially-visible": true,
+						"tile-width": 32,
+						"tile-height": 32,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0,
+						"tile-x-drawing-offset": 0,
+						"tile-y-drawing-offset": 0,
+						"drawing-mode": "top-to-right"
+					},
+					"uid": 190,
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"ownData": {
+						"tilemapData": {
+							"width": 93,
+							"height": 28,
+							"max-width": 228,
+							"max-height": 56,
+							"data": "6x0,2,248,54x0,2,248,54x0,2,112d,54x0,2,126h,29,53x0,2,126,29h,53x0,98,30,54x0,2,29,54x0,2,126h,22h,53x0,2,140hv,126h,29,52x0,2,109hv,140hv,157h,52x0,2,140hv,124,126h,29,51x0,2,92hv,140hv,126,30,51x0,2,140hv,126,30,52x0,2,140hv,127,53x0,2,140hv,67,29,52x0,2,67vd,112,30,52x0,3,30,57x0,1,29,54x0,2,255,54x0,2,255,54x0,2,126h,29,53x0,2,141,255,53x0,2,141,255,53x0,2,141,255,53x0,2,141,255,53x0,2,141,255,53x0,2,126,22,53x0,3,30,51x0,1,21,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,126h,21,53x0,2,76h,34,53x0,2,76h,126h,29,52x0,2,77,126,30,52x0,2,126,30,53x0,3,256,614x0,87,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,2,34,54x0,3,22,58x0,10,55x0,88,29,54x0,88,169d,54x0,88,185d,54x0,88,201d,54x0,88,215,29,53x0,88,198,255,53x0,88,75h,30,53x0,223h,29,54x0,223h,169hd,54x0,223h,185hd,54x0,223h,201hd,54x0,223h,29h,54x0,11,114x0,1,112h,54x0,2,124h,54x0,2,110,54x0,2,110,54x0,2,110,54x0,2,110,54x0,2h,92h,54x0,2h,141h,49x0,1,29,3x0,14,29h,49x0,61,126h,22h,53x0,61,18,165vd,53x0,61,18,165vd,53x0,61,126,30,53x0,61,127,50x0,10,3x0,61,34,50x0,57h,3x0,14,30,50x0,56h,55x0,58h,55x0,57h,55x0,11,113x0,13,29,54x0,2,157,54x0,2,126h,29,53x0,2,109,126h,30h,52x0,14,112,185,126vd,30h,54x0,255hv,248h,53x0,1,126,30,53x0,62,30,54x0,58h,55x0,57h,55x0,3,59x0,1,29,54x0,2,104h,201h,53x0,2,124h,104h,53x0,2,104h,124,53x0,2,2x104h,53x0,2,2x104h,53x0,2,104h,124h,53x0,2,2x104h,53x0,2,124,104h,53x0,2,2x104h,53x0,2,2x104h,53x0,2,2x104h,53x0,2,104h,109,53x0,2,2x104h,53x0,2,2x104h,5809x0"
+						},
+						"tile-width": 32,
+						"tile-height": 32,
+						"tile-x-offset": 0,
+						"tile-y-offset": 0,
+						"tile-x-spacing": 0,
+						"tile-y-spacing": 0
+					},
+					"world": {
+						"x": 0,
+						"y": 0,
+						"width": 2999,
+						"height": 896,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 325365293612416,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.5019607843137255,
+				0.5019607843137255,
+				0.5019607843137255,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		}
+	],
+	"sid": 379651757597606,
+	"nonworld-instances": [],
+	"effectTypes": [],
+	"width": 3000,
+	"height": 900,
+	"unboundedScrolling": false,
+	"vpX": 0.5,
+	"vpY": 0.5,
+	"projection": "perspective",
+	"eventSheet": "Event sheet 8"
+}

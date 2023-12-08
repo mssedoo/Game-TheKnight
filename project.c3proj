@@ -15,6 +15,13 @@
 		},
 		{
 			"type": "plugin",
+			"id": "Facebook",
+			"name": "Facebook",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Keyboard",
 			"name": "Keyboard",
 			"author": "Scirra",
@@ -45,6 +52,13 @@
 			"type": "plugin",
 			"id": "Tilemap",
 			"name": "Tilemap",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "googleplay",
+			"name": "Google Play",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -132,7 +146,25 @@
 			"facebookButtons",
 			"muteButton",
 			"gameTitle",
-			"transparentMenuLayer"
+			"transparentMenuLayer",
+			"barrier2",
+			"backgroundWin",
+			"winObject",
+			"opacityObject",
+			"Text2",
+			"nextLevelButton",
+			"backLevel",
+			"restartButton",
+			"levelIndicator",
+			"seedTree",
+			"heroHP",
+			"menuScore",
+			"pauseBackground",
+			"Text3",
+			"playButton2",
+			"pauseButton",
+			"pauseScore",
+			"playButtonForPause"
 		],
 		"subfolders": [
 			{
@@ -154,7 +186,8 @@
 							"Box",
 							"slidingGround",
 							"Sprite",
-							"Sprite2"
+							"Sprite2",
+							"woodBox"
 						],
 						"subfolders": [],
 						"name": "Ground-solid"
@@ -189,6 +222,14 @@
 					}
 				],
 				"name": "Sprite"
+			},
+			{
+				"items": [
+					"Facebook",
+					"GooglePlay"
+				],
+				"subfolders": [],
+				"name": "Social Media"
 			}
 		]
 	},
@@ -205,14 +246,16 @@
 			"LVL2",
 			"LVL3",
 			"LVL4",
-			"LVL5"
+			"LVL5",
+			"LVL8"
 		],
 		"subfolders": []
 	},
 	"eventSheets": {
 		"items": [
 			"EventSheet",
-			"menuEventSheet"
+			"menuEventSheet",
+			"Event sheet 8"
 		],
 		"subfolders": []
 	},
@@ -251,6 +294,22 @@
 					"name": "fast-simple-chop-5-6270.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 868030749936725,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "whoosh-transitions-sfx-01-118227.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 228487854324807,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "mixkit-impact-of-a-blow-2150.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 180573078396475,
 					"file-info": {
 						"purpose": "none"
 					}
