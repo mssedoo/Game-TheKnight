@@ -1749,6 +1749,48 @@
 							]
 						}
 					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "arrow",
+							"sid": 655000280173101,
+							"parameters": {
+								"object": "slidingGround"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "arrow",
+							"sid": 252910121295628
+						}
+					],
+					"sid": 270200475329850
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "arrow",
+							"sid": 281554829975067,
+							"parameters": {
+								"object": "VillageGround"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "arrow",
+							"sid": 729937956590776
+						}
+					],
+					"sid": 607358982181981
 				}
 			],
 			"sid": 193043386799103
