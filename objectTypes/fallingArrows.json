@@ -1,19 +1,14 @@
 {
-	"name": "slidingGround",
+	"name": "fallingArrows",
 	"plugin-id": "Sprite",
-	"sid": 997223229428377,
+	"sid": 121379097970162,
 	"isGlobal": false,
 	"instanceVariables": [],
 	"behaviorTypes": [
 		{
 			"behaviorId": "solid",
 			"name": "Solid",
-			"sid": 206863846979683
-		},
-		{
-			"behaviorId": "Sin",
-			"name": "Sine",
-			"sid": 645716846317021
+			"sid": 903372665817366
 		}
 	],
 	"effectTypes": [],
@@ -22,24 +17,24 @@
 			{
 				"frames": [
 					{
-						"width": 64,
-						"height": 34,
+						"width": 7,
+						"height": 63,
 						"originX": 0.5,
 						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6097890,
+						"imageSpriteId": 6916059,
 						"collisionPoly": {
 							"points": [
-								0.015625,
-								0.029411764705882353,
-								0.984375,
-								0.029411764705882353,
-								0.984375,
-								0.9705882352941176,
-								0.015625,
-								0.9705882352941176
+								1,
+								0,
+								1,
+								1,
+								0,
+								1,
+								0,
+								0
 							]
 						},
 						"useCollisionPoly": true,
@@ -47,7 +42,7 @@
 						"tag": ""
 					}
 				],
-				"sid": 194017866977091,
+				"sid": 677495437521959,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

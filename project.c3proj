@@ -56,13 +56,6 @@
 			"bundled": false
 		},
 		{
-			"type": "plugin",
-			"id": "googleplay",
-			"name": "Google Play",
-			"author": "Scirra",
-			"bundled": false
-		},
-		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -80,6 +73,13 @@
 			"type": "behavior",
 			"id": "Flash",
 			"name": "Flash",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "behavior",
+			"id": "LOS",
+			"name": "Line of sight",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -161,10 +161,12 @@
 			"menuScore",
 			"pauseBackground",
 			"Text3",
-			"playButton2",
 			"pauseButton",
 			"pauseScore",
-			"playButtonForPause"
+			"playButtonForPause",
+			"fallingArrows",
+			"levelFigure",
+			"levelSelectBackground"
 		],
 		"subfolders": [
 			{
@@ -208,7 +210,8 @@
 					},
 					{
 						"items": [
-							"spiderDrones"
+							"spiderDrones",
+							"turret"
 						],
 						"subfolders": [],
 						"name": "Enemy"
@@ -225,8 +228,7 @@
 			},
 			{
 				"items": [
-					"Facebook",
-					"GooglePlay"
+					"Facebook"
 				],
 				"subfolders": [],
 				"name": "Social Media"
@@ -247,7 +249,8 @@
 			"LVL3",
 			"LVL4",
 			"LVL5",
-			"LVL8"
+			"LVL8",
+			"levelSelector"
 		],
 		"subfolders": []
 	},
@@ -255,7 +258,8 @@
 		"items": [
 			"EventSheet",
 			"menuEventSheet",
-			"Event sheet 8"
+			"Event sheet 8",
+			"levelSelectorEventSheet"
 		],
 		"subfolders": []
 	},
@@ -310,6 +314,14 @@
 					"name": "mixkit-impact-of-a-blow-2150.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 180573078396475,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "vgm-atmospheric-air.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 121910538526015,
 					"file-info": {
 						"purpose": "none"
 					}
@@ -477,7 +489,7 @@
 		"author": "Anais Edmond",
 		"authorEmail": "alexaguero997@gmail.com",
 		"authorWebsite": "",
-		"appId": "",
+		"appId": "com.university.knight",
 		"pixelRounding": false,
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
@@ -517,7 +529,7 @@
 		"zNear": 1,
 		"zFar": 10000,
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "splash",
+		"loaderStyle": "none",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",

@@ -695,7 +695,8 @@
 					},
 					"uid": 77,
 					"instanceVariables": {
-						"spiderHP": 3
+						"spiderHP": 3,
+						"directionRight": 1
 					},
 					"behaviors": {
 						"Platform": {
@@ -730,6 +731,14 @@
 						},
 						"Flash": {
 							"properties": {}
+						},
+						"LineOfSight": {
+							"properties": {
+								"obstacles": "solids",
+								"range": 10000,
+								"cone-of-view": 360,
+								"use-collision-cells": true
+							}
 						}
 					},
 					"world": {

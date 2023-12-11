@@ -5,7 +5,7 @@
 			"eventType": "variable",
 			"name": "playBackgroundMusic",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -678,9 +678,9 @@
 								{
 									"id": "go-to-layout",
 									"objectClass": "System",
-									"sid": 980880551438878,
+									"sid": 237615136895813,
 									"parameters": {
-										"layout": "LVL1"
+										"layout": "levelSelector"
 									}
 								}
 							],

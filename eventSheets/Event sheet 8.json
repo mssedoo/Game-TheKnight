@@ -1,5 +1,238 @@
 {
 	"name": "Event sheet 8",
-	"events": [],
+	"events": [
+		{
+			"eventType": "include",
+			"includeSheet": "EventSheet"
+		},
+		{
+			"eventType": "variable",
+			"name": "directionRight",
+			"type": "number",
+			"initialValue": "1",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 457461062630355
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-los-to-object",
+					"objectClass": "spiderDrones",
+					"sid": 113328512612413,
+					"behaviorType": "LineOfSight",
+					"parameters": {
+						"object": "Knight",
+						"image-point": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-enabled",
+					"objectClass": "flamesBullet",
+					"sid": 968742622963866,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"state": "enabled"
+					}
+				},
+				{
+					"id": "set-angle-of-motion",
+					"objectClass": "flamesBullet",
+					"sid": 728279838754240,
+					"behaviorType": "Bullet",
+					"parameters": {
+						"angle": "flamesBullet.X&flamesBullet.Y&Knight.X&Knight.Y"
+					}
+				}
+			],
+			"sid": 559070642499123
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "spiderDrones",
+					"sid": 175369155597655,
+					"parameters": {
+						"instance-variable": "directionRight",
+						"comparison": 0,
+						"value": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "spiderDrones",
+					"sid": 484109862544339,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "right"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "spiderDrones",
+					"sid": 663659192488106,
+					"parameters": {
+						"state": "not-mirrored"
+					}
+				}
+			],
+			"sid": 446203189746419
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "compare-instance-variable",
+					"objectClass": "spiderDrones",
+					"sid": 109177868287517,
+					"parameters": {
+						"instance-variable": "directionRight",
+						"comparison": 0,
+						"value": "0"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "simulate-control",
+					"objectClass": "spiderDrones",
+					"sid": 265587568153711,
+					"behaviorType": "Platform",
+					"parameters": {
+						"control": "left"
+					}
+				},
+				{
+					"id": "set-mirrored",
+					"objectClass": "spiderDrones",
+					"sid": 240858639115087,
+					"parameters": {
+						"state": "mirrored"
+					}
+				}
+			],
+			"sid": 503225250154790
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "spiderDrones",
+					"sid": 898860249102700,
+					"parameters": {
+						"object": "barrier"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 998361961889581,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "spiderDrones",
+							"sid": 595968510241409,
+							"parameters": {
+								"instance-variable": "directionRight",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "spiderDrones",
+							"sid": 692246774495660,
+							"parameters": {
+								"instance-variable": "directionRight",
+								"value": "0"
+							}
+						}
+					],
+					"sid": 295742034753613
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "else",
+							"objectClass": "System",
+							"sid": 231734941334804
+						}
+					],
+					"actions": [
+						{
+							"id": "set-instvar-value",
+							"objectClass": "spiderDrones",
+							"sid": 990603354274140,
+							"parameters": {
+								"instance-variable": "directionRight",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 350044280563334
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "has-los-to-object",
+					"objectClass": "turret",
+					"sid": 714210643088533,
+					"behaviorType": "LineOfSight",
+					"parameters": {
+						"object": "Knight",
+						"image-point": "0"
+					}
+				},
+				{
+					"id": "every-x-seconds",
+					"objectClass": "System",
+					"sid": 400896845321304,
+					"parameters": {
+						"interval-seconds": "1"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "spawn-another-object",
+					"objectClass": "turret",
+					"sid": 474752907850283,
+					"parameters": {
+						"object": "flamesBullet",
+						"layer": "5",
+						"image-point": "1",
+						"create-hierarchy": false
+					}
+				},
+				{
+					"id": "set-angle-toward-position",
+					"objectClass": "flamesBullet",
+					"sid": 497036873183191,
+					"parameters": {
+						"x": "Knight.X",
+						"y": "Knight.Y"
+					}
+				}
+			],
+			"sid": 602103889421163
+		}
+	],
 	"sid": 891260978123068
 }

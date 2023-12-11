@@ -1,0 +1,117 @@
+{
+	"name": "levelSelectorEventSheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 594319999500574,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "levelSelectBackground"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "go-to-layout-by-name",
+					"objectClass": "System",
+					"sid": 594480337711287,
+					"parameters": {
+						"layout": "\"LVL\"&levelSelectBackground.levelNum"
+					}
+				}
+			],
+			"sid": 322821181337579
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 295189188984503,
+					"parameters": {
+						"object": "homeButtons"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "homeButtons",
+					"sid": 940918616996721,
+					"parameters": {
+						"animation": "\"clickedHomeButton\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 225202009499977
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "cursor-is-over-object",
+					"objectClass": "Mouse",
+					"sid": 944397162997439,
+					"parameters": {
+						"object": "homeButtons"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [
+				{
+					"id": "set-animation",
+					"objectClass": "homeButtons",
+					"sid": 590191317154608,
+					"parameters": {
+						"animation": "\"normalHomeButton\"",
+						"from": "beginning"
+					}
+				}
+			],
+			"sid": 262353999325486
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-object-clicked",
+					"objectClass": "Mouse",
+					"sid": 238991328014267,
+					"parameters": {
+						"mouse-button": "left",
+						"click-type": "clicked",
+						"object-clicked": "homeButtons"
+					}
+				}
+			],
+			"actions": [
+				{
+					"id": "stop",
+					"objectClass": "Audio",
+					"sid": 499983744939884,
+					"parameters": {
+						"tag": "\"levelMusic\""
+					}
+				},
+				{
+					"id": "go-to-layout",
+					"objectClass": "System",
+					"sid": 502201938227142,
+					"parameters": {
+						"layout": "MenuLayout"
+					}
+				}
+			],
+			"sid": 346245844120538
+		}
+	],
+	"sid": 257109888435567
+}

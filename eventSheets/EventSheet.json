@@ -1231,6 +1231,30 @@
 							"parameters": {
 								"object": "Spine"
 							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 621698308890282,
+							"parameters": {
+								"object": "fallingArrows"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 974956538724828,
+							"parameters": {
+								"object": "turret"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 352238949707766,
+							"parameters": {
+								"object": "flamesBullet"
+							}
 						}
 					],
 					"actions": [
@@ -1500,7 +1524,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "spiderDrones",
-							"sid": 701232696804930,
+							"sid": 604095220165687,
 							"parameters": {
 								"object": "arrow"
 							}
@@ -1510,7 +1534,7 @@
 						{
 							"id": "subtract-from-instvar",
 							"objectClass": "spiderDrones",
-							"sid": 364510596659404,
+							"sid": 619405525590662,
 							"parameters": {
 								"instance-variable": "spiderHP",
 								"value": "1"
@@ -1519,10 +1543,10 @@
 						{
 							"id": "destroy",
 							"objectClass": "arrow",
-							"sid": 126124846415598
+							"sid": 148412365671218
 						}
 					],
-					"sid": 425719936172409,
+					"sid": 883941435854549,
 					"children": [
 						{
 							"eventType": "block",
@@ -1530,7 +1554,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "spiderDrones",
-									"sid": 433348825498121,
+									"sid": 596494287577235,
 									"parameters": {
 										"instance-variable": "spiderHP",
 										"comparison": 4,
@@ -1542,7 +1566,7 @@
 								{
 									"id": "set-animation",
 									"objectClass": "spiderDrones",
-									"sid": 618027544026186,
+									"sid": 164898196844215,
 									"parameters": {
 										"animation": "\"HURT\"",
 										"from": "beginning"
@@ -1551,7 +1575,7 @@
 								{
 									"id": "flash",
 									"objectClass": "spiderDrones",
-									"sid": 467605238391906,
+									"sid": 915107674361025,
 									"behaviorType": "Flash",
 									"parameters": {
 										"on-time": "0.1",
@@ -1562,7 +1586,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 694025133939952,
+									"sid": 828856033783385,
 									"parameters": {
 										"seconds": "0.1"
 									}
@@ -1570,14 +1594,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "spiderDrones",
-									"sid": 651597625422345,
+									"sid": 266359117573374,
 									"parameters": {
 										"animation": "\"WALK\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 240360429300937
+							"sid": 746777169552240
 						},
 						{
 							"eventType": "block",
@@ -1585,7 +1609,7 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "spiderDrones",
-									"sid": 804006720923509,
+									"sid": 900874488433000,
 									"parameters": {
 										"instance-variable": "spiderHP",
 										"comparison": 0,
@@ -1597,14 +1621,14 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 641054886086593,
+									"sid": 745111701469336,
 									"parameters": {
 										"variable": "score",
 										"value": "100"
 									}
 								}
 							],
-							"sid": 711568299199584,
+							"sid": 677462129743188,
 							"children": [
 								{
 									"eventType": "block",
@@ -1612,7 +1636,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 856243308827039,
+											"sid": 976478503242126,
 											"parameters": {
 												"variable": "playSoundEffects",
 												"comparison": 0,
@@ -1624,7 +1648,7 @@
 										{
 											"id": "set-animation",
 											"objectClass": "spiderDrones",
-											"sid": 614888359804441,
+											"sid": 820359879866667,
 											"parameters": {
 												"animation": "\"DEATH\"",
 												"from": "beginning"
@@ -1633,7 +1657,7 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 670744609804927,
+											"sid": 297641031798112,
 											"parameters": {
 												"audio-file": "mixkit-robot-malfunction-1400",
 												"loop": "not-looping",
@@ -1643,9 +1667,18 @@
 											}
 										},
 										{
+											"id": "set-enabled",
+											"objectClass": "spiderDrones",
+											"sid": 895110705977777,
+											"behaviorType": "Platform",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 921183218035055,
+											"sid": 934395361512040,
 											"parameters": {
 												"seconds": "1.5"
 											}
@@ -1653,11 +1686,11 @@
 										{
 											"id": "start-fade",
 											"objectClass": "spiderDrones",
-											"sid": 432556443222355,
+											"sid": 381727731233253,
 											"behaviorType": "Fade"
 										}
 									],
-									"sid": 823977989620139
+									"sid": 676271390288105
 								},
 								{
 									"eventType": "block",
@@ -1665,14 +1698,14 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 428250435020887
+											"sid": 459595413241404
 										}
 									],
 									"actions": [
 										{
 											"id": "set-animation",
 											"objectClass": "spiderDrones",
-											"sid": 773390033595754,
+											"sid": 859591215467651,
 											"parameters": {
 												"animation": "\"DEATH\"",
 												"from": "beginning"
@@ -1681,16 +1714,25 @@
 										{
 											"id": "set-muted",
 											"objectClass": "Audio",
-											"sid": 926624996062911,
+											"sid": 378741118928574,
 											"parameters": {
 												"tag": "\"spiderDeathSound\"",
 												"state": "muted"
 											}
 										},
 										{
+											"id": "set-enabled",
+											"objectClass": "spiderDrones",
+											"sid": 522431475402660,
+											"behaviorType": "Platform",
+											"parameters": {
+												"state": "disabled"
+											}
+										},
+										{
 											"id": "wait",
 											"objectClass": "System",
-											"sid": 562784856667410,
+											"sid": 257685932063029,
 											"parameters": {
 												"seconds": "1.5"
 											}
@@ -1698,18 +1740,18 @@
 										{
 											"id": "start-fade",
 											"objectClass": "spiderDrones",
-											"sid": 355725461971509,
+											"sid": 181476865724590,
 											"behaviorType": "Fade"
 										}
 									],
-									"sid": 160417307810308
+									"sid": 640115669251223
 								}
 							]
 						}
 					]
 				}
 			],
-			"sid": 239642361405465
+			"sid": 193043386799103
 		},
 		{
 			"eventType": "group",

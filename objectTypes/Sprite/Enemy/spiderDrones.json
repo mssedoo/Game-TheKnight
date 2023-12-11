@@ -10,6 +10,13 @@
 			"desc": "Health Points of Spider drone",
 			"show": true,
 			"sid": 282956607869866
+		},
+		{
+			"name": "directionRight",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 186466265964325
 		}
 	],
 	"behaviorTypes": [
@@ -32,6 +39,11 @@
 			"behaviorId": "Flash",
 			"name": "Flash",
 			"sid": 622673591397557
+		},
+		{
+			"behaviorId": "LOS",
+			"name": "LineOfSight",
+			"sid": 566041950492833
 		}
 	],
 	"effectTypes": [],
