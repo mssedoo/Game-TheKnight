@@ -166,7 +166,11 @@
 			"playButtonForPause",
 			"fallingArrows",
 			"levelFigure",
-			"levelSelectBackground"
+			"levelSelectBackground",
+			"Background",
+			"LVLBarrier",
+			"Gold",
+			"LVL"
 		],
 		"subfolders": [
 			{
@@ -244,13 +248,17 @@
 	"layouts": {
 		"items": [
 			"MenuLayout",
+			"levelSelector",
 			"LVL1",
 			"LVL2",
 			"LVL3",
 			"LVL4",
 			"LVL5",
+			"LVL6",
+			"LVL7",
 			"LVL8",
-			"levelSelector"
+			"LVL10",
+			"LVL15"
 		],
 		"subfolders": []
 	},
