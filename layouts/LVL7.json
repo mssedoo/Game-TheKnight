@@ -34,6 +34,35 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "Background_2",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Default",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 477,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 5280,
+						"y": 0,
+						"width": 5307,
+						"height": 800,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 899678416594928,
@@ -254,11 +283,11 @@
 					"behaviors": {},
 					"ownData": {
 						"tilemapData": {
-							"width": 142,
-							"height": 12,
-							"max-width": 146,
-							"max-height": 54,
-							"data": "2485x0,474h,53x0,473h,161x0,470h,8x0,186h,757x0,555,479x0,484,53x0,484,53x0,484,53x0,484,53x0,484,53x0,484,53x0,484,53x0,484,53x0,484,2x0,13h,45h,49x0,484,54x0,387h,53x0,122h,53x0,122h,105x0,563h,53x0,563h,4x0,565h,1134x0,122,101x0,474h,5x0,122,159x0,599h,49x0,470h,0,534h,0,598h,161x0,2x37h,53x0,37h,160x0,565h,597h,52x0,564h,596h,52x0,563h,595h,53x0,122,53x0,2x122,52x0,122,107x0,122,53x0,122,53x0,122,377x0,583h,53x0,582h,367x0"
+							"width": 218,
+							"height": 24,
+							"max-width": 223,
+							"max-height": 68,
+							"data": "3129x0,474h,67x0,473h,203x0,470h,2519x0,563h,67x0,563h,4x0,565h,9169x0"
 						},
 						"tile-width": 32,
 						"tile-height": 32,
@@ -270,8 +299,8 @@
 					"world": {
 						"x": 0,
 						"y": 0,
-						"width": 4544,
-						"height": 384,
+						"width": 6984,
+						"height": 793,
 						"originX": 0,
 						"originY": 0,
 						"color": [
@@ -299,7 +328,7 @@
 						"x": 0,
 						"y": 32,
 						"width": 3200,
-						"height": 480,
+						"height": 768,
 						"originX": 0,
 						"originY": 0,
 						"color": [
