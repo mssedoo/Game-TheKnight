@@ -3,8 +3,44 @@
 	"plugin-id": "Sprite",
 	"sid": 328606808437210,
 	"isGlobal": false,
-	"instanceVariables": [],
-	"behaviorTypes": [],
+	"instanceVariables": [
+		{
+			"name": "directionRight",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 930626626720326
+		},
+		{
+			"name": "bossHP",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 121414633819702
+		}
+	],
+	"behaviorTypes": [
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 382342930719547
+		},
+		{
+			"behaviorId": "solid",
+			"name": "Solid",
+			"sid": 743245835557910
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 150910580640268
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 140701786538452
+		}
+	],
 	"effectTypes": [],
 	"animations": {
 		"items": [
@@ -18,7 +54,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2575924,
+						"imageSpriteId": 1019984,
 						"collisionPoly": {
 							"points": [
 								0.8188405797101449,
@@ -47,7 +83,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2957287,
+						"imageSpriteId": 7068606,
 						"collisionPoly": {
 							"points": [
 								0.9041095890410958,
@@ -78,7 +114,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6420459,
+						"imageSpriteId": 7149317,
 						"collisionPoly": {
 							"points": [
 								0.9041095890410958,
@@ -113,7 +149,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 2868573,
+						"imageSpriteId": 3251369,
 						"collisionPoly": {
 							"points": [
 								0.8461538461538461,
@@ -150,7 +186,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 9977310,
+						"imageSpriteId": 9124866,
 						"collisionPoly": {
 							"points": [
 								0.8333333333333334,
@@ -185,7 +221,7 @@
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 5308918,
+						"imageSpriteId": 6472403,
 						"collisionPoly": {
 							"points": [
 								0.8802816901408451,

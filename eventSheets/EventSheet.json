@@ -32,6 +32,26 @@
 			"sid": 871751957087252
 		},
 		{
+			"eventType": "variable",
+			"name": "coins",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 945770673160463
+		},
+		{
+			"eventType": "variable",
+			"name": "seeds",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 326252685855868
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -66,6 +86,22 @@
 					"parameters": {
 						"variable": "score",
 						"value": "0"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "seedNumText",
+					"sid": 983630808349981,
+					"parameters": {
+						"text": "seeds"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "coinNumberText",
+					"sid": 584908575984412,
+					"parameters": {
+						"text": "coins"
 					}
 				}
 			],
@@ -658,6 +694,16 @@
 									"objectClass": "HeroShadow",
 									"sid": 459390024765725,
 									"behaviorType": "Platform"
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 848273716612098,
+									"parameters": {
+										"variable": "seeds",
+										"comparison": 4,
+										"value": "0"
+									}
 								}
 							],
 							"actions": [
@@ -680,9 +726,58 @@
 										"variable": "score",
 										"value": "200"
 									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 476183764360288,
+									"parameters": {
+										"variable": "seeds",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "seedNumText",
+									"sid": 898351078940309,
+									"parameters": {
+										"text": "seeds"
+									}
 								}
 							],
-							"sid": 458765160255000
+							"sid": 458765160255000,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 914012420065285,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 707772902342325,
+											"parameters": {
+												"audio-file": "big-plants-crops-growing-quickly-43721",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"treeGrowingSound\""
+											}
+										}
+									],
+									"sid": 392184019329055
+								}
+							]
 						}
 					],
 					"sid": 932690350500913
@@ -1279,6 +1374,15 @@
 								"duration": "0.4",
 								"mode": "reducing-magnitude"
 							}
+						},
+						{
+							"id": "subtract-from-eventvar",
+							"objectClass": "System",
+							"sid": 949976546584707,
+							"parameters": {
+								"variable": "score",
+								"value": "20"
+							}
 						}
 					],
 					"sid": 982335524272639,
@@ -1298,6 +1402,11 @@
 								}
 							],
 							"actions": [
+								{
+									"id": "show-interstitial",
+									"objectClass": "MobileAdvert",
+									"sid": 618638854382634
+								},
 								{
 									"id": "go-to-layout",
 									"objectClass": "System",
@@ -1515,38 +1624,253 @@
 			"isActiveOnStart": true,
 			"children": [
 				{
-					"eventType": "comment",
-					"text": "Destroying spider drones when hit by mutliple arrows"
+					"eventType": "group",
+					"disabled": false,
+					"title": "Destroying drones",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "spiderDrones",
+									"sid": 954712732807896,
+									"parameters": {
+										"object": "arrow"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "spiderDrones",
+									"sid": 201423917224025,
+									"parameters": {
+										"instance-variable": "spiderHP",
+										"value": "1"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "arrow",
+									"sid": 434484493785232
+								}
+							],
+							"sid": 271159481677446,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "spiderDrones",
+											"sid": 207201340727899,
+											"parameters": {
+												"instance-variable": "spiderHP",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "spiderDrones",
+											"sid": 219485016487627,
+											"parameters": {
+												"animation": "\"HURT\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "flash",
+											"objectClass": "spiderDrones",
+											"sid": 111699585144266,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.5"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 132401991352299,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "spiderDrones",
+											"sid": 192051212337615,
+											"parameters": {
+												"animation": "\"WALK\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 950606815725847
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "spiderDrones",
+											"sid": 291833861444531,
+											"parameters": {
+												"instance-variable": "spiderHP",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 251648174479559,
+											"parameters": {
+												"variable": "score",
+												"value": "100"
+											}
+										}
+									],
+									"sid": 496959880262002,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 597914073548301,
+													"parameters": {
+														"variable": "playSoundEffects",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "spiderDrones",
+													"sid": 975779431192852,
+													"parameters": {
+														"animation": "\"DEATH\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 894465599769053,
+													"parameters": {
+														"audio-file": "mixkit-robot-malfunction-1400",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"spiderDeathSound\""
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "spiderDrones",
+													"sid": 693613732473538,
+													"behaviorType": "Platform",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 849176464859946,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "spiderDrones",
+													"sid": 957953832890455,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 725097233467644
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 438627511948241
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "spiderDrones",
+													"sid": 922030337313645,
+													"parameters": {
+														"animation": "\"DEATH\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-muted",
+													"objectClass": "Audio",
+													"sid": 514229548671285,
+													"parameters": {
+														"tag": "\"spiderDeathSound\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "spiderDrones",
+													"sid": 878763470855493,
+													"behaviorType": "Platform",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 368741171917659,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "spiderDrones",
+													"sid": 759088534966926,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 964355953224427
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 134014820357131
 				},
 				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "spiderDrones",
-							"sid": 604095220165687,
-							"parameters": {
-								"object": "arrow"
-							}
-						}
-					],
-					"actions": [
-						{
-							"id": "subtract-from-instvar",
-							"objectClass": "spiderDrones",
-							"sid": 619405525590662,
-							"parameters": {
-								"instance-variable": "spiderHP",
-								"value": "1"
-							}
-						},
-						{
-							"id": "destroy",
-							"objectClass": "arrow",
-							"sid": 148412365671218
-						}
-					],
-					"sid": 883941435854549,
+					"eventType": "group",
+					"disabled": false,
+					"title": "Moving Drones",
+					"description": "",
+					"isActiveOnStart": true,
 					"children": [
 						{
 							"eventType": "block",
@@ -1554,54 +1878,34 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "spiderDrones",
-									"sid": 596494287577235,
+									"sid": 224801047056880,
 									"parameters": {
-										"instance-variable": "spiderHP",
-										"comparison": 4,
-										"value": "0"
+										"instance-variable": "directionRight",
+										"comparison": 0,
+										"value": "1"
 									}
 								}
 							],
 							"actions": [
 								{
-									"id": "set-animation",
+									"id": "simulate-control",
 									"objectClass": "spiderDrones",
-									"sid": 164898196844215,
+									"sid": 626676122168206,
+									"behaviorType": "Platform",
 									"parameters": {
-										"animation": "\"HURT\"",
-										"from": "beginning"
+										"control": "right"
 									}
 								},
 								{
-									"id": "flash",
+									"id": "set-mirrored",
 									"objectClass": "spiderDrones",
-									"sid": 915107674361025,
-									"behaviorType": "Flash",
+									"sid": 795850552907034,
 									"parameters": {
-										"on-time": "0.1",
-										"off-time": "0.1",
-										"duration": "0.5"
-									}
-								},
-								{
-									"id": "wait",
-									"objectClass": "System",
-									"sid": 828856033783385,
-									"parameters": {
-										"seconds": "0.1"
-									}
-								},
-								{
-									"id": "set-animation",
-									"objectClass": "spiderDrones",
-									"sid": 266359117573374,
-									"parameters": {
-										"animation": "\"WALK\"",
-										"from": "beginning"
+										"state": "not-mirrored"
 									}
 								}
 							],
-							"sid": 746777169552240
+							"sid": 268843537124424
 						},
 						{
 							"eventType": "block",
@@ -1609,9 +1913,9 @@
 								{
 									"id": "compare-instance-variable",
 									"objectClass": "spiderDrones",
-									"sid": 900874488433000,
+									"sid": 464870338622620,
 									"parameters": {
-										"instance-variable": "spiderHP",
+										"instance-variable": "directionRight",
 										"comparison": 0,
 										"value": "0"
 									}
@@ -1619,26 +1923,49 @@
 							],
 							"actions": [
 								{
-									"id": "add-to-eventvar",
-									"objectClass": "System",
-									"sid": 745111701469336,
+									"id": "simulate-control",
+									"objectClass": "spiderDrones",
+									"sid": 460641982072855,
+									"behaviorType": "Platform",
 									"parameters": {
-										"variable": "score",
-										"value": "100"
+										"control": "left"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "spiderDrones",
+									"sid": 472427427931276,
+									"parameters": {
+										"state": "mirrored"
 									}
 								}
 							],
-							"sid": 677462129743188,
+							"sid": 735425474417909
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "spiderDrones",
+									"sid": 296354663680475,
+									"parameters": {
+										"object": "barrier"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 319407287330282,
 							"children": [
 								{
 									"eventType": "block",
 									"conditions": [
 										{
-											"id": "compare-eventvar",
-											"objectClass": "System",
-											"sid": 976478503242126,
+											"id": "compare-instance-variable",
+											"objectClass": "spiderDrones",
+											"sid": 200005277574407,
 											"parameters": {
-												"variable": "playSoundEffects",
+												"instance-variable": "directionRight",
 												"comparison": 0,
 												"value": "1"
 											}
@@ -1646,51 +1973,16 @@
 									],
 									"actions": [
 										{
-											"id": "set-animation",
+											"id": "set-instvar-value",
 											"objectClass": "spiderDrones",
-											"sid": 820359879866667,
+											"sid": 272113190351055,
 											"parameters": {
-												"animation": "\"DEATH\"",
-												"from": "beginning"
+												"instance-variable": "directionRight",
+												"value": "0"
 											}
-										},
-										{
-											"id": "play",
-											"objectClass": "Audio",
-											"sid": 297641031798112,
-											"parameters": {
-												"audio-file": "mixkit-robot-malfunction-1400",
-												"loop": "not-looping",
-												"volume": "0",
-												"stereo-pan": "0",
-												"tag-optional": "\"spiderDeathSound\""
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "spiderDrones",
-											"sid": 895110705977777,
-											"behaviorType": "Platform",
-											"parameters": {
-												"state": "disabled"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 934395361512040,
-											"parameters": {
-												"seconds": "1.5"
-											}
-										},
-										{
-											"id": "start-fade",
-											"objectClass": "spiderDrones",
-											"sid": 381727731233253,
-											"behaviorType": "Fade"
 										}
 									],
-									"sid": 676271390288105
+									"sid": 767633177252227
 								},
 								{
 									"eventType": "block",
@@ -1698,65 +1990,90 @@
 										{
 											"id": "else",
 											"objectClass": "System",
-											"sid": 459595413241404
+											"sid": 824398311283097
 										}
 									],
 									"actions": [
 										{
-											"id": "set-animation",
+											"id": "set-instvar-value",
 											"objectClass": "spiderDrones",
-											"sid": 859591215467651,
+											"sid": 112798457517034,
 											"parameters": {
-												"animation": "\"DEATH\"",
-												"from": "beginning"
+												"instance-variable": "directionRight",
+												"value": "1"
 											}
-										},
-										{
-											"id": "set-muted",
-											"objectClass": "Audio",
-											"sid": 378741118928574,
-											"parameters": {
-												"tag": "\"spiderDeathSound\"",
-												"state": "muted"
-											}
-										},
-										{
-											"id": "set-enabled",
-											"objectClass": "spiderDrones",
-											"sid": 522431475402660,
-											"behaviorType": "Platform",
-											"parameters": {
-												"state": "disabled"
-											}
-										},
-										{
-											"id": "wait",
-											"objectClass": "System",
-											"sid": 257685932063029,
-											"parameters": {
-												"seconds": "1.5"
-											}
-										},
-										{
-											"id": "start-fade",
-											"objectClass": "spiderDrones",
-											"sid": 181476865724590,
-											"behaviorType": "Fade"
 										}
 									],
-									"sid": 640115669251223
+									"sid": 249279260381302
 								}
 							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "turret",
+									"sid": 800586723106461,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"object": "Knight",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 709357398936032,
+									"parameters": {
+										"interval-seconds": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "turret",
+									"sid": 834401708363664,
+									"parameters": {
+										"object": "flamesBullet",
+										"layer": "5",
+										"image-point": "1",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "flamesBullet",
+									"sid": 691063388604130,
+									"parameters": {
+										"x": "Knight.X",
+										"y": "Knight.Y"
+									}
+								}
+							],
+							"sid": 965346791488421
 						}
-					]
-				},
+					],
+					"sid": 865799383004283
+				}
+			],
+			"sid": 193043386799103
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Arrow",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
 				{
 					"eventType": "block",
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "arrow",
-							"sid": 655000280173101,
+							"sid": 416222414117179,
 							"parameters": {
 								"object": "slidingGround"
 							}
@@ -1766,10 +2083,10 @@
 						{
 							"id": "destroy",
 							"objectClass": "arrow",
-							"sid": 252910121295628
+							"sid": 226252598127731
 						}
 					],
-					"sid": 270200475329850
+					"sid": 534274284275458
 				},
 				{
 					"eventType": "block",
@@ -1777,7 +2094,7 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "arrow",
-							"sid": 281554829975067,
+							"sid": 996576455016102,
 							"parameters": {
 								"object": "VillageGround"
 							}
@@ -1787,13 +2104,13 @@
 						{
 							"id": "destroy",
 							"objectClass": "arrow",
-							"sid": 729937956590776
+							"sid": 757603598921190
 						}
 					],
-					"sid": 607358982181981
+					"sid": 855168638053419
 				}
 			],
-			"sid": 193043386799103
+			"sid": 144390553285146
 		},
 		{
 			"eventType": "group",
@@ -2832,6 +3149,809 @@
 				}
 			],
 			"sid": 395613137850093
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Wolf",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Destroying Wolf",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "wolf",
+									"sid": 311939501303968,
+									"parameters": {
+										"object": "arrow"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "wolf",
+									"sid": 544736198172190,
+									"parameters": {
+										"instance-variable": "bossHP",
+										"value": "1"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "arrow",
+									"sid": 194328571411623
+								}
+							],
+							"sid": 256939199800135,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "wolf",
+											"sid": 423252063575157,
+											"parameters": {
+												"instance-variable": "bossHP",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "wolf",
+											"sid": 301658809335226,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.5"
+											}
+										},
+										{
+											"id": "wait",
+											"objectClass": "System",
+											"sid": 817722041889419,
+											"parameters": {
+												"seconds": "0.1"
+											}
+										},
+										{
+											"id": "set-animation",
+											"objectClass": "wolf",
+											"sid": 786325319847861,
+											"parameters": {
+												"animation": "\"WALK\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 238484840371917
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "wolf",
+											"sid": 456532302315428,
+											"parameters": {
+												"instance-variable": "bossHP",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 849754777407093,
+											"parameters": {
+												"variable": "score",
+												"value": "150"
+											}
+										}
+									],
+									"sid": 342187386378027,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 594815152836533,
+													"parameters": {
+														"variable": "playSoundEffects",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 462209337345195,
+													"parameters": {
+														"audio-file": "wolf-howling-140235",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"wolfDeathSound\""
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "wolf",
+													"sid": 493263152896172,
+													"behaviorType": "Platform",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 396200000339969,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "wolf",
+													"sid": 975166429729868,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 194504395542660
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 737890245200757
+												}
+											],
+											"actions": [
+												{
+													"id": "set-muted",
+													"objectClass": "Audio",
+													"sid": 255273311169087,
+													"parameters": {
+														"tag": "\"wolfDeathSound\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "wolf",
+													"sid": 951923312215121,
+													"behaviorType": "Platform",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 940956763242116,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "wolf",
+													"sid": 824503102462387,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 988600979815869
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 611254008733637
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Moving Wolf",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "wolf",
+									"sid": 584082033173258,
+									"parameters": {
+										"instance-variable": "directionRight",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "wolf",
+									"sid": 692657963299724,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "right"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "wolf",
+									"sid": 903206251243339,
+									"parameters": {
+										"state": "not-mirrored"
+									}
+								}
+							],
+							"sid": 406254404294977
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "wolf",
+									"sid": 543539244544844,
+									"parameters": {
+										"instance-variable": "directionRight",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "simulate-control",
+									"objectClass": "wolf",
+									"sid": 876871860538327,
+									"behaviorType": "Platform",
+									"parameters": {
+										"control": "left"
+									}
+								},
+								{
+									"id": "set-mirrored",
+									"objectClass": "wolf",
+									"sid": 937602694591171,
+									"parameters": {
+										"state": "mirrored"
+									}
+								}
+							],
+							"sid": 677553342960176
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "wolf",
+									"sid": 168724652246245,
+									"parameters": {
+										"object": "barrier"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 201421023414124,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "wolf",
+											"sid": 850970048776194,
+											"parameters": {
+												"instance-variable": "directionRight",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "wolf",
+											"sid": 736754363252066,
+											"parameters": {
+												"instance-variable": "directionRight",
+												"value": "0"
+											}
+										}
+									],
+									"sid": 133869024660709
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 517286279205700
+										}
+									],
+									"actions": [
+										{
+											"id": "set-instvar-value",
+											"objectClass": "wolf",
+											"sid": 946923410144425,
+											"parameters": {
+												"instance-variable": "directionRight",
+												"value": "1"
+											}
+										}
+									],
+									"sid": 674508415628111
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "has-los-to-object",
+									"objectClass": "turret",
+									"sid": 447210656950039,
+									"behaviorType": "LineOfSight",
+									"parameters": {
+										"object": "Knight",
+										"image-point": "0"
+									}
+								},
+								{
+									"id": "every-x-seconds",
+									"objectClass": "System",
+									"sid": 202366248820164,
+									"parameters": {
+										"interval-seconds": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "turret",
+									"sid": 114132457212191,
+									"parameters": {
+										"object": "flamesBullet",
+										"layer": "5",
+										"image-point": "1",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-toward-position",
+									"objectClass": "flamesBullet",
+									"sid": 460876723411425,
+									"parameters": {
+										"x": "Knight.X",
+										"y": "Knight.Y"
+									}
+								}
+							],
+							"sid": 904634893383226
+						}
+					],
+					"sid": 728476468197456
+				}
+			],
+			"sid": 908738366740364
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Coins",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 371910364356486,
+							"parameters": {
+								"object": "Gold"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 215506080637306,
+							"parameters": {
+								"variable": "coins",
+								"value": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Gold",
+							"sid": 221134578060823
+						},
+						{
+							"id": "set-text",
+							"objectClass": "coinNumberText",
+							"sid": 183879295619513,
+							"parameters": {
+								"text": "coins"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 115277263478870,
+							"parameters": {
+								"variable": "score",
+								"value": "10"
+							}
+						}
+					],
+					"sid": 190492318278102,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 752092776587697,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 898449959800295,
+									"parameters": {
+										"audio-file": "coin-upaif-14631",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"coinSound\""
+									}
+								}
+							],
+							"sid": 850579126467289
+						}
+					]
+				}
+			],
+			"sid": 281091438049387
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Seeds",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 599762016157794,
+							"parameters": {
+								"object": "seed"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 143427368211813,
+							"parameters": {
+								"variable": "seeds",
+								"value": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "seed",
+							"sid": 447439723878161
+						},
+						{
+							"id": "set-text",
+							"objectClass": "seedNumText",
+							"sid": 396154824851479,
+							"parameters": {
+								"text": "seeds"
+							}
+						}
+					],
+					"sid": 958911264289783,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 570993273870830,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 351453433874143,
+									"parameters": {
+										"audio-file": "8-bit-powerup-6768",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"seedSound\""
+									}
+								}
+							],
+							"sid": 963338247182364
+						}
+					]
+				}
+			],
+			"sid": 317856986141323
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Turret",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Destroying Turrets",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-collision-with-another-object",
+									"objectClass": "turret",
+									"sid": 736653354356023,
+									"parameters": {
+										"object": "arrow"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "turret",
+									"sid": 797337575579439,
+									"parameters": {
+										"instance-variable": "turretHP",
+										"value": "1"
+									}
+								},
+								{
+									"id": "destroy",
+									"objectClass": "arrow",
+									"sid": 801839546132787
+								}
+							],
+							"sid": 351645887845366,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "turret",
+											"sid": 580512492248493,
+											"parameters": {
+												"instance-variable": "turretHP",
+												"comparison": 4,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "flash",
+											"objectClass": "turret",
+											"sid": 369282441055299,
+											"behaviorType": "Flash",
+											"parameters": {
+												"on-time": "0.1",
+												"off-time": "0.1",
+												"duration": "0.5"
+											}
+										}
+									],
+									"sid": 963706539656099
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-instance-variable",
+											"objectClass": "turret",
+											"sid": 102579133224243,
+											"parameters": {
+												"instance-variable": "turretHP",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "add-to-eventvar",
+											"objectClass": "System",
+											"sid": 710820496778577,
+											"parameters": {
+												"variable": "score",
+												"value": "180"
+											}
+										}
+									],
+									"sid": 845395632907563,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 353503156731511,
+													"parameters": {
+														"variable": "playSoundEffects",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 551137425397330,
+													"parameters": {
+														"audio-file": "explosion-6055",
+														"loop": "not-looping",
+														"volume": "0",
+														"stereo-pan": "0",
+														"tag-optional": "\"TurrentDeathSound\""
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "turret",
+													"sid": 476802359590592,
+													"behaviorType": "Platform",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 699225610841483,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "turret",
+													"sid": 647928774975106,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 855927845629383
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 964288190732950
+												}
+											],
+											"actions": [
+												{
+													"id": "set-muted",
+													"objectClass": "Audio",
+													"sid": 721657127558922,
+													"parameters": {
+														"tag": "\"spiderDeathSound\"",
+														"state": "muted"
+													}
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "turret",
+													"sid": 767947086614664,
+													"behaviorType": "Platform",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "wait",
+													"objectClass": "System",
+													"sid": 413530491271314,
+													"parameters": {
+														"seconds": "1.5"
+													}
+												},
+												{
+													"id": "start-fade",
+													"objectClass": "turret",
+													"sid": 700830399273278,
+													"behaviorType": "Fade"
+												}
+											],
+											"sid": 571480106020548
+										}
+									]
+								}
+							]
+						}
+					],
+					"sid": 421722959137702
+				}
+			],
+			"sid": 988658613116550
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Instructions",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [],
+			"sid": 222084155844976
 		}
 	],
 	"sid": 104816411421624

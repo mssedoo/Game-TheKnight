@@ -19,42 +19,6 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "has-los-to-object",
-					"objectClass": "spiderDrones",
-					"sid": 113328512612413,
-					"behaviorType": "LineOfSight",
-					"parameters": {
-						"object": "Knight",
-						"image-point": "0"
-					}
-				}
-			],
-			"actions": [
-				{
-					"id": "set-enabled",
-					"objectClass": "flamesBullet",
-					"sid": 968742622963866,
-					"behaviorType": "Bullet",
-					"parameters": {
-						"state": "enabled"
-					}
-				},
-				{
-					"id": "set-angle-of-motion",
-					"objectClass": "flamesBullet",
-					"sid": 728279838754240,
-					"behaviorType": "Bullet",
-					"parameters": {
-						"angle": "flamesBullet.X&flamesBullet.Y&Knight.X&Knight.Y"
-					}
-				}
-			],
-			"sid": 559070642499123
-		},
-		{
-			"eventType": "block",
-			"conditions": [
-				{
 					"id": "compare-instance-variable",
 					"objectClass": "spiderDrones",
 					"sid": 175369155597655,

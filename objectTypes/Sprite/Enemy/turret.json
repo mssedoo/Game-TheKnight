@@ -3,7 +3,15 @@
 	"plugin-id": "Sprite",
 	"sid": 165369425798708,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "turretHP",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 633875201146761
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "solid",
@@ -14,6 +22,21 @@
 			"behaviorId": "LOS",
 			"name": "LineOfSight",
 			"sid": 888047872705073
+		},
+		{
+			"behaviorId": "Platform",
+			"name": "Platform",
+			"sid": 452792726194809
+		},
+		{
+			"behaviorId": "Flash",
+			"name": "Flash",
+			"sid": 875795205118013
+		},
+		{
+			"behaviorId": "Fade",
+			"name": "Fade",
+			"sid": 469653052233022
 		}
 	],
 	"effectTypes": [],

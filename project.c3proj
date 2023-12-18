@@ -56,6 +56,13 @@
 			"bundled": false
 		},
 		{
+			"type": "plugin",
+			"id": "advert",
+			"name": "Mobile advert",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
 			"type": "behavior",
 			"id": "Bullet",
 			"name": "Bullet",
@@ -170,7 +177,15 @@
 			"Background",
 			"LVLBarrier",
 			"Gold",
-			"LVL"
+			"LVL",
+			"seed",
+			"coinText",
+			"coinNumberText",
+			"seedNumText",
+			"hudCoin",
+			"hudSeed",
+			"loseText",
+			"MobileAdvert"
 		],
 		"subfolders": [
 			{
@@ -257,7 +272,12 @@
 			"LVL6",
 			"LVL7",
 			"LVL8",
+			"LVL9",
 			"LVL10",
+			"LVL11",
+			"LVL12",
+			"LVL13",
+			"LVL14",
 			"LVL15"
 		],
 		"subfolders": []
@@ -330,6 +350,46 @@
 					"name": "vgm-atmospheric-air.webm",
 					"type": "audio/webm; codecs=opus",
 					"sid": 121910538526015,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "wolf-howling-140235.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 341080694863457,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "coin-upaif-14631.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 907673061054217,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "8-bit-powerup-6768.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 611134745457660,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "big-plants-crops-growing-quickly-43721.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 611649490532266,
+					"file-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "explosion-6055.webm",
+					"type": "audio/webm; codecs=opus",
+					"sid": 567909029625517,
 					"file-info": {
 						"purpose": "none"
 					}

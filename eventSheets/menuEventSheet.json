@@ -38,6 +38,15 @@
 					"parameters": {
 						"text": "playSoundEffects"
 					}
+				},
+				{
+					"id": "create-interstitial",
+					"objectClass": "MobileAdvert",
+					"sid": 962424860872134,
+					"parameters": {
+						"advert-id": "\"ca-app-pub-5731767204141965/1777341862\"",
+						"show": "false"
+					}
 				}
 			],
 			"sid": 404520897841686,
