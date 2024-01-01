@@ -42,9 +42,9 @@
 				{
 					"id": "create-interstitial",
 					"objectClass": "MobileAdvert",
-					"sid": 962424860872134,
+					"sid": 905442223346736,
 					"parameters": {
-						"advert-id": "\"ca-app-pub-5731767204141965/1777341862\"",
+						"advert-id": "\"ca-app-pub-5731767204141965/8494365824\"",
 						"show": "false"
 					}
 				}
@@ -829,6 +829,618 @@
 				}
 			],
 			"sid": 630865615954976
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Menu Touch Controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Background Music button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 694020541711746,
+									"parameters": {
+										"object": "backgroundMusicButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "backgroundMusicButton",
+									"sid": 399879084742069,
+									"parameters": {
+										"animation": "\"clickedBackgroundMusicButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 958779942512371
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 871559667403649,
+									"parameters": {
+										"object": "backgroundMusicButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 670096185999366,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 876181805912042,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 683246824270226,
+											"parameters": {
+												"animation": "\"disabledBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 552393176207530
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 977646947777331
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 265993996548716,
+											"parameters": {
+												"animation": "\"normalBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 690551735463055
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 935674650225671,
+									"parameters": {
+										"object": "backgroundMusicButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 407787787473654,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 276724789782580,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 917389247788404,
+											"parameters": {
+												"animation": "\"disabledBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "backgroundMusicButton",
+											"sid": 593456501038838,
+											"parameters": {
+												"instance-variable": "bgMusicMuted",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 550258682813160,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"value": "0"
+											}
+										},
+										{
+											"id": "stop-all",
+											"objectClass": "Audio",
+											"sid": 119940812339651
+										}
+									],
+									"sid": 823818356340569
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 492818036534960
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 279355428148306,
+											"parameters": {
+												"animation": "\"clickedBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "backgroundMusicButton",
+											"sid": 973655671018002,
+											"parameters": {
+												"instance-variable": "bgMusicMuted",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 934939917351905,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"value": "1"
+											}
+										},
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 347664907787962,
+											"parameters": {
+												"audio-file": "C01 - Title",
+												"loop": "looping",
+												"volume": "-10",
+												"stereo-pan": "0",
+												"tag-optional": "\"menuSound\""
+											}
+										}
+									],
+									"sid": 493492268611674
+								}
+							]
+						}
+					],
+					"sid": 793876096722629
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Sound Effects Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 520912571719476,
+									"parameters": {
+										"object": "muteButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "muteButton",
+									"sid": 593142732680478,
+									"parameters": {
+										"animation": "\"clickedMuteButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 903334041728373
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 346215550407075,
+									"parameters": {
+										"object": "muteButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [],
+							"sid": 285900624479458,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 712754693846303,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"comparison": 0,
+												"value": "0"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 566810741275265,
+											"parameters": {
+												"animation": "\"disabledMuteButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 517971515394526
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 771950930907579
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 609630593171879,
+											"parameters": {
+												"animation": "\"normalMuteButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 811758085959930
+								}
+							]
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 562892907934878,
+									"parameters": {
+										"object": "muteButton"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 858176043816648,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 160321569353642,
+											"parameters": {
+												"variable": "playBackgroundMusic",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 373922697728143,
+											"parameters": {
+												"animation": "\"disabledMuteButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "muteButton",
+											"sid": 971786096802041,
+											"parameters": {
+												"instance-variable": "soundEffectMuted",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 187851152551802,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 791723424970897,
+											"parameters": {
+												"text": "playSoundEffects"
+											}
+										}
+									],
+									"sid": 273510696676790
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "else",
+											"objectClass": "System",
+											"sid": 933766586998400
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 454130120881651,
+											"parameters": {
+												"animation": "\"clickedMuteButton\"",
+												"from": "beginning"
+											}
+										},
+										{
+											"id": "set-instvar-value",
+											"objectClass": "muteButton",
+											"sid": 936692813976841,
+											"parameters": {
+												"instance-variable": "soundEffectMuted",
+												"value": "0"
+											}
+										},
+										{
+											"id": "set-eventvar-value",
+											"objectClass": "System",
+											"sid": 447720689497794,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"value": "1"
+											}
+										},
+										{
+											"id": "set-text",
+											"objectClass": "Text",
+											"sid": 297086273985104,
+											"parameters": {
+												"text": "playSoundEffects"
+											}
+										}
+									],
+									"sid": 726185321380633
+								}
+							]
+						}
+					],
+					"sid": 948088892578935
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Play button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 691381292704991,
+									"parameters": {
+										"object": "playButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 589942570570428,
+									"parameters": {
+										"layout": "levelSelector"
+									}
+								}
+							],
+							"sid": 817097152246877
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 282602986072361,
+									"parameters": {
+										"object": "playButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "playButton",
+									"sid": 546397803488958,
+									"parameters": {
+										"animation": "\"clickedButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 635449238230478
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 928004536076800,
+									"parameters": {
+										"object": "playButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "playButton",
+									"sid": 150496779739502,
+									"parameters": {
+										"animation": "\"normalButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 983398401652338
+						}
+					],
+					"sid": 630842571816908
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Facebook Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 496848081666302,
+									"parameters": {
+										"object": "facebookButtons"
+									}
+								}
+							],
+							"actions": [],
+							"sid": 628491162056146
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 998485452114940,
+									"parameters": {
+										"object": "facebookButtons"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "facebookButtons",
+									"sid": 439721561314241,
+									"parameters": {
+										"animation": "\"clickedFacebookButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 221079476517669
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 650194992498210,
+									"parameters": {
+										"object": "facebookButtons"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "facebookButtons",
+									"sid": 795675258190450,
+									"parameters": {
+										"animation": "\"normalFacebookButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 386680767053332
+						}
+					],
+					"sid": 373669406727060
+				}
+			],
+			"sid": 826349940557203
 		}
 	],
 	"sid": 631071634118024

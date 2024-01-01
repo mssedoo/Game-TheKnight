@@ -73,6 +73,15 @@
 				{
 					"id": "set-layer-visible",
 					"objectClass": "System",
+					"sid": 144007540508988,
+					"parameters": {
+						"layer": "\"touchControls\"",
+						"visibility": "visible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
 					"sid": 153070422589218,
 					"parameters": {
 						"layer": "\"pauseLayer\"",
@@ -340,6 +349,28 @@
 					]
 				}
 			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-interstitial-failed-to-load",
+					"objectClass": "MobileAdvert",
+					"sid": 515436337939329
+				}
+			],
+			"actions": [
+				{
+					"id": "create-interstitial",
+					"objectClass": "MobileAdvert",
+					"sid": 556719799507857,
+					"parameters": {
+						"advert-id": "\"ca-app-pub-5731767204141965~8823073856\"",
+						"show": "true"
+					}
+				}
+			],
+			"sid": 187062899449070
 		},
 		{
 			"eventType": "group",
@@ -938,6 +969,15 @@
 					],
 					"actions": [
 						{
+							"id": "simulate-control",
+							"objectClass": "HeroShadow",
+							"sid": 896142968088505,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						},
+						{
 							"id": "set-mirrored",
 							"objectClass": "Knight",
 							"sid": 912992965672287,
@@ -979,6 +1019,15 @@
 						}
 					],
 					"actions": [
+						{
+							"id": "simulate-control",
+							"objectClass": "HeroShadow",
+							"sid": 148064800165425,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						},
 						{
 							"id": "set-mirrored",
 							"objectClass": "Knight",
@@ -1594,6 +1643,15 @@
 							"parameters": {
 								"group-name": "\"Hero\"",
 								"state": "deactivated"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 609695560313198,
+							"parameters": {
+								"layer": "\"touchControls\"",
+								"visibility": "invisible"
 							}
 						},
 						{
@@ -2977,6 +3035,15 @@
 							"parameters": {
 								"state": "enabled"
 							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 349986085659318,
+							"parameters": {
+								"layer": "\"touchControls\"",
+								"visibility": "visible"
+							}
 						}
 					],
 					"sid": 827013562560056
@@ -3091,6 +3158,15 @@
 							"behaviorType": "Platform",
 							"parameters": {
 								"state": "disabled"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 316728397322025,
+							"parameters": {
+								"layer": "\"touchControls\"",
+								"visibility": "invisible"
 							}
 						}
 					],
@@ -3952,6 +4028,1596 @@
 			"isActiveOnStart": true,
 			"children": [],
 			"sid": 222084155844976
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Touch Controls",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 369125720994580,
+							"parameters": {
+								"object": "rightArrow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Knight",
+							"sid": 501110503449814,
+							"parameters": {
+								"state": "not-mirrored"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Knight",
+							"sid": 970022087850510,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 614357172648798,
+							"parameters": {
+								"variable": "RightDirection",
+								"value": "true"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "HeroShadow",
+							"sid": 889613736724743,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "right"
+							}
+						}
+					],
+					"sid": 295974521789676
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 690840851765022,
+							"parameters": {
+								"object": "leftArrow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-mirrored",
+							"objectClass": "Knight",
+							"sid": 820943210686490,
+							"parameters": {
+								"state": "mirrored"
+							}
+						},
+						{
+							"id": "set-animation",
+							"objectClass": "Knight",
+							"sid": 558133015058738,
+							"parameters": {
+								"animation": "\"Walk\"",
+								"from": "beginning"
+							}
+						},
+						{
+							"id": "set-boolean-eventvar",
+							"objectClass": "System",
+							"sid": 517096916594590,
+							"parameters": {
+								"variable": "RightDirection",
+								"value": "false"
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "HeroShadow",
+							"sid": 366104596729924,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "left"
+							}
+						}
+					],
+					"sid": 296744018616096
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 736151363171086,
+							"parameters": {
+								"object": "rightArrow"
+							}
+						},
+						{
+							"id": "is-on-floor",
+							"objectClass": "HeroShadow",
+							"sid": 703910581762664,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 575009102987917,
+							"parameters": {
+								"tag": "\"walkSound\""
+							}
+						}
+					],
+					"sid": 600523553992787,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 446598874494242,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 696458891946992,
+									"parameters": {
+										"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"walkSound\""
+									}
+								}
+							],
+							"sid": 685902113433409
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 716701907057939,
+							"parameters": {
+								"object": "leftArrow"
+							}
+						},
+						{
+							"id": "is-on-floor",
+							"objectClass": "HeroShadow",
+							"sid": 519081592432912,
+							"behaviorType": "Platform"
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 315002149586755,
+							"parameters": {
+								"tag": "\"walkSound\""
+							}
+						}
+					],
+					"sid": 364553585620442,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 543096726016333,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 581163768716143,
+									"parameters": {
+										"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"walkSound\""
+									}
+								}
+							],
+							"sid": 196727271163405
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 570087466406465,
+							"parameters": {
+								"object": "attackButton"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 575377685129360,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 472891469623026,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 259035091433772,
+									"parameters": {
+										"audio-file": "whoosh-transitions-sfx-01-118227",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"arrowShotSound\""
+									}
+								}
+							],
+							"sid": 268659085926683
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 176945263555085,
+									"parameters": {
+										"variable": "RightDirection"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 854362348798329,
+									"parameters": {
+										"animation": "\"Shot\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Knight",
+									"sid": 952579333003216,
+									"parameters": {
+										"object": "arrow",
+										"layer": "4",
+										"image-point": "1",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "arrow",
+									"sid": 115734522355326,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "0"
+									}
+								}
+							],
+							"sid": 337539332563173
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-boolean-eventvar",
+									"objectClass": "System",
+									"sid": 157536686462997,
+									"parameters": {
+										"variable": "RightDirection"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 631430193108644,
+									"parameters": {
+										"animation": "\"Shot\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Knight",
+									"sid": 945612232729536,
+									"parameters": {
+										"object": "arrow",
+										"layer": "4",
+										"image-point": "2",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "set-angle-of-motion",
+									"objectClass": "arrow",
+									"sid": 356752558046677,
+									"behaviorType": "Bullet",
+									"parameters": {
+										"angle": "180"
+									}
+								}
+							],
+							"sid": 936569986843113
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-touching-object",
+							"objectClass": "Touch",
+							"sid": 727920090339610,
+							"parameters": {
+								"object": "jumpArrow"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "stop",
+							"objectClass": "Audio",
+							"sid": 680244199529601,
+							"parameters": {
+								"tag": "\"walkSound\""
+							}
+						},
+						{
+							"id": "simulate-control",
+							"objectClass": "HeroShadow",
+							"sid": 203946117028996,
+							"behaviorType": "Platform",
+							"parameters": {
+								"control": "jump"
+							}
+						}
+					],
+					"sid": 486932567658052,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 854880560613909,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 747475335609612,
+									"parameters": {
+										"audio-file": "fast-simple-chop-5-6270",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"jumpSound\""
+									}
+								}
+							],
+							"sid": 846382301910009
+						}
+					]
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Seed Tree Growing",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 448299357701798,
+									"parameters": {
+										"object": "plantButton"
+									}
+								},
+								{
+									"id": "is-on-floor",
+									"objectClass": "HeroShadow",
+									"sid": 857507184643257,
+									"behaviorType": "Platform"
+								},
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 839454399489842,
+									"parameters": {
+										"variable": "seeds",
+										"comparison": 4,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "spawn-another-object",
+									"objectClass": "Knight",
+									"sid": 729428234306815,
+									"parameters": {
+										"object": "seedTree",
+										"layer": "\"growingTreeLayers\"",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 470970781878763,
+									"parameters": {
+										"variable": "score",
+										"value": "200"
+									}
+								},
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 676055178265507,
+									"parameters": {
+										"variable": "seeds",
+										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "seedNumText",
+									"sid": 687710513088588,
+									"parameters": {
+										"text": "seeds"
+									}
+								}
+							],
+							"sid": 354362890881272,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "compare-eventvar",
+											"objectClass": "System",
+											"sid": 894553517726693,
+											"parameters": {
+												"variable": "playSoundEffects",
+												"comparison": 0,
+												"value": "1"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "play",
+											"objectClass": "Audio",
+											"sid": 587978574536181,
+											"parameters": {
+												"audio-file": "big-plants-crops-growing-quickly-43721",
+												"loop": "not-looping",
+												"volume": "0",
+												"stereo-pan": "0",
+												"tag-optional": "\"treeGrowingSound\""
+											}
+										}
+									],
+									"sid": 172219393471011
+								}
+							]
+						}
+					],
+					"sid": 439721459472427
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Home Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 249838707150279,
+									"parameters": {
+										"object": "homeButtons"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "homeButtons",
+									"sid": 585062590444350,
+									"parameters": {
+										"animation": "\"clickedHomeButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 114749992186110
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 867477520062653,
+									"parameters": {
+										"object": "homeButtons"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "homeButtons",
+									"sid": 537825980603922,
+									"parameters": {
+										"animation": "\"normalHomeButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 927898833443254
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 774951449256805,
+									"parameters": {
+										"object": "homeButtons"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 916290992600302,
+									"parameters": {
+										"tag": "\"levelMusic\""
+									}
+								},
+								{
+									"id": "go-to-layout",
+									"objectClass": "System",
+									"sid": 574638088685534,
+									"parameters": {
+										"layout": "MenuLayout"
+									}
+								}
+							],
+							"sid": 880323853250593
+						}
+					],
+					"sid": 315138530758485
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Music Buttons",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Touch Level Sound Effects Button",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 511443252506324,
+											"parameters": {
+												"object": "muteButton"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "muteButton",
+											"sid": 167525132306086,
+											"parameters": {
+												"animation": "\"clickedMuteButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 714849165423893
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 739537859378197,
+											"parameters": {
+												"object": "muteButton"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 232066760890517,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 857472523575014,
+													"parameters": {
+														"variable": "playSoundEffects",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "muteButton",
+													"sid": 463763976201163,
+													"parameters": {
+														"animation": "\"disabledMuteButton\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 378246268874337
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 733235075765630
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "muteButton",
+													"sid": 311765907908024,
+													"parameters": {
+														"animation": "\"normalMuteButton\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 459902171730595
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-tap-object",
+											"objectClass": "Touch",
+											"sid": 883396372860898,
+											"parameters": {
+												"object": "muteButton"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 277228281604852,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 503938885239402,
+													"parameters": {
+														"variable": "playSoundEffects",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "muteButton",
+													"sid": 447511215883411,
+													"parameters": {
+														"animation": "\"disabledMuteButton\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "muteButton",
+													"sid": 227317393819982,
+													"parameters": {
+														"instance-variable": "soundEffectMuted",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 329511638567873,
+													"parameters": {
+														"variable": "playSoundEffects",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text",
+													"sid": 524161662030828,
+													"parameters": {
+														"text": "playSoundEffects"
+													}
+												}
+											],
+											"sid": 621458385250428
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 794162147975876
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "muteButton",
+													"sid": 317309091021984,
+													"parameters": {
+														"animation": "\"normalMuteButton\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "muteButton",
+													"sid": 665507998430984,
+													"parameters": {
+														"instance-variable": "soundEffectMuted",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 648655622081353,
+													"parameters": {
+														"variable": "playSoundEffects",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-text",
+													"objectClass": "Text",
+													"sid": 498209762742649,
+													"parameters": {
+														"text": "playSoundEffects"
+													}
+												}
+											],
+											"sid": 637700462053469
+										}
+									]
+								}
+							],
+							"sid": 145208476462368
+						},
+						{
+							"eventType": "group",
+							"disabled": false,
+							"title": "Touch Level Background Music button",
+							"description": "",
+							"isActiveOnStart": true,
+							"children": [
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 492135671518804,
+											"parameters": {
+												"object": "backgroundMusicButton"
+											}
+										}
+									],
+									"actions": [
+										{
+											"id": "set-animation",
+											"objectClass": "backgroundMusicButton",
+											"sid": 387898162468773,
+											"parameters": {
+												"animation": "\"clickedBackgroundMusicButton\"",
+												"from": "beginning"
+											}
+										}
+									],
+									"sid": 421300253546417
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "cursor-is-over-object",
+											"objectClass": "Mouse",
+											"sid": 474405138160616,
+											"parameters": {
+												"object": "backgroundMusicButton"
+											},
+											"isInverted": true
+										}
+									],
+									"actions": [],
+									"sid": 742120993759832,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 851243491767665,
+													"parameters": {
+														"variable": "playBackgroundMusic",
+														"comparison": 0,
+														"value": "0"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "backgroundMusicButton",
+													"sid": 137743472090507,
+													"parameters": {
+														"animation": "\"disabledBackgroundMusicButton\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 284808202046416
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 158965853002456
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "backgroundMusicButton",
+													"sid": 240068530708448,
+													"parameters": {
+														"animation": "\"normalBackgroundMusicButton\"",
+														"from": "beginning"
+													}
+												}
+											],
+											"sid": 505528555675971
+										}
+									]
+								},
+								{
+									"eventType": "block",
+									"conditions": [
+										{
+											"id": "on-tap-object",
+											"objectClass": "Touch",
+											"sid": 767943799348142,
+											"parameters": {
+												"object": "backgroundMusicButton"
+											}
+										}
+									],
+									"actions": [],
+									"sid": 112848397000762,
+									"children": [
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "compare-eventvar",
+													"objectClass": "System",
+													"sid": 213786724393059,
+													"parameters": {
+														"variable": "playBackgroundMusic",
+														"comparison": 0,
+														"value": "1"
+													}
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "backgroundMusicButton",
+													"sid": 259530846191844,
+													"parameters": {
+														"animation": "\"disabledBackgroundMusicButton\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "backgroundMusicButton",
+													"sid": 228962110344356,
+													"parameters": {
+														"instance-variable": "bgMusicMuted",
+														"value": "1"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 142875463107329,
+													"parameters": {
+														"variable": "playBackgroundMusic",
+														"value": "0"
+													}
+												},
+												{
+													"id": "stop-all",
+													"objectClass": "Audio",
+													"sid": 266805061840985
+												}
+											],
+											"sid": 342228324418364
+										},
+										{
+											"eventType": "block",
+											"conditions": [
+												{
+													"id": "else",
+													"objectClass": "System",
+													"sid": 919324304270837
+												}
+											],
+											"actions": [
+												{
+													"id": "set-animation",
+													"objectClass": "backgroundMusicButton",
+													"sid": 404448801549768,
+													"parameters": {
+														"animation": "\"clickedBackgroundMusicButton\"",
+														"from": "beginning"
+													}
+												},
+												{
+													"id": "set-instvar-value",
+													"objectClass": "backgroundMusicButton",
+													"sid": 733072074318144,
+													"parameters": {
+														"instance-variable": "bgMusicMuted",
+														"value": "0"
+													}
+												},
+												{
+													"id": "set-eventvar-value",
+													"objectClass": "System",
+													"sid": 297525675702422,
+													"parameters": {
+														"variable": "playBackgroundMusic",
+														"value": "1"
+													}
+												},
+												{
+													"id": "play",
+													"objectClass": "Audio",
+													"sid": 337443188359261,
+													"parameters": {
+														"audio-file": "C01 - Title",
+														"loop": "looping",
+														"volume": "-10",
+														"stereo-pan": "0",
+														"tag-optional": "\"menuSound\""
+													}
+												}
+											],
+											"sid": 790178956197004
+										}
+									]
+								}
+							],
+							"sid": 139883628710179
+						}
+					],
+					"sid": 699174933687845
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Restart Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 499831142395860,
+									"parameters": {
+										"object": "restartButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "restartButton",
+									"sid": 613504619912771,
+									"parameters": {
+										"animation": "\"clickedRestartButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 781594106313129
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 424224675614433,
+									"parameters": {
+										"object": "restartButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "restartButton",
+									"sid": 291374361919348,
+									"parameters": {
+										"animation": "\"normalRestartButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 634725056403376
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 708141271500276,
+									"parameters": {
+										"object": "restartButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "restart-layout",
+									"objectClass": "System",
+									"sid": 130047636672555
+								}
+							],
+							"sid": 406057468368634
+						}
+					],
+					"sid": 374287591042087
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Next Level Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 387221291741538,
+									"parameters": {
+										"object": "nextLevelButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "nextLevelButton",
+									"sid": 387623616451648,
+									"parameters": {
+										"animation": "\"clickedNextLevel\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 774486276655796
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 172538022760277,
+									"parameters": {
+										"object": "nextLevelButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "nextLevelButton",
+									"sid": 389344473486287,
+									"parameters": {
+										"animation": "\"normalNextLevel\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 999283404376491
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 119106400726381,
+									"parameters": {
+										"object": "nextLevelButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-nextprevious-layout",
+									"objectClass": "System",
+									"sid": 480580659554278,
+									"parameters": {
+										"which": "next"
+									}
+								}
+							],
+							"sid": 191813171302317
+						}
+					],
+					"sid": 191499226047545
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Back Level Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 176293947973422,
+									"parameters": {
+										"object": "backLevel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "backLevel",
+									"sid": 665500637537479,
+									"parameters": {
+										"animation": "\"clickedBackLevel\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 903034232972828
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 868419062497372,
+									"parameters": {
+										"object": "backLevel"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "backLevel",
+									"sid": 334337819640502,
+									"parameters": {
+										"animation": "\"normalBackLevel\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 181310860876669
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 994586599832575,
+									"parameters": {
+										"object": "backLevel"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "go-to-nextprevious-layout",
+									"objectClass": "System",
+									"sid": 602874208380075,
+									"parameters": {
+										"which": "previous"
+									}
+								}
+							],
+							"sid": 617318218808152
+						}
+					],
+					"sid": 671395196704902
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Pause Play button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 606083719243733,
+									"parameters": {
+										"object": "playButtonForPause"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 999427932192944,
+									"parameters": {
+										"layer": "\"pauseLayer\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 984079296184279,
+									"parameters": {
+										"layer": "\"opacityLayer\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 929495223092599,
+									"parameters": {
+										"group-name": "\"Hero\"",
+										"state": "activated"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "HeroShadow",
+									"sid": 653138908767157,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "enabled"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 870391667313199,
+									"parameters": {
+										"layer": "\"touchControls\"",
+										"visibility": "visible"
+									}
+								}
+							],
+							"sid": 665951859880668
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 610155835089786,
+									"parameters": {
+										"object": "playButtonForPause"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "playButtonForPause",
+									"sid": 832049879748956,
+									"parameters": {
+										"animation": "\"clickedPfpButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 654220555795233
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 893160254914089,
+									"parameters": {
+										"object": "playButtonForPause"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "playButtonForPause",
+									"sid": 336616635759160,
+									"parameters": {
+										"animation": "\"normalPfpButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 933179040560800
+						}
+					],
+					"sid": 836343464827973
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "Touch Pause Button",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 991419085465632,
+									"parameters": {
+										"object": "pauseButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 157091770227625,
+									"parameters": {
+										"layer": "\"pauseLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 788346008303138,
+									"parameters": {
+										"layer": "\"opacityLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 333384733994080,
+									"parameters": {
+										"group-name": "\"Hero\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "HeroShadow",
+									"sid": 465727671857518,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 752115494399948,
+									"parameters": {
+										"layer": "\"touchControls\"",
+										"visibility": "invisible"
+									}
+								}
+							],
+							"sid": 786308883623356
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 689762218393557,
+									"parameters": {
+										"object": "pauseButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "pauseButton",
+									"sid": 191191413999872,
+									"parameters": {
+										"animation": "\"clickedPauseButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 664680220664214
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "cursor-is-over-object",
+									"objectClass": "Mouse",
+									"sid": 709519478535336,
+									"parameters": {
+										"object": "pauseButton"
+									},
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "pauseButton",
+									"sid": 626867527325638,
+									"parameters": {
+										"animation": "\"normalPausedButton\"",
+										"from": "beginning"
+									}
+								}
+							],
+							"sid": 305734968440195
+						}
+					],
+					"sid": 519882011066354
+				}
+			],
+			"sid": 584703132655147
 		}
 	],
 	"sid": 104816411421624
