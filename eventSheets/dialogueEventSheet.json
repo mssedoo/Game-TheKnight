@@ -1,0 +1,297 @@
+{
+	"name": "dialogueEventSheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-start-of-layout",
+					"objectClass": "System",
+					"sid": 176299536691180
+				}
+			],
+			"actions": [
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 676989454714563,
+					"parameters": {
+						"layer": "\"dialogueLayer\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 915995014466757,
+					"parameters": {
+						"layer": "\"dialogueLayer2\"",
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 773359764188543,
+					"parameters": {
+						"layer": "\"dialogueLayer3\"",
+						"visibility": "invisible"
+					}
+				}
+			],
+			"sid": 594342978617420
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Knight",
+					"sid": 638389800677648,
+					"parameters": {
+						"object": "dialogueBarrier"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 816656671475067,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "dialogueBarrier",
+							"sid": 371312943822499,
+							"parameters": {
+								"instance-variable": "dialogueNumber",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 674582749714373,
+							"parameters": {
+								"layer": "\"dialogueLayer\"&dialogueBarrier.dialogueNumber",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 259060992067453
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "dialogueBarrier",
+							"sid": 491392306374941,
+							"parameters": {
+								"instance-variable": "dialogueNumber",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 698281430288216,
+							"parameters": {
+								"layer": "\"dialogueLayer\"&dialogueBarrier.dialogueNumber",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 896041400044005
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "dialogueBarrier",
+							"sid": 495857563952201,
+							"parameters": {
+								"instance-variable": "dialogueNumber",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 575306811492869,
+							"parameters": {
+								"layer": "\"dialogueLayer\"&dialogueBarrier.dialogueNumber",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 233604472215437
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "dialogueBarrier",
+							"sid": 583647585290799,
+							"parameters": {
+								"instance-variable": "dialogueNumber",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 599392771533932,
+							"parameters": {
+								"layer": "\"dialogueLayer\"&dialogueBarrier.dialogueNumber",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 784164493945797
+				}
+			]
+		},
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "is-overlapping-another-object",
+					"objectClass": "Knight",
+					"sid": 179592510308364,
+					"parameters": {
+						"object": "dialogueBarrier"
+					},
+					"isInverted": true
+				}
+			],
+			"actions": [],
+			"sid": 434032482064920,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "dialogueBarrier",
+							"sid": 679339075129105,
+							"parameters": {
+								"instance-variable": "dialogueNumber",
+								"comparison": 0,
+								"value": "1"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 520414158082895,
+							"parameters": {
+								"layer": "\"dialogueLayer\"&dialogueBarrier.dialogueNumber",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 521765797679257
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "dialogueBarrier",
+							"sid": 220297862696293,
+							"parameters": {
+								"instance-variable": "dialogueNumber",
+								"comparison": 0,
+								"value": "2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 741438861860951,
+							"parameters": {
+								"layer": "\"dialogueLayer\"&dialogueBarrier.dialogueNumber",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 507332896453467
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "dialogueBarrier",
+							"sid": 674345044654872,
+							"parameters": {
+								"instance-variable": "dialogueNumber",
+								"comparison": 0,
+								"value": "3"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 137437681738734,
+							"parameters": {
+								"layer": "\"dialogueLayer\"&dialogueBarrier.dialogueNumber",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 739200269523646
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "dialogueBarrier",
+							"sid": 198928117295919,
+							"parameters": {
+								"instance-variable": "dialogueNumber",
+								"comparison": 0,
+								"value": "4"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 182112314650994,
+							"parameters": {
+								"layer": "\"dialogueLayer\"&dialogueBarrier.dialogueNumber",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 121547288906037
+				}
+			]
+		}
+	],
+	"sid": 797508245296329
+}

@@ -1,0 +1,50 @@
+{
+	"name": "backgroundLose",
+	"plugin-id": "Sprite",
+	"sid": 859950726540476,
+	"isGlobal": false,
+	"instanceVariables": [],
+	"behaviorTypes": [],
+	"effectTypes": [],
+	"animations": {
+		"items": [
+			{
+				"frames": [
+					{
+						"width": 820,
+						"height": 949,
+						"originX": 0.5,
+						"originY": 0.5,
+						"originalSource": "",
+						"exportFormat": "lossless",
+						"exportQuality": 0.8,
+						"imageSpriteId": 4230567,
+						"collisionPoly": {
+							"points": [
+								0.042682926829268296,
+								0,
+								0.9804878048780488,
+								0.05268703898840885,
+								0.9353658536585366,
+								1,
+								0.006097560975609756,
+								0.9430979978925185
+							]
+						},
+						"useCollisionPoly": true,
+						"duration": 1,
+						"tag": ""
+					}
+				],
+				"sid": 960475337431425,
+				"name": "Animation 1",
+				"isLooping": false,
+				"isPingPong": false,
+				"repeatCount": 1,
+				"repeatTo": 0,
+				"speed": 5
+			}
+		],
+		"subfolders": []
+	}
+}

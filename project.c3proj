@@ -199,7 +199,14 @@
 			"Touch",
 			"attackButton",
 			"plantButton",
-			"Text4"
+			"Text4",
+			"dialogue1",
+			"dialogueText",
+			"dialogueBarrier",
+			"backgroundLose",
+			"textLose",
+			"loseScore",
+			"bottomBarrier"
 		],
 		"subfolders": [
 			{
@@ -222,7 +229,8 @@
 							"slidingGround",
 							"Sprite",
 							"Sprite2",
-							"woodBox"
+							"woodBox",
+							"dialogueWood"
 						],
 						"subfolders": [],
 						"name": "Ground-solid"
@@ -301,7 +309,8 @@
 			"EventSheet",
 			"menuEventSheet",
 			"Event sheet 8",
-			"levelSelectorEventSheet"
+			"levelSelectorEventSheet",
+			"dialogueEventSheet"
 		],
 		"subfolders": []
 	},

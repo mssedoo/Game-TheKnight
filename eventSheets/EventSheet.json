@@ -2,6 +2,10 @@
 	"name": "EventSheet",
 	"events": [
 		{
+			"eventType": "include",
+			"includeSheet": "dialogueEventSheet"
+		},
+		{
 			"eventType": "variable",
 			"name": "RightDirection",
 			"type": "boolean",
@@ -91,9 +95,18 @@
 				{
 					"id": "set-eventvar-value",
 					"objectClass": "System",
-					"sid": 913633221242665,
+					"sid": 708106025094365,
 					"parameters": {
-						"variable": "score",
+						"variable": "coins",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 473574570353955,
+					"parameters": {
+						"variable": "seeds",
 						"value": "0"
 					}
 				},
@@ -266,6 +279,14 @@
 					"id": "set-text",
 					"objectClass": "pauseScore",
 					"sid": 799075062705092,
+					"parameters": {
+						"text": "\"Your score: \"&score"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "loseScore",
+					"sid": 885066191731252,
 					"parameters": {
 						"text": "\"Your score: \"&score"
 					}
@@ -907,6 +928,15 @@
 								"layer": "\"winLayer\"",
 								"visibility": "invisible"
 							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 793910402612144,
+							"parameters": {
+								"layer": "\"loseLayer\"",
+								"visibility": "invisible"
+							}
 						}
 					],
 					"sid": 667486168720149,
@@ -1514,15 +1544,6 @@
 								"duration": "0.4",
 								"mode": "reducing-magnitude"
 							}
-						},
-						{
-							"id": "subtract-from-eventvar",
-							"objectClass": "System",
-							"sid": 949976546584707,
-							"parameters": {
-								"variable": "score",
-								"value": "20"
-							}
 						}
 					],
 					"sid": 982335524272639,
@@ -1543,20 +1564,67 @@
 							],
 							"actions": [
 								{
-									"id": "stop-all",
-									"objectClass": "Audio",
-									"sid": 549012914331744
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 484910880963605,
+									"parameters": {
+										"layer": "\"loseLayer\"",
+										"visibility": "visible"
+									}
 								},
 								{
-									"id": "go-to-layout-by-name",
+									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 335324225032705,
+									"sid": 494766658911981,
 									"parameters": {
-										"layout": "\"menuLayout\""
+										"layer": "\"opacityLayer\"",
+										"visibility": "visible"
 									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 887528618948503,
+									"parameters": {
+										"group-name": "\"Hero\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 383570047293778,
+									"parameters": {
+										"layer": "\"touchControls\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "HeroShadow",
+									"sid": 602387092321532,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 154510469532433,
+									"parameters": {
+										"animation": "\"0HP\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 521575397969963
 								}
 							],
-							"sid": 937193752109912
+							"sid": 937193752109912,
+							"isOrBlock": true
 						},
 						{
 							"eventType": "block",
@@ -1585,17 +1653,58 @@
 										"instance-variable": "localHP",
 										"value": "1"
 									}
-								},
-								{
-									"id": "set-text",
-									"objectClass": "Text4",
-									"sid": 505894301680949,
-									"parameters": {
-										"text": "Knight.localHP"
-									}
 								}
 							],
 							"sid": 385044211292082
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 833856105802495,
+									"parameters": {
+										"variable": "score",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 741600139554020,
+									"parameters": {
+										"variable": "score",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 129441509908131
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 294947005795670
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 634357891927181,
+									"parameters": {
+										"variable": "score",
+										"value": "20"
+									}
+								}
+							],
+							"sid": 328128938597991
 						}
 					],
 					"isOrBlock": true
@@ -1769,6 +1878,173 @@
 						}
 					],
 					"sid": 507551102282968
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-on-screen",
+							"objectClass": "HeroShadow",
+							"sid": 599911199033113,
+							"isInverted": true
+						}
+					],
+					"actions": [],
+					"sid": 772892365047433,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "HeroShadow",
+									"sid": 320939850694324,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "60000"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 718391008847379,
+									"parameters": {
+										"layer": "\"loseLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 896276571866226,
+									"parameters": {
+										"layer": "\"opacityLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 748416526518629,
+									"parameters": {
+										"group-name": "\"Hero\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 153217303689414,
+									"parameters": {
+										"layer": "\"touchControls\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "HeroShadow",
+									"sid": 326509040207072,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 818370433665154,
+									"parameters": {
+										"animation": "\"0HP\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 642861531865550
+								}
+							],
+							"sid": 741571733553917
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-y",
+									"objectClass": "HeroShadow",
+									"sid": 604320850653907,
+									"parameters": {
+										"comparison": 4,
+										"y-co-ordinate": "bottomBarrier.Y"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 425512139111031,
+									"parameters": {
+										"layer": "\"loseLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 306539062287818,
+									"parameters": {
+										"layer": "\"opacityLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 978906786005473,
+									"parameters": {
+										"group-name": "\"Hero\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 729474952960336,
+									"parameters": {
+										"layer": "\"touchControls\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "HeroShadow",
+									"sid": 854855506279737,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 712197410983604,
+									"parameters": {
+										"animation": "\"0HP\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 358158410524749
+								}
+							],
+							"sid": 874523407092492
+						}
+					]
 				}
 			],
 			"sid": 347782337239063
@@ -3265,6 +3541,15 @@
 							"sid": 316728397322025,
 							"parameters": {
 								"layer": "\"touchControls\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 757343980150465,
+							"parameters": {
+								"layer": "\"dialogueLayer1\"",
 								"visibility": "invisible"
 							}
 						}
