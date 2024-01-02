@@ -198,7 +198,8 @@
 			"jumpArrow",
 			"Touch",
 			"attackButton",
-			"plantButton"
+			"plantButton",
+			"Text4"
 		],
 		"subfolders": [
 			{
@@ -575,7 +576,7 @@
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
-		"fullscreenMode": "letterbox-scale",
+		"fullscreenMode": "off",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [

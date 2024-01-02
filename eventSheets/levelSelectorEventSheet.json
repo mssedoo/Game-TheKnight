@@ -5,13 +5,11 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 594319999500574,
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 691834411683227,
 					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "levelSelectBackground"
+						"object": "levelSelectBackground"
 					}
 				}
 			],
@@ -23,6 +21,11 @@
 					"parameters": {
 						"layout": "\"LVL\"&levelSelectBackground.levelNum"
 					}
+				},
+				{
+					"id": "show-interstitial",
+					"objectClass": "MobileAdvert",
+					"sid": 618638854382634
 				}
 			],
 			"sid": 322821181337579
@@ -82,13 +85,11 @@
 			"eventType": "block",
 			"conditions": [
 				{
-					"id": "on-object-clicked",
-					"objectClass": "Mouse",
-					"sid": 238991328014267,
+					"id": "on-tap-object",
+					"objectClass": "Touch",
+					"sid": 606939257619452,
 					"parameters": {
-						"mouse-button": "left",
-						"click-type": "clicked",
-						"object-clicked": "homeButtons"
+						"object": "homeButtons"
 					}
 				}
 			],

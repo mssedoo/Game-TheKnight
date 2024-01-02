@@ -112,6 +112,23 @@
 					"parameters": {
 						"text": "coins"
 					}
+				},
+				{
+					"id": "set-instvar-value",
+					"objectClass": "Knight",
+					"sid": 458294408067536,
+					"parameters": {
+						"instance-variable": "localHP",
+						"value": "5"
+					}
+				},
+				{
+					"id": "set-text",
+					"objectClass": "Text4",
+					"sid": 854396341767306,
+					"parameters": {
+						"text": "turret.turretHP"
+					}
 				}
 			],
 			"sid": 898699495393979,
@@ -363,10 +380,10 @@
 				{
 					"id": "create-interstitial",
 					"objectClass": "MobileAdvert",
-					"sid": 556719799507857,
+					"sid": 212880190400655,
 					"parameters": {
 						"advert-id": "\"ca-app-pub-5731767204141965~8823073856\"",
-						"show": "true"
+						"show": "false"
 					}
 				}
 			],
@@ -1182,42 +1199,52 @@
 					]
 				},
 				{
-					"eventType": "block",
-					"conditions": [
+					"eventType": "group",
+					"disabled": false,
+					"title": "Hero Idle",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
 						{
-							"id": "is-on-floor",
-							"objectClass": "HeroShadow",
-							"sid": 787021661138713,
-							"behaviorType": "Platform"
-						},
-						{
-							"id": "is-moving",
-							"objectClass": "HeroShadow",
-							"sid": 424550750511656,
-							"behaviorType": "Platform",
-							"isInverted": true
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-floor",
+									"objectClass": "HeroShadow",
+									"sid": 765937030075167,
+									"behaviorType": "Platform"
+								},
+								{
+									"id": "is-moving",
+									"objectClass": "HeroShadow",
+									"sid": 699211945890773,
+									"behaviorType": "Platform",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 368495539244126,
+									"parameters": {
+										"animation": "\"Idle\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 301117089882825,
+									"parameters": {
+										"tag": "\"walkSound\""
+									}
+								}
+							],
+							"sid": 817628239493566
 						}
 					],
-					"actions": [
-						{
-							"id": "set-animation",
-							"objectClass": "Knight",
-							"sid": 309241822921687,
-							"parameters": {
-								"animation": "\"Idle\"",
-								"from": "beginning"
-							}
-						},
-						{
-							"id": "stop",
-							"objectClass": "Audio",
-							"sid": 694822471103501,
-							"parameters": {
-								"tag": "\"walkSound\""
-							}
-						}
-					],
-					"sid": 479133237174154
+					"sid": 511838048501206
 				},
 				{
 					"eventType": "block",
@@ -1268,6 +1295,70 @@
 							"eventType": "block",
 							"conditions": [
 								{
+									"id": "is-on-floor",
+									"objectClass": "HeroShadow",
+									"sid": 647820449781819,
+									"behaviorType": "Platform"
+								},
+								{
+									"id": "is-moving",
+									"objectClass": "HeroShadow",
+									"sid": 368780844813561,
+									"behaviorType": "Platform",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 338065317197445,
+									"parameters": {
+										"animation": "\"ShotArrow\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 910993499855175,
+									"parameters": {
+										"tag": "\"walkSound\""
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 520158893646427,
+									"parameters": {
+										"group-name": "\"Hero Idle\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 962098638860219,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 392273024222462,
+									"parameters": {
+										"group-name": "\"Hero Idle\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 103102668331916
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
 									"sid": 192563341227192,
@@ -1280,9 +1371,9 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Knight",
-									"sid": 627983890623616,
+									"sid": 271041003258720,
 									"parameters": {
-										"animation": "\"Shot\"",
+										"animation": "\"ShotArrow\"",
 										"from": "beginning"
 									}
 								},
@@ -1326,9 +1417,9 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Knight",
-									"sid": 360681901435734,
+									"sid": 674731150693648,
 									"parameters": {
-										"animation": "\"Shot\"",
+										"animation": "\"ShotArrow\"",
 										"from": "beginning"
 									}
 								},
@@ -1452,16 +1543,16 @@
 							],
 							"actions": [
 								{
-									"id": "show-interstitial",
-									"objectClass": "MobileAdvert",
-									"sid": 618638854382634
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 549012914331744
 								},
 								{
-									"id": "go-to-layout",
+									"id": "go-to-layout-by-name",
 									"objectClass": "System",
-									"sid": 374633107842998,
+									"sid": 335324225032705,
 									"parameters": {
-										"layout": "MenuLayout"
+										"layout": "\"menuLayout\""
 									}
 								}
 							],
@@ -1493,6 +1584,14 @@
 									"parameters": {
 										"instance-variable": "localHP",
 										"value": "1"
+									}
+								},
+								{
+									"id": "set-text",
+									"objectClass": "Text4",
+									"sid": 505894301680949,
+									"parameters": {
+										"text": "Knight.localHP"
 									}
 								}
 							],
@@ -4306,6 +4405,70 @@
 								}
 							],
 							"sid": 268659085926683
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "is-on-floor",
+									"objectClass": "HeroShadow",
+									"sid": 735022480094148,
+									"behaviorType": "Platform"
+								},
+								{
+									"id": "is-moving",
+									"objectClass": "HeroShadow",
+									"sid": 255554066495069,
+									"behaviorType": "Platform",
+									"isInverted": true
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 907511480844091,
+									"parameters": {
+										"animation": "\"ShotArrow\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop",
+									"objectClass": "Audio",
+									"sid": 556101901129455,
+									"parameters": {
+										"tag": "\"walkSound\""
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 853046874887325,
+									"parameters": {
+										"group-name": "\"Hero Idle\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 702439158511912,
+									"parameters": {
+										"seconds": "0.5"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 411743278831077,
+									"parameters": {
+										"group-name": "\"Hero Idle\"",
+										"state": "activated"
+									}
+								}
+							],
+							"sid": 537944130923347
 						},
 						{
 							"eventType": "block",
