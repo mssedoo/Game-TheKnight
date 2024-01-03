@@ -206,7 +206,9 @@
 			"backgroundLose",
 			"textLose",
 			"loseScore",
-			"bottomBarrier"
+			"bottomBarrier",
+			"logoutSprite",
+			"accountImage"
 		],
 		"subfolders": [
 			{

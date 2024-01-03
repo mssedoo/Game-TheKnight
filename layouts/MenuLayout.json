@@ -220,8 +220,8 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 188,
-						"y": -142,
+						"x": 164,
+						"y": 248,
 						"width": 200,
 						"height": 30,
 						"originX": 0,
@@ -389,6 +389,64 @@
 						"height": 148.36,
 						"originX": 0.6212121212121212,
 						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "logoutSprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1037,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 789,
+						"y": 337,
+						"width": 85,
+						"height": 68,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "accountImage",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1038,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 636,
+						"y": 318,
+						"width": 125,
+						"height": 122,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,

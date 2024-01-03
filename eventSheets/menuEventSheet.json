@@ -47,6 +47,11 @@
 						"advert-id": "\"ca-app-pub-5731767204141965/8494365824\"",
 						"show": "false"
 					}
+				},
+				{
+					"id": "log-out",
+					"objectClass": "Facebook",
+					"sid": 602979694519841
 				}
 			],
 			"sid": 404520897841686,
@@ -169,35 +174,6 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-ready",
-							"objectClass": "Facebook",
-							"sid": 424757982335643
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text",
-							"sid": 217803785593816,
-							"parameters": {
-								"text": "\"Yes loaded\""
-							}
-						}
-					],
-					"sid": 970464925990634
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "every-x-seconds",
-							"objectClass": "System",
-							"sid": 124970766971119,
-							"parameters": {
-								"interval-seconds": "0.01"
-							}
-						},
-						{
 							"id": "is-user-logged-in",
 							"objectClass": "Facebook",
 							"sid": 119714524437094
@@ -207,13 +183,54 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text",
-							"sid": 752516844385143,
+							"sid": 621892934091302,
 							"parameters": {
-								"text": "\"The name is \" & Facebook.FullName"
+								"text": "\"The name is \" & Facebook.UserIDStr"
+							}
+						},
+						{
+							"id": "load-image-from-url",
+							"objectClass": "accountImage",
+							"sid": 358835560141271,
+							"parameters": {
+								"uri": "\"https://graph.facebook.com/\" & Facebook.UserIDStr & \"/picture?type=square\"",
+								"size": "keep-current-size",
+								"cross-origin": "anonymous"
 							}
 						}
 					],
 					"sid": 565442372322629
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 930794185245270,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "logoutSprite"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "log-out",
+							"objectClass": "Facebook",
+							"sid": 942618135915366
+						},
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 989679205335818,
+							"parameters": {
+								"text": "\"Logout succesful !\""
+							}
+						}
+					],
+					"sid": 197354556410348
 				}
 			],
 			"sid": 587062233865192
