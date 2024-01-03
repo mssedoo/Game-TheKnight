@@ -157,34 +157,13 @@
 						{
 							"id": "log-in",
 							"objectClass": "Facebook",
-							"sid": 801812791071509,
+							"sid": 685130438661927,
 							"parameters": {
 								"permissions": "\"public_profile\""
 							}
 						}
 					],
 					"sid": 496726593711249
-				},
-				{
-					"eventType": "block",
-					"conditions": [
-						{
-							"id": "on-name-available",
-							"objectClass": "Facebook",
-							"sid": 449255716409602
-						}
-					],
-					"actions": [
-						{
-							"id": "set-text",
-							"objectClass": "Text",
-							"sid": 263082295333458,
-							"parameters": {
-								"text": "\"The name is \" & Facebook.FirstName"
-							}
-						}
-					],
-					"sid": 167079353874513
 				},
 				{
 					"eventType": "block",
@@ -206,6 +185,35 @@
 						}
 					],
 					"sid": 970464925990634
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 124970766971119,
+							"parameters": {
+								"interval-seconds": "0.01"
+							}
+						},
+						{
+							"id": "is-user-logged-in",
+							"objectClass": "Facebook",
+							"sid": 119714524437094
+						}
+					],
+					"actions": [
+						{
+							"id": "set-text",
+							"objectClass": "Text",
+							"sid": 752516844385143,
+							"parameters": {
+								"text": "\"The name is \" & Facebook.FullName"
+							}
+						}
+					],
+					"sid": 565442372322629
 				}
 			],
 			"sid": 587062233865192
