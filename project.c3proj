@@ -8,8 +8,22 @@
 	"usedAddons": [
 		{
 			"type": "plugin",
+			"id": "AJAX",
+			"name": "AJAX",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Audio",
 			"name": "Audio",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "BinaryData",
+			"name": "Binary Data",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -29,8 +43,22 @@
 		},
 		{
 			"type": "plugin",
+			"id": "LocalStorage",
+			"name": "Local storage",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
 			"id": "Mouse",
 			"name": "Mouse",
+			"author": "Scirra",
+			"bundled": false
+		},
+		{
+			"type": "plugin",
+			"id": "Share",
+			"name": "Share",
 			"author": "Scirra",
 			"bundled": false
 		},
@@ -207,8 +235,30 @@
 			"textLose",
 			"loseScore",
 			"bottomBarrier",
+			"accountImage",
+			"levelSelectText",
 			"logoutSprite",
-			"accountImage"
+			"logoutText",
+			"life",
+			"Gold2",
+			"bridgee",
+			"tojam_05_2",
+			"barell",
+			"barellShadow",
+			"hiddenLevelBarrier",
+			"Text5",
+			"barellDownButton",
+			"IndicatorBarell",
+			"screenShotButton",
+			"screenShotSprite",
+			"AJAX",
+			"BinaryData",
+			"LocalStorage",
+			"button2",
+			"shareButton",
+			"Share",
+			"shareSprite",
+			"hdlvl"
 		],
 		"subfolders": [
 			{
@@ -292,17 +342,23 @@
 			"LVL2",
 			"LVL3",
 			"LVL4",
+			"S_Hd LVL1",
 			"LVL5",
+			"S_Hd LVL2",
 			"LVL6",
 			"LVL7",
 			"LVL8",
+			"S_Hd LVL3",
 			"LVL9",
 			"LVL10",
 			"LVL11",
+			"S_Hd LVL4",
 			"LVL12",
 			"LVL13",
+			"S_Hd LVL5",
 			"LVL14",
-			"LVL15"
+			"LVL15",
+			"S_Hd LVL7"
 		],
 		"subfolders": []
 	},
@@ -312,7 +368,8 @@
 			"menuEventSheet",
 			"Event sheet 8",
 			"levelSelectorEventSheet",
-			"dialogueEventSheet"
+			"dialogueEventSheet",
+			"hiddenLevelEventSheet"
 		],
 		"subfolders": []
 	},
@@ -506,7 +563,7 @@
 					"type": "image/png",
 					"sid": 414114310872275,
 					"icon-info": {
-						"purpose": "app-icon"
+						"purpose": "none"
 					}
 				},
 				{
@@ -514,7 +571,7 @@
 					"type": "image/png",
 					"sid": 981470620694840,
 					"icon-info": {
-						"purpose": "app-icon"
+						"purpose": "none"
 					}
 				},
 				{
@@ -522,7 +579,7 @@
 					"type": "image/png",
 					"sid": 428197451992249,
 					"icon-info": {
-						"purpose": "app-icon"
+						"purpose": "none"
 					}
 				},
 				{
@@ -530,7 +587,7 @@
 					"type": "image/png",
 					"sid": 651699904200278,
 					"icon-info": {
-						"purpose": "app-icon"
+						"purpose": "none"
 					}
 				},
 				{
@@ -538,7 +595,7 @@
 					"type": "image/png",
 					"sid": 756632541247789,
 					"icon-info": {
-						"purpose": "loading-logo"
+						"purpose": "none"
 					}
 				},
 				{
@@ -546,7 +603,7 @@
 					"type": "image/png",
 					"sid": 736433922523725,
 					"icon-info": {
-						"purpose": "app-icon"
+						"purpose": "none"
 					}
 				},
 				{
@@ -554,7 +611,23 @@
 					"type": "image/png",
 					"sid": 872056478224293,
 					"icon-info": {
+						"purpose": "none"
+					}
+				},
+				{
+					"name": "hero-icon.png",
+					"type": "image/png",
+					"sid": 397438530055406,
+					"icon-info": {
 						"purpose": "app-icon"
+					}
+				},
+				{
+					"name": "hero.png",
+					"type": "image/png",
+					"sid": 284028445328617,
+					"icon-info": {
+						"purpose": "loading-logo"
 					}
 				}
 			],
@@ -587,7 +660,7 @@
 		"zAxisScale": "normalized",
 		"fov": 0.7853981633974483,
 		"useLoaderLayout": false,
-		"fullscreenMode": "off",
+		"fullscreenMode": "letterbox-scale",
 		"fullscreenQuality": "high",
 		"viewportFit": "auto",
 		"backgroundColor": [
@@ -622,7 +695,7 @@
 		"zNear": 1,
 		"zFar": 10000,
 		"maxSpriteSheetSize": 2048,
-		"loaderStyle": "none",
+		"loaderStyle": "progress-logo",
 		"preloadSounds": true,
 		"cordovaiOSScheme": "app",
 		"cordovaAndroidScheme": "https",

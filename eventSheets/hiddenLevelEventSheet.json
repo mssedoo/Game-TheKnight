@@ -1,0 +1,39 @@
+{
+	"name": "hiddenLevelEventSheet",
+	"events": [
+		{
+			"eventType": "block",
+			"conditions": [
+				{
+					"id": "on-collision-with-another-object",
+					"objectClass": "Knight",
+					"sid": 260694851470469,
+					"parameters": {
+						"object": "hiddenLevelBarrier"
+					}
+				}
+			],
+			"actions": [],
+			"sid": 714935720149483,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [],
+					"actions": [
+						{
+							"id": "set-position-to-another-object",
+							"objectClass": "HeroShadow",
+							"sid": 514085080324513,
+							"parameters": {
+								"object": "barell",
+								"image-point-optional": "0"
+							}
+						}
+					],
+					"sid": 979196473342381
+				}
+			]
+		}
+	],
+	"sid": 503102066733792
+}

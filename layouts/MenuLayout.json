@@ -195,10 +195,10 @@
 				{
 					"type": "Text",
 					"properties": {
-						"text": "Text",
+						"text": "text",
 						"enable-bbcode": true,
-						"font": "Arial",
-						"size": 12,
+						"font": "fantasy",
+						"size": 27,
 						"line-height": 0,
 						"bold": false,
 						"italic": false,
@@ -208,8 +208,8 @@
 							0,
 							1
 						],
-						"horizontal-alignment": "left",
-						"vertical-alignment": "top",
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
 						"wrapping": "word",
 						"icon-set": -1,
 						"initially-visible": true,
@@ -220,41 +220,12 @@
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 164,
-						"y": 248,
-						"width": 200,
-						"height": 30,
+						"x": 97,
+						"y": 18,
+						"width": 655,
+						"height": 44,
 						"originX": 0,
 						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "facebookButtons",
-					"properties": {
-						"initially-visible": true,
-						"initial-animation": "normalFacebookButton",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 44,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 800,
-						"y": 256,
-						"width": 64,
-						"height": 64,
-						"originX": 0.5,
-						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -400,7 +371,7 @@
 					}
 				},
 				{
-					"type": "logoutSprite",
+					"type": "accountImage",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -408,14 +379,14 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 1037,
+					"uid": 1038,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 789,
-						"y": 337,
-						"width": 85,
-						"height": 68,
+						"x": 724,
+						"y": -312,
+						"width": 125,
+						"height": 122,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -429,7 +400,7 @@
 					}
 				},
 				{
-					"type": "accountImage",
+					"type": "screenShotSprite",
 					"properties": {
 						"initially-visible": true,
 						"initial-animation": "Animation 1",
@@ -437,14 +408,14 @@
 						"enable-collisions": true,
 						"live-preview": false
 					},
-					"uid": 1038,
+					"uid": 1693,
 					"instanceVariables": {},
 					"behaviors": {},
 					"world": {
-						"x": 636,
-						"y": 318,
-						"width": 125,
-						"height": 122,
+						"x": -202,
+						"y": 308,
+						"width": 250,
+						"height": 250,
 						"originX": 0.5,
 						"originY": 0.5,
 						"color": [
@@ -485,10 +456,191 @@
 			"blendMode": "normal",
 			"zElevation": 0,
 			"global": false
+		},
+		{
+			"name": "logoutLayer",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "logoutSprite",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1037,
+					"instanceVariables": {
+						"levelNum": 1
+					},
+					"behaviors": {},
+					"world": {
+						"x": 753,
+						"y": 318,
+						"width": 93,
+						"height": 64,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "logoutText",
+					"properties": {
+						"text": "Logout",
+						"enable-bbcode": true,
+						"font": "fantasy",
+						"size": 18,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 1040,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 757.9450657080284,
+						"y": 333.3168499419437,
+						"width": 78,
+						"height": 30,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 768408574387147,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.5019607843137255,
+				0.5019607843137255,
+				0.5019607843137255,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "loginLayer",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "facebookButtons",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "normalFacebookButton",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 44,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 800,
+						"y": 256,
+						"width": 64,
+						"height": 64,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 109196301787939,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.5019607843137255,
+				0.5019607843137255,
+				0.5019607843137255,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
 		}
 	],
 	"sid": 273212083259601,
-	"nonworld-instances": [],
+	"nonworld-instances": [
+		{
+			"type": "BinaryData",
+			"properties": {
+				"endian": "big"
+			},
+			"uid": 1697,
+			"instanceVariables": {}
+		}
+	],
 	"effectTypes": [],
 	"width": 1708,
 	"height": 960,

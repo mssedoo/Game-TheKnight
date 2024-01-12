@@ -3,7 +3,15 @@
 	"plugin-id": "Sprite",
 	"sid": 686089132539518,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "woodBoxHP",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 939540233901790
+		}
+	],
 	"behaviorTypes": [
 		{
 			"behaviorId": "solid",

@@ -271,7 +271,7 @@
 							"height": 15,
 							"max-width": 125,
 							"max-height": 37,
-							"data": "152x0,13,45,295x0,563,595,407x0,565h,597h,35x0,564h,596h,35x0,563h,595h,35x0,13,45,143x0,13,45,36x0,488hd,36x0,552hd,36x0,520hd,36x0,488hd,36x0,456hd,71x0,248h,280h,312h,34x0,247h,279h,311h,36x0,552hd,36x0,520hd,36x0,552hd,36x0,520hd,36x0,488hd,36x0,456hd,406x0,174,35x0,145,177,34x0,336h,368h,400h,35x0,13,45,262x0,595,35x0,564,596,35x0,565,597,183x0,149h,181h,36x0,182,34x0,119h,151h,183h,34x0,118h,150h,182h,186x0,13,45,363x0,326,358,2x0,563h,32x0,327,359,35x0,328,360,31x0,231,263,35x0,232,264,184x0,161,193,225,34x0,162,194,226,34x0,163,195,227,34x0,164,196,228,34x0,165,197,75x0,470,502,35x0,471,503,35x0,472,504,35x0,473,505,35x0,474,506,77x0,390,36x0,391,36x0,392,35x0,326,358,35x0,327,359,35x0,328,360,146x0,79,111,35x0,80,112,35x0,81,113,99x0"
+							"data": "152x0,13,45,295x0,563,595,407x0,565h,597h,35x0,564h,596h,35x0,563h,595h,35x0,13,45,143x0,13,45,36x0,488hd,36x0,552hd,36x0,520hd,36x0,488hd,36x0,456hd,71x0,248h,280h,312h,34x0,247h,279h,311h,36x0,552hd,36x0,520hd,36x0,552hd,36x0,520hd,36x0,488hd,36x0,456hd,406x0,174,35x0,145,177,34x0,336h,368h,400h,35x0,13,45,262x0,595,35x0,564,596,36x0,597,183x0,149h,181h,36x0,182,34x0,119h,151h,183h,34x0,118h,150h,182h,186x0,13,45,363x0,326,358,2x0,563h,32x0,327,359,35x0,328,360,31x0,231,263,35x0,232,264,184x0,161,193,225,34x0,162,194,226,34x0,163,195,227,34x0,164,196,228,34x0,165,197,75x0,470,502,35x0,471,503,35x0,472,504,35x0,473,505,35x0,474,506,77x0,390,36x0,391,36x0,392,35x0,326,358,35x0,327,359,35x0,328,360,146x0,79,111,35x0,80,112,35x0,81,113,99x0"
 						},
 						"tile-width": 32,
 						"tile-height": 32,
@@ -807,6 +807,35 @@
 						"height": 45.36,
 						"originX": 0.6212121212121212,
 						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "life",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1041,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 1006,
+						"y": -123,
+						"width": 27,
+						"height": 27,
+						"originX": 0.5,
+						"originY": 0.5,
 						"color": [
 							1,
 							1,
@@ -1651,7 +1680,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "fantasy",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -1695,7 +1724,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "fantasy",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -1739,7 +1768,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "fantasy",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -1821,7 +1850,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 301.86240248300766,
-						"y": 62.041901149192995,
+						"y": 62,
 						"width": 15.340223781923044,
 						"height": 13.862359673870685,
 						"originX": 0.5,
@@ -1850,7 +1879,7 @@
 					"behaviors": {},
 					"world": {
 						"x": 426.99083637081895,
-						"y": 67.95349586677543,
+						"y": 67,
 						"width": 16.533442700785315,
 						"height": 14.240016277487715,
 						"originX": 0.5,
@@ -2607,6 +2636,35 @@
 						"height": 30,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "shareButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "normalButton",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1700,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 506.89400921658984,
+						"y": 389.5948275862069,
+						"width": 84,
+						"height": 85,
+						"originX": 1.5921658986175116,
+						"originY": 0.49137931034482757,
 						"color": [
 							1,
 							1,

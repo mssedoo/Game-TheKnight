@@ -1,9 +1,17 @@
 {
 	"name": "logoutSprite",
 	"plugin-id": "Sprite",
-	"sid": 821930998202915,
+	"sid": 209870775661633,
 	"isGlobal": false,
-	"instanceVariables": [],
+	"instanceVariables": [
+		{
+			"name": "levelNum",
+			"type": "number",
+			"desc": "",
+			"show": true,
+			"sid": 951164960981464
+		}
+	],
 	"behaviorTypes": [],
 	"effectTypes": [],
 	"animations": {
@@ -11,20 +19,36 @@
 			{
 				"frames": [
 					{
-						"width": 250,
-						"height": 250,
-						"originX": 0.5,
-						"originY": 0.5,
+						"width": 964,
+						"height": 1297,
+						"originX": 0,
+						"originY": 0,
 						"originalSource": "",
 						"exportFormat": "lossless",
 						"exportQuality": 0.8,
-						"imageSpriteId": 6147850,
+						"imageSpriteId": 9569219,
+						"collisionPoly": {
+							"points": [
+								0.06846473029045644,
+								0.0015420200462606013,
+								0.9107883817427386,
+								0.008481110254433308,
+								0.9844398340248963,
+								0.07710100231303006,
+								0.91701244813278,
+								0.9907478797224364,
+								0.07365145228215768,
+								0.9807247494217425,
+								0.005186721991701245,
+								0.9175019275250579
+							]
+						},
 						"useCollisionPoly": true,
 						"duration": 1,
 						"tag": ""
 					}
 				],
-				"sid": 169022021707318,
+				"sid": 514012029900205,
 				"name": "Animation 1",
 				"isLooping": false,
 				"isPingPong": false,

@@ -473,8 +473,8 @@
 						"italic": false,
 						"color": [
 							1,
-							1,
-							1,
+							0.8666666666666667,
+							0,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -548,8 +548,8 @@
 						"italic": false,
 						"color": [
 							1,
-							1,
-							1,
+							0.8666666666666667,
+							0,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -773,8 +773,8 @@
 						"italic": false,
 						"color": [
 							1,
-							1,
-							1,
+							0.8666666666666667,
+							0,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -998,8 +998,8 @@
 						"italic": false,
 						"color": [
 							1,
-							1,
-							1,
+							0.8666666666666667,
+							0,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -1148,8 +1148,8 @@
 						"italic": false,
 						"color": [
 							1,
-							1,
-							1,
+							0.8666666666666667,
+							0,
 							1
 						],
 						"horizontal-alignment": "center",
@@ -1349,6 +1349,50 @@
 						"height": 64,
 						"originX": 0.5,
 						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "levelSelectText",
+					"properties": {
+						"text": "Select level",
+						"enable-bbcode": true,
+						"font": "fantasy",
+						"size": 24,
+						"line-height": 0,
+						"bold": false,
+						"italic": false,
+						"color": [
+							0,
+							0,
+							0,
+							1
+						],
+						"horizontal-alignment": "center",
+						"vertical-alignment": "center",
+						"wrapping": "word",
+						"icon-set": -1,
+						"initially-visible": true,
+						"origin": "top-left",
+						"read-aloud": false
+					},
+					"uid": 1039,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 285,
+						"y": 51,
+						"width": 200,
+						"height": 30,
+						"originX": 0,
+						"originY": 0,
 						"color": [
 							1,
 							1,

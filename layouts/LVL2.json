@@ -260,7 +260,9 @@
 						"live-preview": false
 					},
 					"uid": 62,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -296,7 +298,9 @@
 						"live-preview": false
 					},
 					"uid": 63,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -332,7 +336,9 @@
 						"live-preview": false
 					},
 					"uid": 64,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -368,7 +374,9 @@
 						"live-preview": false
 					},
 					"uid": 65,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -404,7 +412,9 @@
 						"live-preview": false
 					},
 					"uid": 66,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -440,7 +450,9 @@
 						"live-preview": false
 					},
 					"uid": 67,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -476,7 +488,9 @@
 						"live-preview": false
 					},
 					"uid": 68,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -512,7 +526,9 @@
 						"live-preview": false
 					},
 					"uid": 69,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -548,7 +564,9 @@
 						"live-preview": false
 					},
 					"uid": 70,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -584,7 +602,9 @@
 						"live-preview": false
 					},
 					"uid": 71,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -765,7 +785,9 @@
 						"live-preview": false
 					},
 					"uid": 485,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -801,7 +823,9 @@
 						"live-preview": false
 					},
 					"uid": 486,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -837,7 +861,9 @@
 						"live-preview": false
 					},
 					"uid": 487,
-					"instanceVariables": {},
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
 					"behaviors": {
 						"Solid": {
 							"properties": {
@@ -2402,7 +2428,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "fantasy",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -2446,7 +2472,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "fantasy",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -2490,7 +2516,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "fantasy",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -3266,6 +3292,35 @@
 						"height": 30,
 						"originX": 0,
 						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "shareButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "normalButton",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1692,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 511,
+						"y": 371,
+						"width": 72,
+						"height": 75,
+						"originX": 1.5921658986175116,
+						"originY": 0.49137931034482757,
 						"color": [
 							1,
 							1,

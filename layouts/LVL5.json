@@ -112,6 +112,35 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "IndicatorBarell",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1695,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 4616,
+						"y": 417,
+						"width": 59.95238531598852,
+						"height": 130,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 273234963886921,
@@ -210,7 +239,7 @@
 							"height": 25,
 							"max-width": 162,
 							"max-height": 86,
-							"data": "8x150,9x98,150,3x118,69x0,150,86,102,7x0,98,5x0,118,69x0,150,9x0,98,5x0,118,69x0,150,9x0,98,5x0,118,69x0,150,9x0,150,5x0,118,69x0,150,9x0,2x150,4x0,118,69x0,150,5x0,150,4x0,150,4x0,118,69x0,150,5x0,150,4x0,2x150,3x0,118,69x0,150,5x0,150,5x0,150,3x0,118,69x0,150,5x0,150,5x0,150,3x0,118,73x0,3x150,9x0,118,73x0,150,11x0,118,73x0,150,11x0,118,73x0,150,11x0,118,71x0,3x150,11x0,118,71x0,150,9x0,98,3x0,118,71x0,150,9x0,98,3x0,118,71x0,150,5x0,98,3x0,98,3x0,118,71x0,150,5x0,98,3x0,98,3x0,118,77x0,98,3x0,98,3x0,118,75x0,3x98,3x0,98,3x0,118,75x0,150,5x0,98,3x0,118,75x0,150,5x0,5x150,73x0,2x98,150,9x0,150,73x0,98,11x0,150,73x0,98,11x0,150,73x0,98,11x0,150,85x0,150,85x0,150,85x0,150,85x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,85x0,150,79x0,2,5x0,150,79x0,2,5x0,150,79x0,2,5x0,150,79x0,6x246,150,79x0,2,5x0,150,79x0,2,5x0,150,79x0,2,5x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,218,85x0,218,85x0,218,85x0,218,85x0,218,85x0,246,85x0,246,79x0,2,5x0,246,79x0,2,5x0,246,79x0,2,5x0,246,79x0,3x98,3x0,246,81x0,98,3x0,246,81x0,98,3x0,246,74x0,246,6x0,150,3x0,246,74x0,246,10x0,246,74x0,246,10x0,246,85x0,246,81x0,150,3x0,246,81x0,98,3x0,246,77x0,5x150,3x0,246,77x0,150,7x0,246,77x0,150,7x0,246,81x0,150,3x0,246,81x0,98,3x0,246,74x0,150,6x0,150,3x0,246,74x0,150,6x0,150,3x0,246,74x0,150,6x0,150,3x0,246,71x0,4x150,6x0,150,3x0,246,71x0,150,6x0,150,2x0,150,3x0,246,71x0,150,6x0,4x150,3x0,246,71x0,150,13x0,246,71x0,98,13x0,246,71x0,98,13x0,246,71x0,98,9x0,4x98,150,81x0,98,3x0,150,77x0,98,3x0,98,3x0,150,77x0,98,3x0,98,3x0,150,75x0,3x98,3x0,98,3x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,5x0,150,3x0,150,75x0,150,5x0,150,3x0,150,75x0,7x150,3x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,98,9x0,150,75x0,4x98,6x0,150,78x0,98,6x0,150,78x0,98,6x0,150,78x0,98,3x0,98,2x0,150,73x0,98,4x0,98,3x0,98,2x0,150,73x0,98,4x0,98,3x0,98,2x0,150,73x0,98,8x0,98,2x0,98,73x0,98,8x0,98,2x0,98,73x0,98,8x0,98,2x0,98,73x0,98,8x0,98,2x0,98,70x0,4x98,4x0,98,3x0,98,2x0,98,70x0,98,7x0,98,3x0,98,2x0,98,70x0,98,7x0,5x98,2x0,98,70x0,98,14x0,98,70x0,98,14x0,98,70x0,98,14x0,98,85x0,98,82x0,98,2x150,98,82x0,98,2x0,98,78x0,5x98,2x0,98,73x0,150,4x0,98,6x0,98,73x0,150,11x0,98,73x0,150,11x0,98,73x0,150,11x0,98,73x0,150,11x0,98,73x0,150,11x0,98,73x0,150,4x0,150,6x0,98,73x0,150,4x0,3x150,4x0,98,73x0,150,6x0,150,4x0,98,73x0,3x150,4x0,150,4x0,98,75x0,150,4x0,150,4x0,98,75x0,150,4x0,150,4x0,98,75x0,150,4x0,150,4x0,98,71x0,150,3x0,150,4x0,150,76x0,150,3x0,150,4x0,150,76x0,5x150,4x0,150,85x0,150,77x0,163h,7x0,150,77x0,162h,85x0,161h,1110x0"
+							"data": "8x150,9x98,150,3x118,69x0,150,86,102,7x0,98,5x0,118,69x0,150,9x0,98,5x0,118,69x0,150,9x0,98,5x0,118,69x0,150,9x0,150,5x0,118,69x0,150,9x0,2x150,4x0,118,69x0,150,5x0,150,4x0,150,4x0,118,69x0,150,5x0,150,4x0,2x150,3x0,118,69x0,150,5x0,150,5x0,150,3x0,118,69x0,150,5x0,150,5x0,150,3x0,118,73x0,3x150,9x0,118,73x0,150,11x0,118,73x0,150,11x0,118,73x0,150,11x0,118,71x0,3x150,11x0,118,71x0,150,9x0,98,3x0,118,71x0,150,9x0,98,3x0,118,71x0,150,5x0,98,3x0,98,3x0,118,71x0,150,5x0,98,3x0,98,3x0,118,77x0,98,3x0,98,3x0,118,75x0,3x98,3x0,98,3x0,118,75x0,150,5x0,98,3x0,118,75x0,150,5x0,5x150,73x0,2x98,150,9x0,150,73x0,98,11x0,150,73x0,98,11x0,150,73x0,98,11x0,150,85x0,150,85x0,150,85x0,150,85x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,73x0,150,11x0,150,85x0,150,79x0,2,5x0,150,79x0,2,5x0,150,79x0,2,5x0,150,79x0,6x246,150,79x0,2,5x0,150,79x0,2,5x0,150,79x0,2,5x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,150,85x0,218,85x0,218,85x0,218,85x0,218,85x0,218,85x0,246,85x0,246,79x0,2,5x0,246,79x0,2,5x0,246,79x0,2,5x0,246,79x0,3x98,3x0,246,81x0,98,3x0,246,81x0,98,3x0,246,74x0,246,6x0,150,3x0,246,74x0,246,10x0,246,74x0,246,10x0,246,85x0,246,81x0,150,3x0,246,81x0,98,3x0,246,77x0,5x150,3x0,246,77x0,150,7x0,246,77x0,150,7x0,246,81x0,150,3x0,246,81x0,98,3x0,246,74x0,150,6x0,150,3x0,246,74x0,150,6x0,150,3x0,246,74x0,150,6x0,150,3x0,246,71x0,4x150,6x0,150,3x0,246,71x0,150,6x0,150,2x0,150,3x0,246,71x0,150,6x0,4x150,3x0,246,71x0,150,13x0,246,71x0,98,13x0,246,71x0,98,13x0,246,71x0,98,9x0,4x98,150,81x0,98,3x0,150,77x0,98,3x0,98,3x0,150,77x0,98,3x0,98,3x0,150,75x0,3x98,3x0,98,3x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,5x0,150,3x0,150,75x0,150,5x0,150,3x0,150,75x0,7x150,3x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,150,9x0,150,75x0,98,9x0,150,75x0,4x98,6x0,150,78x0,98,6x0,150,78x0,98,6x0,150,78x0,98,3x0,98,2x0,150,73x0,98,4x0,98,3x0,98,2x0,150,73x0,98,4x0,98,3x0,98,2x0,150,73x0,98,8x0,98,2x0,98,73x0,98,8x0,98,2x0,98,73x0,98,8x0,98,2x0,98,73x0,98,8x0,98,2x0,98,70x0,4x98,4x0,98,3x0,98,2x0,98,70x0,98,7x0,98,3x0,98,2x0,98,70x0,98,7x0,5x98,2x0,98,70x0,98,14x0,98,70x0,98,14x0,98,70x0,98,14x0,98,85x0,98,82x0,98,2x150,98,82x0,98,2x0,98,78x0,5x98,2x0,98,73x0,150,4x0,98,6x0,98,73x0,150,11x0,98,73x0,150,6x0,10,4x0,98,73x0,150,6x0,11,4x0,98,73x0,150,11x0,98,73x0,150,11x0,98,73x0,150,4x0,150,6x0,98,73x0,150,4x0,3x150,4x0,98,73x0,150,6x0,150,4x0,98,73x0,3x150,4x0,150,4x0,98,75x0,150,4x0,150,4x0,98,75x0,150,4x0,150,4x0,98,75x0,150,4x0,150,4x0,98,71x0,150,3x0,150,4x0,150,76x0,150,3x0,150,4x0,150,76x0,5x150,4x0,150,80x0,60,4x0,150,77x0,163h,2x0,60,4x76,150,77x0,162h,85x0,161h,1110x0"
 						},
 						"tile-width": 32,
 						"tile-height": 32,
@@ -258,7 +287,7 @@
 							"height": 25,
 							"max-width": 154,
 							"max-height": 67,
-							"data": "271x0,597h,66x0,596h,66x0,595h,338x0,597h,66x0,596h,11x0,597h,54x0,595h,11x0,596h,66x0,595h,334x0,597h,66x0,596h,66x0,595h,121x0,597h,66x0,596h,66x0,595h,11x0,597h,66x0,596h,66x0,595h,401x0,597h,66x0,596h,54x0,597h,11x0,595h,54x0,596h,66x0,595h,7x0,474h,506h,538h,570h,602h,62x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,62x0,471h,503h,535h,567h,599h,62x0,470h,502h,534h,566h,598h,133x0,597h,66x0,596h,66x0,595h,48x0,474h,66x0,473h,11x0,597h,66x0,596h,66x0,595h,54x0,470h,285x0,597h,66x0,596h,66x0,595h,56x0,474h,506h,538h,570h,602h,62x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,62x0,471h,503h,535h,567h,599h,62x0,470h,502h,534h,566h,598h,199x0,555,6x0,597h,66x0,596h,66x0,595h,535x0,597h,66x0,596h,66x0,595h,121x0,474h,506h,538h,570h,602h,62x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,62x0,471h,503h,535h,567h,599h,62x0,470h,502h,534h,566h,598h,141x0,597h,66x0,596h,66x0,595h,52x0,563h,66x0,563h,4x0,565h,61x0,597h,66x0,596h,66x0,595h,535x0,474h,506h,538h,570h,602h,62x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,62x0,471h,503h,535h,567h,599h,62x0,470h,502h,534h,566h,598h,210x0,597h,66x0,596h,66x0,595h,186x0,474h,204x0,599h,60x0,474h,506h,538h,570h,602h,0,598h,60x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,8x0,597h,53x0,471h,503h,535h,567h,599h,8x0,596h,53x0,470h,502h,534h,566h,598h,8x0,595h,928x0,597h,66x0,596h,11x0,597h,54x0,595h,11x0,596h,66x0,595h,596x0,551h,583h,65x0,550h,582h,521x0"
+							"data": "271x0,597h,66x0,596h,66x0,595h,338x0,597h,66x0,596h,11x0,597h,54x0,595h,11x0,596h,66x0,595h,334x0,597h,66x0,596h,66x0,595h,121x0,597h,66x0,596h,66x0,595h,11x0,597h,66x0,596h,66x0,595h,401x0,597h,66x0,596h,54x0,597h,11x0,595h,54x0,596h,66x0,595h,7x0,474h,506h,538h,570h,602h,62x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,62x0,471h,503h,535h,567h,599h,62x0,470h,502h,534h,566h,598h,133x0,597h,66x0,596h,66x0,595h,48x0,474h,66x0,473h,11x0,597h,66x0,596h,66x0,595h,54x0,470h,285x0,597h,66x0,596h,66x0,595h,56x0,474h,506h,538h,570h,602h,62x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,62x0,471h,503h,535h,567h,599h,62x0,470h,502h,534h,566h,598h,199x0,555,6x0,597h,66x0,596h,66x0,595h,535x0,597h,66x0,596h,66x0,595h,121x0,474h,506h,538h,570h,602h,62x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,62x0,471h,503h,535h,567h,599h,62x0,470h,502h,534h,566h,598h,141x0,597h,66x0,596h,66x0,595h,52x0,563h,66x0,563h,4x0,565h,61x0,597h,66x0,596h,66x0,595h,535x0,474h,506h,538h,570h,602h,62x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,62x0,471h,503h,535h,567h,599h,62x0,470h,502h,534h,566h,598h,210x0,597h,66x0,596h,66x0,595h,186x0,474h,204x0,599h,60x0,474h,506h,538h,570h,602h,0,598h,60x0,473h,505h,537h,569h,601h,62x0,472h,504h,536h,568h,600h,8x0,597h,53x0,471h,503h,535h,567h,599h,8x0,596h,53x0,470h,502h,534h,566h,598h,8x0,595h,928x0,597h,66x0,596h,11x0,597h,54x0,595h,11x0,596h,66x0,595h,596x0,551h,589x0"
 						},
 						"tile-width": 32,
 						"tile-height": 32,
@@ -3162,6 +3191,151 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "barell",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1493,
+					"instanceVariables": {
+						"hLevelNum": 2
+					},
+					"behaviors": {},
+					"world": {
+						"x": 4615,
+						"y": 483,
+						"width": 47.11060263262698,
+						"height": 60.38738787105615,
+						"originX": 0.5,
+						"originY": 1,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "woodBox",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1884,
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"world": {
+						"x": 1607,
+						"y": 417,
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "woodBox",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1885,
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"world": {
+						"x": 2708,
+						"y": 257,
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				},
+				{
+					"type": "woodBox",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1886,
+					"instanceVariables": {
+						"woodBoxHP": 2
+					},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"world": {
+						"x": 3634,
+						"y": 513,
+						"width": 32,
+						"height": 32,
+						"originX": 0,
+						"originY": 0,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 436014316351901,
@@ -3178,6 +3352,76 @@
 				1,
 				1,
 				1,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 1,
+			"parallaxY": 1,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "barellLayer",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "barellShadow",
+					"properties": {
+						"initially-visible": false,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1689,
+					"instanceVariables": {},
+					"behaviors": {
+						"Solid": {
+							"properties": {
+								"enabled": true,
+								"tags": ""
+							}
+						}
+					},
+					"world": {
+						"x": 4615,
+						"y": 455,
+						"width": 44.60660158312817,
+						"height": 56.404148491162005,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 322602720938540,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.5019607843137255,
+				0.5019607843137255,
+				0.5019607843137255,
 				1
 			],
 			"isTransparent": true,
@@ -3322,7 +3566,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "fantasy",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -3366,7 +3610,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "fantasy",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -3864,6 +4108,35 @@
 						"angle": 0,
 						"zElevation": 0
 					}
+				},
+				{
+					"type": "shareButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "normalButton",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1704,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 500,
+						"y": 405,
+						"width": 72,
+						"height": 75,
+						"originX": 1.5921658986175116,
+						"originY": 0.49137931034482757,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
 				}
 			],
 			"sid": 804754046546282,
@@ -4047,6 +4320,69 @@
 				}
 			],
 			"sid": 364699789343547,
+			"effectTypes": [],
+			"isInitiallyVisible": true,
+			"isInitiallyInteractive": true,
+			"color": [
+				1,
+				1,
+				1,
+				1
+			],
+			"backgroundColor": [
+				0.5019607843137255,
+				0.5019607843137255,
+				0.5019607843137255,
+				1
+			],
+			"isTransparent": true,
+			"parallaxX": 0,
+			"parallaxY": 0,
+			"scaleRate": 1,
+			"forceOwnTexture": false,
+			"renderingMode": "3d",
+			"drawOrder": "z-order",
+			"useRenderCells": false,
+			"blendMode": "normal",
+			"zElevation": 0,
+			"global": false
+		},
+		{
+			"name": "barellDownButtonLayer",
+			"overriden": 0,
+			"subLayers": [],
+			"instances": [
+				{
+					"type": "barellDownButton",
+					"properties": {
+						"initially-visible": true,
+						"initial-animation": "Animation 1",
+						"initial-frame": 0,
+						"enable-collisions": true,
+						"live-preview": false
+					},
+					"uid": 1694,
+					"instanceVariables": {},
+					"behaviors": {},
+					"world": {
+						"x": 692,
+						"y": 296,
+						"width": 96,
+						"height": 96,
+						"originX": 0.5,
+						"originY": 0.5,
+						"color": [
+							1,
+							1,
+							1,
+							1
+						],
+						"angle": 0,
+						"zElevation": 0
+					}
+				}
+			],
+			"sid": 285441361972885,
 			"effectTypes": [],
 			"isInitiallyVisible": true,
 			"isInitiallyInteractive": true,
@@ -4336,7 +4672,7 @@
 					"properties": {
 						"text": "Text",
 						"enable-bbcode": true,
-						"font": "Arial",
+						"font": "fantasy",
 						"size": 12,
 						"line-height": 0,
 						"bold": false,
@@ -4363,35 +4699,6 @@
 						"y": 67,
 						"width": 200,
 						"height": 30,
-						"originX": 0,
-						"originY": 0,
-						"color": [
-							1,
-							1,
-							1,
-							1
-						],
-						"angle": 0,
-						"zElevation": 0
-					}
-				},
-				{
-					"type": "barrier",
-					"properties": {
-						"initially-visible": false,
-						"initial-animation": "Animation 1",
-						"initial-frame": 0,
-						"enable-collisions": true,
-						"live-preview": false
-					},
-					"uid": 473,
-					"instanceVariables": {},
-					"behaviors": {},
-					"world": {
-						"x": 4640,
-						"y": 352,
-						"width": 32,
-						"height": 128,
 						"originX": 0,
 						"originY": 0,
 						"color": [

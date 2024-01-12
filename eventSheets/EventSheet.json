@@ -56,6 +56,16 @@
 			"sid": 326252685855868
 		},
 		{
+			"eventType": "variable",
+			"name": "ScreenShootName",
+			"type": "number",
+			"initialValue": "0",
+			"comment": "",
+			"isStatic": false,
+			"isConstant": false,
+			"sid": 562267540469079
+		},
+		{
 			"eventType": "block",
 			"conditions": [
 				{
@@ -71,6 +81,24 @@
 					"sid": 969917823764360,
 					"parameters": {
 						"group-name": "\"Hero\"",
+						"state": "activated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 768529892162449,
+					"parameters": {
+						"group-name": "\"Touch Controls\"",
+						"state": "deactivated"
+					}
+				},
+				{
+					"id": "set-group-active",
+					"objectClass": "System",
+					"sid": 849073864170761,
+					"parameters": {
+						"group-name": "\"Hero Idle\"",
 						"state": "activated"
 					}
 				},
@@ -107,6 +135,15 @@
 					"sid": 473574570353955,
 					"parameters": {
 						"variable": "seeds",
+						"value": "0"
+					}
+				},
+				{
+					"id": "set-eventvar-value",
+					"objectClass": "System",
+					"sid": 245140348912705,
+					"parameters": {
+						"variable": "score",
 						"value": "0"
 					}
 				},
@@ -262,9 +299,9 @@
 				{
 					"id": "set-text",
 					"objectClass": "Score",
-					"sid": 657797908552236,
+					"sid": 806250578904027,
 					"parameters": {
-						"text": "\"Score = \" & score"
+						"text": "\"Score \" & score"
 					}
 				},
 				{
@@ -1484,14 +1521,6 @@
 						{
 							"id": "on-collision-with-another-object",
 							"objectClass": "Knight",
-							"sid": 764516952465082,
-							"parameters": {
-								"object": "spiderDrones"
-							}
-						},
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Knight",
 							"sid": 317071837562707,
 							"parameters": {
 								"object": "Spine"
@@ -1503,14 +1532,6 @@
 							"sid": 621698308890282,
 							"parameters": {
 								"object": "fallingArrows"
-							}
-						},
-						{
-							"id": "on-collision-with-another-object",
-							"objectClass": "Knight",
-							"sid": 974956538724828,
-							"parameters": {
-								"object": "turret"
 							}
 						},
 						{
@@ -1621,6 +1642,11 @@
 									"id": "stop-all",
 									"objectClass": "Audio",
 									"sid": 521575397969963
+								},
+								{
+									"id": "show-rewarded",
+									"objectClass": "MobileAdvert",
+									"sid": 921851866857448
 								}
 							],
 							"sid": 937193752109912,
@@ -1714,10 +1740,434 @@
 					"conditions": [
 						{
 							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 507209403259116,
+							"parameters": {
+								"object": "spiderDrones"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "spiderDrones",
+							"sid": 992079242809617,
+							"parameters": {
+								"instance-variable": "spiderHP",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "flash",
+							"objectClass": "Knight",
+							"sid": 832126397567448,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "3.0"
+							}
+						}
+					],
+					"sid": 315909340859862,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Knight",
+									"sid": 996773353229552,
+									"parameters": {
+										"instance-variable": "localHP",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 720452666617010,
+									"parameters": {
+										"layer": "\"loseLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 654460807687395,
+									"parameters": {
+										"layer": "\"opacityLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 646949110859704,
+									"parameters": {
+										"group-name": "\"Hero\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 639689765796004,
+									"parameters": {
+										"layer": "\"touchControls\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "HeroShadow",
+									"sid": 107942166374457,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 179124741167290,
+									"parameters": {
+										"animation": "\"0HP\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 981925474102254
+								}
+							],
+							"sid": 812626696676394,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 141322085134978
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Knight",
+									"sid": 273697594111165,
+									"parameters": {
+										"x": "HeroShadow.X - 500",
+										"y": "HeroShadow.Y"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Knight",
+									"sid": 357292889456409,
+									"parameters": {
+										"instance-variable": "localHP",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 102091796030667
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 309520326763317,
+									"parameters": {
+										"variable": "score",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 529658811757197,
+									"parameters": {
+										"variable": "score",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 341607113158225
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 960811732979433
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 916271241382924,
+									"parameters": {
+										"variable": "score",
+										"value": "20"
+									}
+								}
+							],
+							"sid": 239941113599581
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 386690122844478,
+							"parameters": {
+								"object": "turret"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "turret",
+							"sid": 471240035786015,
+							"parameters": {
+								"instance-variable": "turretHP",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "shake",
+							"objectClass": "Knight",
+							"sid": 694972013993028,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "20",
+								"duration": "0.4",
+								"mode": "reducing-magnitude"
+							}
+						},
+						{
+							"id": "flash",
+							"objectClass": "Knight",
+							"sid": 740614765653561,
+							"behaviorType": "Flash",
+							"parameters": {
+								"on-time": "0.1",
+								"off-time": "0.1",
+								"duration": "3.0"
+							}
+						},
+						{
+							"id": "shake",
+							"objectClass": "Knight",
+							"sid": 300704929176804,
+							"behaviorType": "ScrollTo",
+							"parameters": {
+								"magnitude": "20",
+								"duration": "0.4",
+								"mode": "reducing-magnitude"
+							}
+						}
+					],
+					"sid": 749614150210715,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Knight",
+									"sid": 775679398750596,
+									"parameters": {
+										"instance-variable": "localHP",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 376914204684018,
+									"parameters": {
+										"layer": "\"loseLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 586674797556416,
+									"parameters": {
+										"layer": "\"opacityLayer\"",
+										"visibility": "visible"
+									}
+								},
+								{
+									"id": "set-group-active",
+									"objectClass": "System",
+									"sid": 288111963161671,
+									"parameters": {
+										"group-name": "\"Hero\"",
+										"state": "deactivated"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 577334213727922,
+									"parameters": {
+										"layer": "\"touchControls\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-enabled",
+									"objectClass": "HeroShadow",
+									"sid": 893376255721392,
+									"behaviorType": "Platform",
+									"parameters": {
+										"state": "disabled"
+									}
+								},
+								{
+									"id": "set-animation",
+									"objectClass": "heroHP",
+									"sid": 721046841921870,
+									"parameters": {
+										"animation": "\"0HP\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "stop-all",
+									"objectClass": "Audio",
+									"sid": 335583652466401
+								}
+							],
+							"sid": 660623116726942,
+							"isOrBlock": true
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 897578950388434
+								}
+							],
+							"actions": [
+								{
+									"id": "set-position",
+									"objectClass": "Knight",
+									"sid": 127643771903556,
+									"parameters": {
+										"x": "HeroShadow.X - 500",
+										"y": "HeroShadow.Y"
+									}
+								},
+								{
+									"id": "subtract-from-instvar",
+									"objectClass": "Knight",
+									"sid": 962551817117101,
+									"parameters": {
+										"instance-variable": "localHP",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 265243520284371
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 351276514552628,
+									"parameters": {
+										"variable": "score",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-eventvar-value",
+									"objectClass": "System",
+									"sid": 750334352003699,
+									"parameters": {
+										"variable": "score",
+										"value": "0"
+									}
+								}
+							],
+							"sid": 419826454067685
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "else",
+									"objectClass": "System",
+									"sid": 296059868372103
+								}
+							],
+							"actions": [
+								{
+									"id": "subtract-from-eventvar",
+									"objectClass": "System",
+									"sid": 270573469657115,
+									"parameters": {
+										"variable": "score",
+										"value": "20"
+									}
+								}
+							],
+							"sid": 893845337541220
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
 							"objectClass": "arrow",
 							"sid": 357294954346629,
 							"parameters": {
 								"object": "spiderDrones"
+							}
+						},
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "arrow",
+							"sid": 360230727477177,
+							"parameters": {
+								"object": "turret"
 							}
 						}
 					],
@@ -2233,6 +2683,26 @@
 													"objectClass": "spiderDrones",
 													"sid": 957953832890455,
 													"behaviorType": "Fade"
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "spiderDrones",
+													"sid": 630958339678795,
+													"behaviorType": "Solid",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "spiderDrones",
+													"sid": 212034631262027,
+													"parameters": {
+														"object": "Gold2",
+														"layer": "3",
+														"image-point": "0",
+														"create-hierarchy": false
+													}
 												}
 											],
 											"sid": 725097233467644
@@ -2287,6 +2757,26 @@
 													"objectClass": "spiderDrones",
 													"sid": 759088534966926,
 													"behaviorType": "Fade"
+												},
+												{
+													"id": "set-enabled",
+													"objectClass": "spiderDrones",
+													"sid": 378505658876258,
+													"behaviorType": "Solid",
+													"parameters": {
+														"state": "disabled"
+													}
+												},
+												{
+													"id": "spawn-another-object",
+													"objectClass": "spiderDrones",
+													"sid": 373583544715248,
+													"parameters": {
+														"object": "Gold2",
+														"layer": "3",
+														"image-point": "0",
+														"create-hierarchy": false
+													}
 												}
 											],
 											"sid": 964355953224427
@@ -3172,6 +3662,33 @@
 							"id": "restart-layout",
 							"objectClass": "System",
 							"sid": 634832032852750
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 661964805686474,
+							"parameters": {
+								"variable": "coins",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 831304826412842,
+							"parameters": {
+								"variable": "score",
+								"value": "0"
+							}
+						},
+						{
+							"id": "set-eventvar-value",
+							"objectClass": "System",
+							"sid": 122218034477015,
+							"parameters": {
+								"variable": "seeds",
+								"value": "0"
+							}
 						}
 					],
 					"sid": 832683897603056
@@ -3356,6 +3873,209 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "ScreenShoot3",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 300856199416792,
+							"parameters": {
+								"object": "shareButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "shareButton",
+							"sid": 480912685190662,
+							"parameters": {
+								"animation": "\"clickedButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 771258642808906
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "cursor-is-over-object",
+							"objectClass": "Mouse",
+							"sid": 390778968454621,
+							"parameters": {
+								"object": "shareButton"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-animation",
+							"objectClass": "shareButton",
+							"sid": 458689595728516,
+							"parameters": {
+								"animation": "\"normalButton\"",
+								"from": "beginning"
+							}
+						}
+					],
+					"sid": 430293914425962
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-object-clicked",
+							"objectClass": "Mouse",
+							"sid": 987849161499587,
+							"parameters": {
+								"mouse-button": "left",
+								"click-type": "clicked",
+								"object-clicked": "shareButton"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 265836594790260,
+							"parameters": {
+								"layer": "\"touchControls\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "snapshot-canvas",
+							"objectClass": "System",
+							"sid": 368564986086475,
+							"parameters": {
+								"format": "png",
+								"jpeg-quality": "75",
+								"x": "0",
+								"y": "0",
+								"width": "0",
+								"height": "0"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 194035817001233,
+							"parameters": {
+								"seconds": "1"
+							}
+						},
+						{
+							"id": "add-file",
+							"objectClass": "Share",
+							"sid": 440708092644592,
+							"parameters": {
+								"filename": "\"image\"&ScreenShootName&\".png\"",
+								"type": "\"image/png\"",
+								"data": "BinaryData"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 227577276298975,
+							"parameters": {
+								"variable": "ScreenShootName",
+								"value": "1"
+							}
+						},
+						{
+							"id": "share-text",
+							"objectClass": "Share",
+							"sid": 470183348382503,
+							"parameters": {
+								"text": "\"Take a look at this ScreenShot!\"",
+								"title": "\"So cool\"",
+								"url": "\"\""
+							}
+						}
+					],
+					"sid": 241408053789949
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-canvas-snapshot",
+							"objectClass": "System",
+							"sid": 760496215422836
+						}
+					],
+					"actions": [
+						{
+							"id": "load-image-from-url",
+							"objectClass": "screenShotSprite",
+							"sid": 744861595375413,
+							"parameters": {
+								"uri": "CanvasSnapshot",
+								"size": "keep-current-size",
+								"cross-origin": "anonymous"
+							}
+						},
+						{
+							"id": "set-response-binary",
+							"objectClass": "AJAX",
+							"sid": 592757939865210,
+							"parameters": {
+								"destination": "BinaryData"
+							}
+						},
+						{
+							"id": "request-url",
+							"objectClass": "AJAX",
+							"sid": 882604214620007,
+							"parameters": {
+								"tag": "\"load-snapshot\"",
+								"url": "CanvasSnapshot"
+							}
+						}
+					],
+					"sid": 805012314716454
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-completed",
+							"objectClass": "AJAX",
+							"sid": 541886984527713,
+							"parameters": {
+								"tag": "\"load-snapshot\""
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-binary-item",
+							"objectClass": "LocalStorage",
+							"sid": 227526689496823,
+							"parameters": {
+								"key": "\"snapshot\"",
+								"source": "BinaryData"
+							}
+						}
+					],
+					"sid": 430090029992493
+				}
+			],
+			"sid": 956454204152565
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Pause Play button",
 			"description": "",
 			"isActiveOnStart": true,
@@ -3418,6 +4138,15 @@
 							"parameters": {
 								"layer": "\"touchControls\"",
 								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 906915337977161,
+							"parameters": {
+								"group-name": "\"Dialogue Events\"",
+								"state": "activated"
 							}
 						}
 					],
@@ -3545,11 +4274,38 @@
 							}
 						},
 						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 747248356739047,
+							"parameters": {
+								"group-name": "\"Dialogue Events\"",
+								"state": "deactivated"
+							}
+						},
+						{
 							"id": "set-layer-visible",
 							"objectClass": "System",
-							"sid": 757343980150465,
+							"sid": 413474982992192,
 							"parameters": {
 								"layer": "\"dialogueLayer1\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 607810542179055,
+							"parameters": {
+								"layer": "\"dialogueLayer2\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 614224484424490,
+							"parameters": {
+								"layer": "\"dialogueLayer3\"",
 								"visibility": "invisible"
 							}
 						}
@@ -3974,52 +4730,6 @@
 									"sid": 674508415628111
 								}
 							]
-						},
-						{
-							"eventType": "block",
-							"conditions": [
-								{
-									"id": "has-los-to-object",
-									"objectClass": "turret",
-									"sid": 447210656950039,
-									"behaviorType": "LineOfSight",
-									"parameters": {
-										"object": "Knight",
-										"image-point": "0"
-									}
-								},
-								{
-									"id": "every-x-seconds",
-									"objectClass": "System",
-									"sid": 202366248820164,
-									"parameters": {
-										"interval-seconds": "1"
-									}
-								}
-							],
-							"actions": [
-								{
-									"id": "spawn-another-object",
-									"objectClass": "turret",
-									"sid": 114132457212191,
-									"parameters": {
-										"object": "flamesBullet",
-										"layer": "5",
-										"image-point": "1",
-										"create-hierarchy": false
-									}
-								},
-								{
-									"id": "set-angle-toward-position",
-									"objectClass": "flamesBullet",
-									"sid": 460876723411425,
-									"parameters": {
-										"x": "Knight.X",
-										"y": "Knight.Y"
-									}
-								}
-							],
-							"sid": 904634893383226
 						}
 					],
 					"sid": 728476468197456
@@ -4110,6 +4820,85 @@
 								}
 							],
 							"sid": 850579126467289
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 245452950629995,
+							"parameters": {
+								"object": "Gold2"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 787597351144919,
+							"parameters": {
+								"variable": "coins",
+								"value": "1"
+							}
+						},
+						{
+							"id": "destroy",
+							"objectClass": "Gold2",
+							"sid": 557159528487301
+						},
+						{
+							"id": "set-text",
+							"objectClass": "coinNumberText",
+							"sid": 690668832895442,
+							"parameters": {
+								"text": "coins"
+							}
+						},
+						{
+							"id": "add-to-eventvar",
+							"objectClass": "System",
+							"sid": 254233584936147,
+							"parameters": {
+								"variable": "score",
+								"value": "10"
+							}
+						}
+					],
+					"sid": 710725305435973,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-eventvar",
+									"objectClass": "System",
+									"sid": 327178894495281,
+									"parameters": {
+										"variable": "playSoundEffects",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "play",
+									"objectClass": "Audio",
+									"sid": 151360573939353,
+									"parameters": {
+										"audio-file": "coin-upaif-14631",
+										"loop": "not-looping",
+										"volume": "0",
+										"stereo-pan": "0",
+										"tag-optional": "\"coinSound\""
+									}
+								}
+							],
+							"sid": 711183251261735
 						}
 					]
 				}
@@ -4400,6 +5189,62 @@
 						}
 					],
 					"sid": 421722959137702
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "has-los-to-object",
+							"objectClass": "turret",
+							"sid": 795578788262031,
+							"behaviorType": "LineOfSight",
+							"parameters": {
+								"object": "Knight",
+								"image-point": "0"
+							}
+						},
+						{
+							"id": "every-x-seconds",
+							"objectClass": "System",
+							"sid": 273549292538769,
+							"parameters": {
+								"interval-seconds": "1"
+							}
+						},
+						{
+							"id": "compare-instance-variable",
+							"objectClass": "turret",
+							"sid": 449859944137933,
+							"parameters": {
+								"instance-variable": "turretHP",
+								"comparison": 4,
+								"value": "0"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "spawn-another-object",
+							"objectClass": "turret",
+							"sid": 739615160206859,
+							"parameters": {
+								"object": "flamesBullet",
+								"layer": "5",
+								"image-point": "1",
+								"create-hierarchy": false
+							}
+						},
+						{
+							"id": "set-angle-toward-position",
+							"objectClass": "flamesBullet",
+							"sid": 482904688676620,
+							"parameters": {
+								"x": "Knight.X",
+								"y": "Knight.Y"
+							}
+						}
+					],
+					"sid": 176693944222697
 				}
 			],
 			"sid": 988658613116550
@@ -4416,6 +5261,467 @@
 		{
 			"eventType": "group",
 			"disabled": false,
+			"title": "Wood Box",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "arrow",
+							"sid": 354040064381517,
+							"parameters": {
+								"object": "woodBox"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "destroy",
+							"objectClass": "arrow",
+							"sid": 832852693411058
+						},
+						{
+							"id": "subtract-from-instvar",
+							"objectClass": "woodBox",
+							"sid": 945633228578018,
+							"parameters": {
+								"instance-variable": "woodBoxHP",
+								"value": "1"
+							}
+						}
+					],
+					"sid": 934334907788195,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "woodBox",
+									"sid": 342858125811797,
+									"parameters": {
+										"instance-variable": "woodBoxHP",
+										"comparison": 0,
+										"value": "0"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "woodBox",
+									"sid": 587883583681778
+								},
+								{
+									"id": "spawn-another-object",
+									"objectClass": "woodBox",
+									"sid": 540611460428281,
+									"parameters": {
+										"object": "life",
+										"layer": "3",
+										"image-point": "0",
+										"create-hierarchy": false
+									}
+								}
+							],
+							"sid": 472353856595331
+						}
+					]
+				}
+			],
+			"sid": 227783644726978
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Life Heart",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-collision-with-another-object",
+							"objectClass": "Knight",
+							"sid": 340219882415810,
+							"parameters": {
+								"object": "life"
+							}
+						}
+					],
+					"actions": [],
+					"sid": 214569227570093,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "Knight",
+									"sid": 675630807826761,
+									"parameters": {
+										"instance-variable": "localHP",
+										"comparison": 2,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "destroy",
+									"objectClass": "life",
+									"sid": 941613140199345
+								},
+								{
+									"id": "add-to-instvar",
+									"objectClass": "Knight",
+									"sid": 329140706898955,
+									"parameters": {
+										"instance-variable": "localHP",
+										"value": "1"
+									}
+								}
+							],
+							"sid": 693698574627481
+						}
+					]
+				}
+			],
+			"sid": 204523189085562
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
+			"title": "Barell",
+			"description": "",
+			"isActiveOnStart": true,
+			"children": [
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-key-pressed",
+							"objectClass": "Keyboard",
+							"sid": 157715166692083,
+							"parameters": {
+								"key": 40
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "HeroShadow",
+							"sid": 331283291538012,
+							"parameters": {
+								"object": "barell"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "HeroShadow",
+							"sid": 332828695116484,
+							"behaviorType": "Platform",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "Knight",
+							"sid": 662575437199508,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 596407603739126,
+							"parameters": {
+								"group-name": "\"Hero Idle\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 166129291393188,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 727313951600813,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 762396478073836,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 479762396655669,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 449955565879422,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 266959769711738
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 811955955321725,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 124856274409037,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 107020384024371,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 525525280713088,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 433731658806371
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 170676096320893,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 325798053697549,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 123363694775332,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 359460490760600,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 418033517458231
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 804586794643759,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 121476780414490,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 985563136449784,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 383305381724885,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 209511094248684
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 744520372544512,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 396650519205232,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 820379163517450,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 965984947311623,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 349391055689391
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "HeroShadow",
+							"sid": 229370291393037,
+							"parameters": {
+								"object": "IndicatorBarell"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 702555178886174,
+							"parameters": {
+								"layer": "\"barellDownButtonLayer\"",
+								"visibility": "visible"
+							}
+						}
+					],
+					"sid": 680884941858323
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "HeroShadow",
+							"sid": 301161042620790,
+							"parameters": {
+								"object": "IndicatorBarell"
+							},
+							"isInverted": true
+						}
+					],
+					"actions": [
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 218793549747597,
+							"parameters": {
+								"layer": "\"barellDownButtonLayer\"",
+								"visibility": "invisible"
+							}
+						}
+					],
+					"sid": 913670793459724
+				}
+			],
+			"sid": 700107103481578
+		},
+		{
+			"eventType": "group",
+			"disabled": false,
 			"title": "Touch Controls",
 			"description": "",
 			"isActiveOnStart": true,
@@ -4426,7 +5732,7 @@
 						{
 							"id": "is-touching-object",
 							"objectClass": "Touch",
-							"sid": 369125720994580,
+							"sid": 330990809462078,
 							"parameters": {
 								"object": "rightArrow"
 							}
@@ -4436,7 +5742,7 @@
 						{
 							"id": "set-mirrored",
 							"objectClass": "Knight",
-							"sid": 501110503449814,
+							"sid": 645220145549878,
 							"parameters": {
 								"state": "not-mirrored"
 							}
@@ -4444,7 +5750,7 @@
 						{
 							"id": "set-animation",
 							"objectClass": "Knight",
-							"sid": 970022087850510,
+							"sid": 381953025114609,
 							"parameters": {
 								"animation": "\"Walk\"",
 								"from": "beginning"
@@ -4453,7 +5759,7 @@
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 614357172648798,
+							"sid": 204309119748330,
 							"parameters": {
 								"variable": "RightDirection",
 								"value": "true"
@@ -4462,14 +5768,14 @@
 						{
 							"id": "simulate-control",
 							"objectClass": "HeroShadow",
-							"sid": 889613736724743,
+							"sid": 997592334344889,
 							"behaviorType": "Platform",
 							"parameters": {
 								"control": "right"
 							}
 						}
 					],
-					"sid": 295974521789676
+					"sid": 208013769846339
 				},
 				{
 					"eventType": "block",
@@ -4477,7 +5783,7 @@
 						{
 							"id": "is-touching-object",
 							"objectClass": "Touch",
-							"sid": 690840851765022,
+							"sid": 200049919165820,
 							"parameters": {
 								"object": "leftArrow"
 							}
@@ -4487,7 +5793,7 @@
 						{
 							"id": "set-mirrored",
 							"objectClass": "Knight",
-							"sid": 820943210686490,
+							"sid": 181681128165212,
 							"parameters": {
 								"state": "mirrored"
 							}
@@ -4495,7 +5801,7 @@
 						{
 							"id": "set-animation",
 							"objectClass": "Knight",
-							"sid": 558133015058738,
+							"sid": 274184761596304,
 							"parameters": {
 								"animation": "\"Walk\"",
 								"from": "beginning"
@@ -4504,7 +5810,7 @@
 						{
 							"id": "set-boolean-eventvar",
 							"objectClass": "System",
-							"sid": 517096916594590,
+							"sid": 653315118642561,
 							"parameters": {
 								"variable": "RightDirection",
 								"value": "false"
@@ -4513,22 +5819,22 @@
 						{
 							"id": "simulate-control",
 							"objectClass": "HeroShadow",
-							"sid": 366104596729924,
+							"sid": 116923658138884,
 							"behaviorType": "Platform",
 							"parameters": {
 								"control": "left"
 							}
 						}
 					],
-					"sid": 296744018616096
+					"sid": 828949779478611
 				},
 				{
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-touching-object",
+							"id": "on-hold-over-object",
 							"objectClass": "Touch",
-							"sid": 736151363171086,
+							"sid": 584643180352954,
 							"parameters": {
 								"object": "rightArrow"
 							}
@@ -4536,7 +5842,7 @@
 						{
 							"id": "is-on-floor",
 							"objectClass": "HeroShadow",
-							"sid": 703910581762664,
+							"sid": 393412308960278,
 							"behaviorType": "Platform"
 						}
 					],
@@ -4544,13 +5850,13 @@
 						{
 							"id": "stop",
 							"objectClass": "Audio",
-							"sid": 575009102987917,
+							"sid": 531525224991333,
 							"parameters": {
 								"tag": "\"walkSound\""
 							}
 						}
 					],
-					"sid": 600523553992787,
+					"sid": 876281944434499,
 					"children": [
 						{
 							"eventType": "block",
@@ -4558,7 +5864,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 446598874494242,
+									"sid": 652469678238623,
 									"parameters": {
 										"variable": "playSoundEffects",
 										"comparison": 0,
@@ -4570,7 +5876,7 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 696458891946992,
+									"sid": 493406641138336,
 									"parameters": {
 										"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
 										"loop": "not-looping",
@@ -4580,7 +5886,7 @@
 									}
 								}
 							],
-							"sid": 685902113433409
+							"sid": 686586109226820
 						}
 					]
 				},
@@ -4588,9 +5894,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-touching-object",
+							"id": "on-hold-over-object",
 							"objectClass": "Touch",
-							"sid": 716701907057939,
+							"sid": 336408090495438,
 							"parameters": {
 								"object": "leftArrow"
 							}
@@ -4598,7 +5904,7 @@
 						{
 							"id": "is-on-floor",
 							"objectClass": "HeroShadow",
-							"sid": 519081592432912,
+							"sid": 395557942389533,
 							"behaviorType": "Platform"
 						}
 					],
@@ -4606,13 +5912,13 @@
 						{
 							"id": "stop",
 							"objectClass": "Audio",
-							"sid": 315002149586755,
+							"sid": 663135315237506,
 							"parameters": {
 								"tag": "\"walkSound\""
 							}
 						}
 					],
-					"sid": 364553585620442,
+					"sid": 454079639556823,
 					"children": [
 						{
 							"eventType": "block",
@@ -4620,7 +5926,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 543096726016333,
+									"sid": 500061994538393,
 									"parameters": {
 										"variable": "playSoundEffects",
 										"comparison": 0,
@@ -4632,7 +5938,7 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 581163768716143,
+									"sid": 136077128321403,
 									"parameters": {
 										"audio-file": "mixkit-footsteps-in-the-forest-ground-1230_3PZwdwHK",
 										"loop": "not-looping",
@@ -4642,7 +5948,7 @@
 									}
 								}
 							],
-							"sid": 196727271163405
+							"sid": 401618023712443
 						}
 					]
 				},
@@ -4652,14 +5958,14 @@
 						{
 							"id": "on-tap-object",
 							"objectClass": "Touch",
-							"sid": 570087466406465,
+							"sid": 587823877625533,
 							"parameters": {
 								"object": "attackButton"
 							}
 						}
 					],
 					"actions": [],
-					"sid": 575377685129360,
+					"sid": 292234852349284,
 					"children": [
 						{
 							"eventType": "block",
@@ -4667,7 +5973,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 472891469623026,
+									"sid": 222792529421276,
 									"parameters": {
 										"variable": "playSoundEffects",
 										"comparison": 0,
@@ -4679,7 +5985,7 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 259035091433772,
+									"sid": 830988650758351,
 									"parameters": {
 										"audio-file": "whoosh-transitions-sfx-01-118227",
 										"loop": "not-looping",
@@ -4689,7 +5995,7 @@
 									}
 								}
 							],
-							"sid": 268659085926683
+							"sid": 639090251340372
 						},
 						{
 							"eventType": "block",
@@ -4697,13 +6003,13 @@
 								{
 									"id": "is-on-floor",
 									"objectClass": "HeroShadow",
-									"sid": 735022480094148,
+									"sid": 144927357213114,
 									"behaviorType": "Platform"
 								},
 								{
 									"id": "is-moving",
 									"objectClass": "HeroShadow",
-									"sid": 255554066495069,
+									"sid": 713311493941391,
 									"behaviorType": "Platform",
 									"isInverted": true
 								}
@@ -4712,7 +6018,7 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Knight",
-									"sid": 907511480844091,
+									"sid": 899216311514237,
 									"parameters": {
 										"animation": "\"ShotArrow\"",
 										"from": "beginning"
@@ -4721,7 +6027,7 @@
 								{
 									"id": "stop",
 									"objectClass": "Audio",
-									"sid": 556101901129455,
+									"sid": 640682160166948,
 									"parameters": {
 										"tag": "\"walkSound\""
 									}
@@ -4729,7 +6035,7 @@
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 853046874887325,
+									"sid": 763649005144214,
 									"parameters": {
 										"group-name": "\"Hero Idle\"",
 										"state": "deactivated"
@@ -4738,7 +6044,7 @@
 								{
 									"id": "wait",
 									"objectClass": "System",
-									"sid": 702439158511912,
+									"sid": 795298363946317,
 									"parameters": {
 										"seconds": "0.5"
 									}
@@ -4746,14 +6052,14 @@
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 411743278831077,
+									"sid": 611241752976375,
 									"parameters": {
 										"group-name": "\"Hero Idle\"",
 										"state": "activated"
 									}
 								}
 							],
-							"sid": 537944130923347
+							"sid": 399825579090977
 						},
 						{
 							"eventType": "block",
@@ -4761,7 +6067,7 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 176945263555085,
+									"sid": 979149093092823,
 									"parameters": {
 										"variable": "RightDirection"
 									}
@@ -4771,7 +6077,7 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Knight",
-									"sid": 854362348798329,
+									"sid": 285428667330875,
 									"parameters": {
 										"animation": "\"Shot\"",
 										"from": "beginning"
@@ -4780,7 +6086,7 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Knight",
-									"sid": 952579333003216,
+									"sid": 219159224511462,
 									"parameters": {
 										"object": "arrow",
 										"layer": "4",
@@ -4791,14 +6097,14 @@
 								{
 									"id": "set-angle-of-motion",
 									"objectClass": "arrow",
-									"sid": 115734522355326,
+									"sid": 838042764074508,
 									"behaviorType": "Bullet",
 									"parameters": {
 										"angle": "0"
 									}
 								}
 							],
-							"sid": 337539332563173
+							"sid": 543941041309165
 						},
 						{
 							"eventType": "block",
@@ -4806,7 +6112,7 @@
 								{
 									"id": "compare-boolean-eventvar",
 									"objectClass": "System",
-									"sid": 157536686462997,
+									"sid": 438771332333563,
 									"parameters": {
 										"variable": "RightDirection"
 									},
@@ -4817,7 +6123,7 @@
 								{
 									"id": "set-animation",
 									"objectClass": "Knight",
-									"sid": 631430193108644,
+									"sid": 950635972340260,
 									"parameters": {
 										"animation": "\"Shot\"",
 										"from": "beginning"
@@ -4826,7 +6132,7 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Knight",
-									"sid": 945612232729536,
+									"sid": 543245811531268,
 									"parameters": {
 										"object": "arrow",
 										"layer": "4",
@@ -4837,14 +6143,14 @@
 								{
 									"id": "set-angle-of-motion",
 									"objectClass": "arrow",
-									"sid": 356752558046677,
+									"sid": 900916514305956,
 									"behaviorType": "Bullet",
 									"parameters": {
 										"angle": "180"
 									}
 								}
 							],
-							"sid": 936569986843113
+							"sid": 260987920851849
 						}
 					]
 				},
@@ -4852,9 +6158,9 @@
 					"eventType": "block",
 					"conditions": [
 						{
-							"id": "is-touching-object",
+							"id": "on-tap-object",
 							"objectClass": "Touch",
-							"sid": 727920090339610,
+							"sid": 291335588430185,
 							"parameters": {
 								"object": "jumpArrow"
 							}
@@ -4864,7 +6170,7 @@
 						{
 							"id": "stop",
 							"objectClass": "Audio",
-							"sid": 680244199529601,
+							"sid": 739995345513572,
 							"parameters": {
 								"tag": "\"walkSound\""
 							}
@@ -4872,14 +6178,14 @@
 						{
 							"id": "simulate-control",
 							"objectClass": "HeroShadow",
-							"sid": 203946117028996,
+							"sid": 843307291671971,
 							"behaviorType": "Platform",
 							"parameters": {
 								"control": "jump"
 							}
 						}
 					],
-					"sid": 486932567658052,
+					"sid": 607849017718253,
 					"children": [
 						{
 							"eventType": "block",
@@ -4887,7 +6193,7 @@
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 854880560613909,
+									"sid": 420492329535466,
 									"parameters": {
 										"variable": "playSoundEffects",
 										"comparison": 0,
@@ -4899,7 +6205,7 @@
 								{
 									"id": "play",
 									"objectClass": "Audio",
-									"sid": 747475335609612,
+									"sid": 986130255189392,
 									"parameters": {
 										"audio-file": "fast-simple-chop-5-6270",
 										"loop": "not-looping",
@@ -4909,7 +6215,272 @@
 									}
 								}
 							],
-							"sid": 846382301910009
+							"sid": 399438201616301
+						}
+					]
+				},
+				{
+					"eventType": "block",
+					"conditions": [
+						{
+							"id": "on-tap-object",
+							"objectClass": "Touch",
+							"sid": 635919731172889,
+							"parameters": {
+								"object": "barellDownButton"
+							}
+						},
+						{
+							"id": "is-overlapping-another-object",
+							"objectClass": "HeroShadow",
+							"sid": 425460218090178,
+							"parameters": {
+								"object": "barell"
+							}
+						}
+					],
+					"actions": [
+						{
+							"id": "set-ignoring-input",
+							"objectClass": "HeroShadow",
+							"sid": 243473884081443,
+							"behaviorType": "Platform",
+							"parameters": {
+								"input": "start-ignoring"
+							}
+						},
+						{
+							"id": "unpin",
+							"objectClass": "Knight",
+							"sid": 941980319181186,
+							"behaviorType": "Pin"
+						},
+						{
+							"id": "set-group-active",
+							"objectClass": "System",
+							"sid": 833604142971897,
+							"parameters": {
+								"group-name": "\"Hero Idle\"",
+								"state": "deactivated"
+							}
+						}
+					],
+					"sid": 238350712485482,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 358502336837234,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "1"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 306254136956731,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 899355024394201,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 253007038659024,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 633828534498279
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 535035902735882,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "2"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 560541710165982,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 103733574936710,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 322706757930085,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 333942270784984
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 662419160962226,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "3"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 147592925752363,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 562007995726333,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 211817561971185,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 599095544153270
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 232969920608826,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "4"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 771795724121877,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 662535788290096,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 443920952835626,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 889489517232310
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "compare-instance-variable",
+									"objectClass": "barell",
+									"sid": 837744122310222,
+									"parameters": {
+										"instance-variable": "hLevelNum",
+										"comparison": 0,
+										"value": "5"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-animation",
+									"objectClass": "Knight",
+									"sid": 945217244138765,
+									"parameters": {
+										"animation": "\"downBarell\"",
+										"from": "beginning"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 111245109521946,
+									"parameters": {
+										"seconds": "1.4"
+									}
+								},
+								{
+									"id": "go-to-layout-by-name",
+									"objectClass": "System",
+									"sid": 207094742541174,
+									"parameters": {
+										"layout": "\"S_Hd LVL\"&barell.hLevelNum"
+									}
+								}
+							],
+							"sid": 876006859763556
 						}
 					]
 				},
@@ -4926,7 +6497,7 @@
 								{
 									"id": "on-tap-object",
 									"objectClass": "Touch",
-									"sid": 448299357701798,
+									"sid": 694948812344216,
 									"parameters": {
 										"object": "plantButton"
 									}
@@ -4934,13 +6505,13 @@
 								{
 									"id": "is-on-floor",
 									"objectClass": "HeroShadow",
-									"sid": 857507184643257,
+									"sid": 589835157397096,
 									"behaviorType": "Platform"
 								},
 								{
 									"id": "compare-eventvar",
 									"objectClass": "System",
-									"sid": 839454399489842,
+									"sid": 591094882864532,
 									"parameters": {
 										"variable": "seeds",
 										"comparison": 4,
@@ -4952,7 +6523,7 @@
 								{
 									"id": "spawn-another-object",
 									"objectClass": "Knight",
-									"sid": 729428234306815,
+									"sid": 391868850290946,
 									"parameters": {
 										"object": "seedTree",
 										"layer": "\"growingTreeLayers\"",
@@ -4963,7 +6534,7 @@
 								{
 									"id": "add-to-eventvar",
 									"objectClass": "System",
-									"sid": 470970781878763,
+									"sid": 255551362308431,
 									"parameters": {
 										"variable": "score",
 										"value": "200"
@@ -4972,7 +6543,7 @@
 								{
 									"id": "subtract-from-eventvar",
 									"objectClass": "System",
-									"sid": 676055178265507,
+									"sid": 301989698408129,
 									"parameters": {
 										"variable": "seeds",
 										"value": "1"
@@ -4981,13 +6552,13 @@
 								{
 									"id": "set-text",
 									"objectClass": "seedNumText",
-									"sid": 687710513088588,
+									"sid": 381481584627525,
 									"parameters": {
 										"text": "seeds"
 									}
 								}
 							],
-							"sid": 354362890881272,
+							"sid": 969460513750358,
 							"children": [
 								{
 									"eventType": "block",
@@ -4995,7 +6566,7 @@
 										{
 											"id": "compare-eventvar",
 											"objectClass": "System",
-											"sid": 894553517726693,
+											"sid": 310832826670439,
 											"parameters": {
 												"variable": "playSoundEffects",
 												"comparison": 0,
@@ -5007,7 +6578,7 @@
 										{
 											"id": "play",
 											"objectClass": "Audio",
-											"sid": 587978574536181,
+											"sid": 152723914212321,
 											"parameters": {
 												"audio-file": "big-plants-crops-growing-quickly-43721",
 												"loop": "not-looping",
@@ -5017,12 +6588,12 @@
 											}
 										}
 									],
-									"sid": 172219393471011
+									"sid": 773993889002475
 								}
 							]
 						}
 					],
-					"sid": 439721459472427
+					"sid": 700763398823066
 				},
 				{
 					"eventType": "group",
@@ -5037,7 +6608,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 249838707150279,
+									"sid": 237166242749010,
 									"parameters": {
 										"object": "homeButtons"
 									}
@@ -5047,14 +6618,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "homeButtons",
-									"sid": 585062590444350,
+									"sid": 466928100915043,
 									"parameters": {
 										"animation": "\"clickedHomeButton\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 114749992186110
+							"sid": 706454372748643
 						},
 						{
 							"eventType": "block",
@@ -5062,7 +6633,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 867477520062653,
+									"sid": 672424446872748,
 									"parameters": {
 										"object": "homeButtons"
 									},
@@ -5073,14 +6644,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "homeButtons",
-									"sid": 537825980603922,
+									"sid": 430085250227507,
 									"parameters": {
 										"animation": "\"normalHomeButton\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 927898833443254
+							"sid": 480938769793723
 						},
 						{
 							"eventType": "block",
@@ -5088,7 +6659,7 @@
 								{
 									"id": "on-tap-object",
 									"objectClass": "Touch",
-									"sid": 774951449256805,
+									"sid": 474721071792926,
 									"parameters": {
 										"object": "homeButtons"
 									}
@@ -5098,7 +6669,7 @@
 								{
 									"id": "stop",
 									"objectClass": "Audio",
-									"sid": 916290992600302,
+									"sid": 222514532600984,
 									"parameters": {
 										"tag": "\"levelMusic\""
 									}
@@ -5106,16 +6677,16 @@
 								{
 									"id": "go-to-layout",
 									"objectClass": "System",
-									"sid": 574638088685534,
+									"sid": 524992172179274,
 									"parameters": {
 										"layout": "MenuLayout"
 									}
 								}
 							],
-							"sid": 880323853250593
+							"sid": 782956915876166
 						}
 					],
-					"sid": 315138530758485
+					"sid": 759893890064936
 				},
 				{
 					"eventType": "group",
@@ -5137,7 +6708,7 @@
 										{
 											"id": "cursor-is-over-object",
 											"objectClass": "Mouse",
-											"sid": 511443252506324,
+											"sid": 204087978305068,
 											"parameters": {
 												"object": "muteButton"
 											}
@@ -5147,14 +6718,14 @@
 										{
 											"id": "set-animation",
 											"objectClass": "muteButton",
-											"sid": 167525132306086,
+											"sid": 822128455632919,
 											"parameters": {
 												"animation": "\"clickedMuteButton\"",
 												"from": "beginning"
 											}
 										}
 									],
-									"sid": 714849165423893
+									"sid": 200749898242576
 								},
 								{
 									"eventType": "block",
@@ -5162,7 +6733,7 @@
 										{
 											"id": "cursor-is-over-object",
 											"objectClass": "Mouse",
-											"sid": 739537859378197,
+											"sid": 639992891264636,
 											"parameters": {
 												"object": "muteButton"
 											},
@@ -5170,7 +6741,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 232066760890517,
+									"sid": 156978533038799,
 									"children": [
 										{
 											"eventType": "block",
@@ -5178,7 +6749,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 857472523575014,
+													"sid": 690922404217310,
 													"parameters": {
 														"variable": "playSoundEffects",
 														"comparison": 0,
@@ -5190,14 +6761,14 @@
 												{
 													"id": "set-animation",
 													"objectClass": "muteButton",
-													"sid": 463763976201163,
+													"sid": 640636966465155,
 													"parameters": {
 														"animation": "\"disabledMuteButton\"",
 														"from": "beginning"
 													}
 												}
 											],
-											"sid": 378246268874337
+											"sid": 792364380940925
 										},
 										{
 											"eventType": "block",
@@ -5205,21 +6776,21 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 733235075765630
+													"sid": 391003148556866
 												}
 											],
 											"actions": [
 												{
 													"id": "set-animation",
 													"objectClass": "muteButton",
-													"sid": 311765907908024,
+													"sid": 468212078856604,
 													"parameters": {
 														"animation": "\"normalMuteButton\"",
 														"from": "beginning"
 													}
 												}
 											],
-											"sid": 459902171730595
+											"sid": 318930637414060
 										}
 									]
 								},
@@ -5229,14 +6800,14 @@
 										{
 											"id": "on-tap-object",
 											"objectClass": "Touch",
-											"sid": 883396372860898,
+											"sid": 410553843483521,
 											"parameters": {
 												"object": "muteButton"
 											}
 										}
 									],
 									"actions": [],
-									"sid": 277228281604852,
+									"sid": 327379224156084,
 									"children": [
 										{
 											"eventType": "block",
@@ -5244,7 +6815,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 503938885239402,
+													"sid": 749505285403254,
 													"parameters": {
 														"variable": "playSoundEffects",
 														"comparison": 0,
@@ -5256,7 +6827,7 @@
 												{
 													"id": "set-animation",
 													"objectClass": "muteButton",
-													"sid": 447511215883411,
+													"sid": 399083322599941,
 													"parameters": {
 														"animation": "\"disabledMuteButton\"",
 														"from": "beginning"
@@ -5265,7 +6836,7 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "muteButton",
-													"sid": 227317393819982,
+													"sid": 773082354122901,
 													"parameters": {
 														"instance-variable": "soundEffectMuted",
 														"value": "1"
@@ -5274,7 +6845,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 329511638567873,
+													"sid": 387807298489179,
 													"parameters": {
 														"variable": "playSoundEffects",
 														"value": "0"
@@ -5283,13 +6854,13 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text",
-													"sid": 524161662030828,
+													"sid": 244109046383862,
 													"parameters": {
 														"text": "playSoundEffects"
 													}
 												}
 											],
-											"sid": 621458385250428
+											"sid": 849541766933803
 										},
 										{
 											"eventType": "block",
@@ -5297,14 +6868,14 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 794162147975876
+													"sid": 804668021342305
 												}
 											],
 											"actions": [
 												{
 													"id": "set-animation",
 													"objectClass": "muteButton",
-													"sid": 317309091021984,
+													"sid": 424462745251316,
 													"parameters": {
 														"animation": "\"normalMuteButton\"",
 														"from": "beginning"
@@ -5313,7 +6884,7 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "muteButton",
-													"sid": 665507998430984,
+													"sid": 377252318655645,
 													"parameters": {
 														"instance-variable": "soundEffectMuted",
 														"value": "0"
@@ -5322,7 +6893,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 648655622081353,
+													"sid": 697361238258891,
 													"parameters": {
 														"variable": "playSoundEffects",
 														"value": "1"
@@ -5331,18 +6902,18 @@
 												{
 													"id": "set-text",
 													"objectClass": "Text",
-													"sid": 498209762742649,
+													"sid": 496575781336788,
 													"parameters": {
 														"text": "playSoundEffects"
 													}
 												}
 											],
-											"sid": 637700462053469
+											"sid": 611436257660947
 										}
 									]
 								}
 							],
-							"sid": 145208476462368
+							"sid": 394536808053862
 						},
 						{
 							"eventType": "group",
@@ -5357,7 +6928,7 @@
 										{
 											"id": "cursor-is-over-object",
 											"objectClass": "Mouse",
-											"sid": 492135671518804,
+											"sid": 487036268337234,
 											"parameters": {
 												"object": "backgroundMusicButton"
 											}
@@ -5367,14 +6938,14 @@
 										{
 											"id": "set-animation",
 											"objectClass": "backgroundMusicButton",
-											"sid": 387898162468773,
+											"sid": 453919273404722,
 											"parameters": {
 												"animation": "\"clickedBackgroundMusicButton\"",
 												"from": "beginning"
 											}
 										}
 									],
-									"sid": 421300253546417
+									"sid": 984695083872996
 								},
 								{
 									"eventType": "block",
@@ -5382,7 +6953,7 @@
 										{
 											"id": "cursor-is-over-object",
 											"objectClass": "Mouse",
-											"sid": 474405138160616,
+											"sid": 180343348442500,
 											"parameters": {
 												"object": "backgroundMusicButton"
 											},
@@ -5390,7 +6961,7 @@
 										}
 									],
 									"actions": [],
-									"sid": 742120993759832,
+									"sid": 540457258449995,
 									"children": [
 										{
 											"eventType": "block",
@@ -5398,7 +6969,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 851243491767665,
+													"sid": 632241330568925,
 													"parameters": {
 														"variable": "playBackgroundMusic",
 														"comparison": 0,
@@ -5410,14 +6981,14 @@
 												{
 													"id": "set-animation",
 													"objectClass": "backgroundMusicButton",
-													"sid": 137743472090507,
+													"sid": 584690049445361,
 													"parameters": {
 														"animation": "\"disabledBackgroundMusicButton\"",
 														"from": "beginning"
 													}
 												}
 											],
-											"sid": 284808202046416
+											"sid": 166501903582414
 										},
 										{
 											"eventType": "block",
@@ -5425,21 +6996,21 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 158965853002456
+													"sid": 682779699768916
 												}
 											],
 											"actions": [
 												{
 													"id": "set-animation",
 													"objectClass": "backgroundMusicButton",
-													"sid": 240068530708448,
+													"sid": 815712297172898,
 													"parameters": {
 														"animation": "\"normalBackgroundMusicButton\"",
 														"from": "beginning"
 													}
 												}
 											],
-											"sid": 505528555675971
+											"sid": 664317421885870
 										}
 									]
 								},
@@ -5449,14 +7020,14 @@
 										{
 											"id": "on-tap-object",
 											"objectClass": "Touch",
-											"sid": 767943799348142,
+											"sid": 673605530419252,
 											"parameters": {
 												"object": "backgroundMusicButton"
 											}
 										}
 									],
 									"actions": [],
-									"sid": 112848397000762,
+									"sid": 253181357464919,
 									"children": [
 										{
 											"eventType": "block",
@@ -5464,7 +7035,7 @@
 												{
 													"id": "compare-eventvar",
 													"objectClass": "System",
-													"sid": 213786724393059,
+													"sid": 325122701090995,
 													"parameters": {
 														"variable": "playBackgroundMusic",
 														"comparison": 0,
@@ -5476,7 +7047,7 @@
 												{
 													"id": "set-animation",
 													"objectClass": "backgroundMusicButton",
-													"sid": 259530846191844,
+													"sid": 646492208601742,
 													"parameters": {
 														"animation": "\"disabledBackgroundMusicButton\"",
 														"from": "beginning"
@@ -5485,7 +7056,7 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "backgroundMusicButton",
-													"sid": 228962110344356,
+													"sid": 329883260545976,
 													"parameters": {
 														"instance-variable": "bgMusicMuted",
 														"value": "1"
@@ -5494,7 +7065,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 142875463107329,
+													"sid": 863563200176343,
 													"parameters": {
 														"variable": "playBackgroundMusic",
 														"value": "0"
@@ -5503,10 +7074,10 @@
 												{
 													"id": "stop-all",
 													"objectClass": "Audio",
-													"sid": 266805061840985
+													"sid": 602417715015257
 												}
 											],
-											"sid": 342228324418364
+											"sid": 673958877399354
 										},
 										{
 											"eventType": "block",
@@ -5514,14 +7085,14 @@
 												{
 													"id": "else",
 													"objectClass": "System",
-													"sid": 919324304270837
+													"sid": 445338730818262
 												}
 											],
 											"actions": [
 												{
 													"id": "set-animation",
 													"objectClass": "backgroundMusicButton",
-													"sid": 404448801549768,
+													"sid": 944884849918718,
 													"parameters": {
 														"animation": "\"clickedBackgroundMusicButton\"",
 														"from": "beginning"
@@ -5530,7 +7101,7 @@
 												{
 													"id": "set-instvar-value",
 													"objectClass": "backgroundMusicButton",
-													"sid": 733072074318144,
+													"sid": 283662679576830,
 													"parameters": {
 														"instance-variable": "bgMusicMuted",
 														"value": "0"
@@ -5539,7 +7110,7 @@
 												{
 													"id": "set-eventvar-value",
 													"objectClass": "System",
-													"sid": 297525675702422,
+													"sid": 434676845427761,
 													"parameters": {
 														"variable": "playBackgroundMusic",
 														"value": "1"
@@ -5548,7 +7119,7 @@
 												{
 													"id": "play",
 													"objectClass": "Audio",
-													"sid": 337443188359261,
+													"sid": 193689797924750,
 													"parameters": {
 														"audio-file": "C01 - Title",
 														"loop": "looping",
@@ -5558,15 +7129,15 @@
 													}
 												}
 											],
-											"sid": 790178956197004
+											"sid": 728317470461620
 										}
 									]
 								}
 							],
-							"sid": 139883628710179
+							"sid": 861396903169857
 						}
 					],
-					"sid": 699174933687845
+					"sid": 133730598231082
 				},
 				{
 					"eventType": "group",
@@ -5581,7 +7152,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 499831142395860,
+									"sid": 872618451715594,
 									"parameters": {
 										"object": "restartButton"
 									}
@@ -5591,14 +7162,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "restartButton",
-									"sid": 613504619912771,
+									"sid": 446791978488964,
 									"parameters": {
 										"animation": "\"clickedRestartButton\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 781594106313129
+							"sid": 709658289940762
 						},
 						{
 							"eventType": "block",
@@ -5606,7 +7177,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 424224675614433,
+									"sid": 470011362947600,
 									"parameters": {
 										"object": "restartButton"
 									},
@@ -5617,14 +7188,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "restartButton",
-									"sid": 291374361919348,
+									"sid": 129437622877868,
 									"parameters": {
 										"animation": "\"normalRestartButton\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 634725056403376
+							"sid": 359534903671965
 						},
 						{
 							"eventType": "block",
@@ -5632,7 +7203,7 @@
 								{
 									"id": "on-tap-object",
 									"objectClass": "Touch",
-									"sid": 708141271500276,
+									"sid": 765034565147259,
 									"parameters": {
 										"object": "restartButton"
 									}
@@ -5642,13 +7213,13 @@
 								{
 									"id": "restart-layout",
 									"objectClass": "System",
-									"sid": 130047636672555
+									"sid": 850225746661285
 								}
 							],
-							"sid": 406057468368634
+							"sid": 294564628650224
 						}
 					],
-					"sid": 374287591042087
+					"sid": 669821992432806
 				},
 				{
 					"eventType": "group",
@@ -5663,7 +7234,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 387221291741538,
+									"sid": 801439738779886,
 									"parameters": {
 										"object": "nextLevelButton"
 									}
@@ -5673,14 +7244,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "nextLevelButton",
-									"sid": 387623616451648,
+									"sid": 673376703323830,
 									"parameters": {
 										"animation": "\"clickedNextLevel\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 774486276655796
+							"sid": 971614974328999
 						},
 						{
 							"eventType": "block",
@@ -5688,7 +7259,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 172538022760277,
+									"sid": 507501796445558,
 									"parameters": {
 										"object": "nextLevelButton"
 									},
@@ -5699,14 +7270,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "nextLevelButton",
-									"sid": 389344473486287,
+									"sid": 977680649611288,
 									"parameters": {
 										"animation": "\"normalNextLevel\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 999283404376491
+							"sid": 926866180602009
 						},
 						{
 							"eventType": "block",
@@ -5714,7 +7285,7 @@
 								{
 									"id": "on-tap-object",
 									"objectClass": "Touch",
-									"sid": 119106400726381,
+									"sid": 180329738348651,
 									"parameters": {
 										"object": "nextLevelButton"
 									}
@@ -5724,16 +7295,16 @@
 								{
 									"id": "go-to-nextprevious-layout",
 									"objectClass": "System",
-									"sid": 480580659554278,
+									"sid": 849478824376836,
 									"parameters": {
 										"which": "next"
 									}
 								}
 							],
-							"sid": 191813171302317
+							"sid": 776730687085734
 						}
 					],
-					"sid": 191499226047545
+					"sid": 908979102575016
 				},
 				{
 					"eventType": "group",
@@ -5748,7 +7319,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 176293947973422,
+									"sid": 877343926193118,
 									"parameters": {
 										"object": "backLevel"
 									}
@@ -5758,14 +7329,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "backLevel",
-									"sid": 665500637537479,
+									"sid": 152089690319255,
 									"parameters": {
 										"animation": "\"clickedBackLevel\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 903034232972828
+							"sid": 169109048725546
 						},
 						{
 							"eventType": "block",
@@ -5773,7 +7344,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 868419062497372,
+									"sid": 149745165021676,
 									"parameters": {
 										"object": "backLevel"
 									},
@@ -5784,14 +7355,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "backLevel",
-									"sid": 334337819640502,
+									"sid": 741220062964857,
 									"parameters": {
 										"animation": "\"normalBackLevel\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 181310860876669
+							"sid": 961099016335640
 						},
 						{
 							"eventType": "block",
@@ -5799,7 +7370,7 @@
 								{
 									"id": "on-tap-object",
 									"objectClass": "Touch",
-									"sid": 994586599832575,
+									"sid": 207173860197607,
 									"parameters": {
 										"object": "backLevel"
 									}
@@ -5809,16 +7380,16 @@
 								{
 									"id": "go-to-nextprevious-layout",
 									"objectClass": "System",
-									"sid": 602874208380075,
+									"sid": 697926977115686,
 									"parameters": {
 										"which": "previous"
 									}
 								}
 							],
-							"sid": 617318218808152
+							"sid": 613917641806081
 						}
 					],
-					"sid": 671395196704902
+					"sid": 550764485414180
 				},
 				{
 					"eventType": "group",
@@ -5833,7 +7404,7 @@
 								{
 									"id": "on-tap-object",
 									"objectClass": "Touch",
-									"sid": 606083719243733,
+									"sid": 550633907847388,
 									"parameters": {
 										"object": "playButtonForPause"
 									}
@@ -5843,7 +7414,7 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 999427932192944,
+									"sid": 799902244380750,
 									"parameters": {
 										"layer": "\"pauseLayer\"",
 										"visibility": "invisible"
@@ -5852,7 +7423,7 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 984079296184279,
+									"sid": 702385871479585,
 									"parameters": {
 										"layer": "\"opacityLayer\"",
 										"visibility": "invisible"
@@ -5861,7 +7432,7 @@
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 929495223092599,
+									"sid": 200775703578965,
 									"parameters": {
 										"group-name": "\"Hero\"",
 										"state": "activated"
@@ -5870,7 +7441,7 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "HeroShadow",
-									"sid": 653138908767157,
+									"sid": 200747897597133,
 									"behaviorType": "Platform",
 									"parameters": {
 										"state": "enabled"
@@ -5879,14 +7450,14 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 870391667313199,
+									"sid": 737831714440063,
 									"parameters": {
 										"layer": "\"touchControls\"",
 										"visibility": "visible"
 									}
 								}
 							],
-							"sid": 665951859880668
+							"sid": 616928835118913
 						},
 						{
 							"eventType": "block",
@@ -5894,7 +7465,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 610155835089786,
+									"sid": 578519472969191,
 									"parameters": {
 										"object": "playButtonForPause"
 									}
@@ -5904,14 +7475,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "playButtonForPause",
-									"sid": 832049879748956,
+									"sid": 390109834608022,
 									"parameters": {
 										"animation": "\"clickedPfpButton\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 654220555795233
+							"sid": 198571681743377
 						},
 						{
 							"eventType": "block",
@@ -5919,7 +7490,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 893160254914089,
+									"sid": 751126017274761,
 									"parameters": {
 										"object": "playButtonForPause"
 									},
@@ -5930,17 +7501,17 @@
 								{
 									"id": "set-animation",
 									"objectClass": "playButtonForPause",
-									"sid": 336616635759160,
+									"sid": 405366418345359,
 									"parameters": {
 										"animation": "\"normalPfpButton\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 933179040560800
+							"sid": 717364880711632
 						}
 					],
-					"sid": 836343464827973
+					"sid": 902843090440305
 				},
 				{
 					"eventType": "group",
@@ -5955,7 +7526,7 @@
 								{
 									"id": "on-tap-object",
 									"objectClass": "Touch",
-									"sid": 991419085465632,
+									"sid": 365157004749016,
 									"parameters": {
 										"object": "pauseButton"
 									}
@@ -5965,7 +7536,7 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 157091770227625,
+									"sid": 251091955237132,
 									"parameters": {
 										"layer": "\"pauseLayer\"",
 										"visibility": "visible"
@@ -5974,7 +7545,7 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 788346008303138,
+									"sid": 117193166306944,
 									"parameters": {
 										"layer": "\"opacityLayer\"",
 										"visibility": "visible"
@@ -5983,7 +7554,7 @@
 								{
 									"id": "set-group-active",
 									"objectClass": "System",
-									"sid": 333384733994080,
+									"sid": 782758728666604,
 									"parameters": {
 										"group-name": "\"Hero\"",
 										"state": "deactivated"
@@ -5992,7 +7563,7 @@
 								{
 									"id": "set-enabled",
 									"objectClass": "HeroShadow",
-									"sid": 465727671857518,
+									"sid": 564838510651621,
 									"behaviorType": "Platform",
 									"parameters": {
 										"state": "disabled"
@@ -6001,14 +7572,41 @@
 								{
 									"id": "set-layer-visible",
 									"objectClass": "System",
-									"sid": 752115494399948,
+									"sid": 325429426814718,
 									"parameters": {
 										"layer": "\"touchControls\"",
 										"visibility": "invisible"
 									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 178118440846082,
+									"parameters": {
+										"layer": "\"dialogueLayer1\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 713445143623982,
+									"parameters": {
+										"layer": "\"dialogueLayer2\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 909662579789559,
+									"parameters": {
+										"layer": "\"dialogueLayer3\"",
+										"visibility": "invisible"
+									}
 								}
 							],
-							"sid": 786308883623356
+							"sid": 645702300731954
 						},
 						{
 							"eventType": "block",
@@ -6016,7 +7614,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 689762218393557,
+									"sid": 554315004930030,
 									"parameters": {
 										"object": "pauseButton"
 									}
@@ -6026,14 +7624,14 @@
 								{
 									"id": "set-animation",
 									"objectClass": "pauseButton",
-									"sid": 191191413999872,
+									"sid": 337093062403408,
 									"parameters": {
 										"animation": "\"clickedPauseButton\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 664680220664214
+							"sid": 622192829247031
 						},
 						{
 							"eventType": "block",
@@ -6041,7 +7639,7 @@
 								{
 									"id": "cursor-is-over-object",
 									"objectClass": "Mouse",
-									"sid": 709519478535336,
+									"sid": 224413042412788,
 									"parameters": {
 										"object": "pauseButton"
 									},
@@ -6052,20 +7650,170 @@
 								{
 									"id": "set-animation",
 									"objectClass": "pauseButton",
-									"sid": 626867527325638,
+									"sid": 861666709447063,
 									"parameters": {
 										"animation": "\"normalPausedButton\"",
 										"from": "beginning"
 									}
 								}
 							],
-							"sid": 305734968440195
+							"sid": 819282416494585
 						}
 					],
-					"sid": 519882011066354
+					"sid": 202528702826726
+				},
+				{
+					"eventType": "group",
+					"disabled": false,
+					"title": "ScreenShoot2",
+					"description": "",
+					"isActiveOnStart": true,
+					"children": [
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-tap-object",
+									"objectClass": "Touch",
+									"sid": 378555782344730,
+									"parameters": {
+										"object": "shareButton"
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-layer-visible",
+									"objectClass": "System",
+									"sid": 537131069351712,
+									"parameters": {
+										"layer": "\"touchControls\"",
+										"visibility": "invisible"
+									}
+								},
+								{
+									"id": "snapshot-canvas",
+									"objectClass": "System",
+									"sid": 304731885954810,
+									"parameters": {
+										"format": "png",
+										"jpeg-quality": "75",
+										"x": "0",
+										"y": "0",
+										"width": "0",
+										"height": "0"
+									}
+								},
+								{
+									"id": "wait",
+									"objectClass": "System",
+									"sid": 913579525266903,
+									"parameters": {
+										"seconds": "1"
+									}
+								},
+								{
+									"id": "add-file",
+									"objectClass": "Share",
+									"sid": 610862277644763,
+									"parameters": {
+										"filename": "\"image\"&ScreenShootName&\".png\"",
+										"type": "\"image/png\"",
+										"data": "BinaryData"
+									}
+								},
+								{
+									"id": "add-to-eventvar",
+									"objectClass": "System",
+									"sid": 153369705001695,
+									"parameters": {
+										"variable": "ScreenShootName",
+										"value": "1"
+									}
+								},
+								{
+									"id": "share-text",
+									"objectClass": "Share",
+									"sid": 123899226298681,
+									"parameters": {
+										"text": "\"Take a look at this ScreenShot!\"",
+										"title": "\"So cool\"",
+										"url": "\"\""
+									}
+								}
+							],
+							"sid": 508453752460688
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-canvas-snapshot",
+									"objectClass": "System",
+									"sid": 594738600809314
+								}
+							],
+							"actions": [
+								{
+									"id": "load-image-from-url",
+									"objectClass": "screenShotSprite",
+									"sid": 655225715595782,
+									"parameters": {
+										"uri": "CanvasSnapshot",
+										"size": "keep-current-size",
+										"cross-origin": "anonymous"
+									}
+								},
+								{
+									"id": "set-response-binary",
+									"objectClass": "AJAX",
+									"sid": 786006255998265,
+									"parameters": {
+										"destination": "BinaryData"
+									}
+								},
+								{
+									"id": "request-url",
+									"objectClass": "AJAX",
+									"sid": 520013097868722,
+									"parameters": {
+										"tag": "\"load-snapshot\"",
+										"url": "CanvasSnapshot"
+									}
+								}
+							],
+							"sid": 337938358390099
+						},
+						{
+							"eventType": "block",
+							"conditions": [
+								{
+									"id": "on-completed",
+									"objectClass": "AJAX",
+									"sid": 388176486153413,
+									"parameters": {
+										"tag": "\"load-snapshot\""
+									}
+								}
+							],
+							"actions": [
+								{
+									"id": "set-binary-item",
+									"objectClass": "LocalStorage",
+									"sid": 251809775880668,
+									"parameters": {
+										"key": "\"snapshot\"",
+										"source": "BinaryData"
+									}
+								}
+							],
+							"sid": 110582260843279
+						}
+					],
+					"sid": 176708595294516
 				}
 			],
-			"sid": 584703132655147
+			"sid": 258363342953078
 		}
 	],
 	"sid": 104816411421624

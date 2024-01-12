@@ -15,7 +15,7 @@
 			"eventType": "variable",
 			"name": "playSoundEffects",
 			"type": "number",
-			"initialValue": "0",
+			"initialValue": "1",
 			"comment": "",
 			"isStatic": false,
 			"isConstant": false,
@@ -49,9 +49,35 @@
 					}
 				},
 				{
+					"id": "create-rewarded",
+					"objectClass": "MobileAdvert",
+					"sid": 608486519732569,
+					"parameters": {
+						"advert-id": "\"ca-app-pub-5731767204141965/8967124644\"",
+						"show": "false"
+					}
+				},
+				{
 					"id": "log-out",
 					"objectClass": "Facebook",
 					"sid": 602979694519841
+				},
+				{
+					"id": "set-visible",
+					"objectClass": "Text",
+					"sid": 972938136535487,
+					"parameters": {
+						"visibility": "invisible"
+					}
+				},
+				{
+					"id": "set-layer-visible",
+					"objectClass": "System",
+					"sid": 285350260030264,
+					"parameters": {
+						"layer": "\"logoutLayer\"",
+						"visibility": "invisible"
+					}
 				}
 			],
 			"sid": 404520897841686,
@@ -162,9 +188,9 @@
 						{
 							"id": "log-in",
 							"objectClass": "Facebook",
-							"sid": 685130438661927,
+							"sid": 907662295228534,
 							"parameters": {
-								"permissions": "\"public_profile\""
+								"permissions": "\"public_profile, user_birthday\""
 							}
 						}
 					],
@@ -183,9 +209,9 @@
 						{
 							"id": "set-text",
 							"objectClass": "Text",
-							"sid": 621892934091302,
+							"sid": 644624615146515,
 							"parameters": {
-								"text": "\"The name is \" & Facebook.UserIDStr"
+								"text": "\"Welcome \"&Facebook.FullName&\" !\""
 							}
 						},
 						{
@@ -197,6 +223,32 @@
 								"size": "keep-current-size",
 								"cross-origin": "anonymous"
 							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 975339177380137,
+							"parameters": {
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 143720225825747,
+							"parameters": {
+								"layer": "\"loginLayer\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 881346931271347,
+							"parameters": {
+								"layer": "\"logoutLayer\"",
+								"visibility": "visible"
+							}
 						}
 					],
 					"sid": 565442372322629
@@ -207,7 +259,7 @@
 						{
 							"id": "on-object-clicked",
 							"objectClass": "Mouse",
-							"sid": 930794185245270,
+							"sid": 911441730163024,
 							"parameters": {
 								"mouse-button": "left",
 								"click-type": "clicked",
@@ -227,6 +279,40 @@
 							"sid": 989679205335818,
 							"parameters": {
 								"text": "\"Logout succesful !\""
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 723963782261069,
+							"parameters": {
+								"layer": "\"loginLayer\"",
+								"visibility": "visible"
+							}
+						},
+						{
+							"id": "set-layer-visible",
+							"objectClass": "System",
+							"sid": 727521488503081,
+							"parameters": {
+								"layer": "\"logoutLayer\"",
+								"visibility": "invisible"
+							}
+						},
+						{
+							"id": "wait",
+							"objectClass": "System",
+							"sid": 761449916497785,
+							"parameters": {
+								"seconds": "3"
+							}
+						},
+						{
+							"id": "set-visible",
+							"objectClass": "Text",
+							"sid": 561011457285883,
+							"parameters": {
+								"visibility": "invisible"
 							}
 						}
 					],
@@ -1407,7 +1493,16 @@
 									}
 								}
 							],
-							"actions": [],
+							"actions": [
+								{
+									"id": "log-in",
+									"objectClass": "Facebook",
+									"sid": 966891299759489,
+									"parameters": {
+										"permissions": "\"public_profile, user_birthday\""
+									}
+								}
+							],
 							"sid": 628491162056146
 						},
 						{
