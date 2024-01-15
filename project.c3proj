@@ -619,7 +619,7 @@
 					"type": "image/png",
 					"sid": 397438530055406,
 					"icon-info": {
-						"purpose": "app-icon"
+						"purpose": "none"
 					}
 				},
 				{
@@ -628,6 +628,14 @@
 					"sid": 284028445328617,
 					"icon-info": {
 						"purpose": "loading-logo"
+					}
+				},
+				{
+					"name": "hero2.png",
+					"type": "image/png",
+					"sid": 348016961483675,
+					"icon-info": {
+						"purpose": "app-icon"
 					}
 				}
 			],
